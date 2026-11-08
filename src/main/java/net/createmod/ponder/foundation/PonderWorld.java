@@ -44,6 +44,9 @@ import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldInfo;
 import net.createmod.ponder.api.scene.Selection;
+import net.createmod.ponder.compat.conduit.ConduitRenderCompat;
+import net.createmod.ponder.compat.ic2.Ic2CableSupport;
+import net.createmod.ponder.compat.ic2.Ic2CableSupport;
 
 /**
  * An entirely in-memory world for scene playback. Coordinates stored by this world are scene-local.
@@ -163,7 +166,9 @@ public class PonderWorld extends World {
         }
         tileEntity.setWorld(this);
         tileEntity.setPos(immutable);
-        tileEntity.validate();
+        // Chunk#addTileEntity validates the tile itself, matching vanilla World#setTileEntity.
+        // Validating here as well breaks tiles whose load state must transition exactly once,
+        // such as IC2's TileEntityBlock.
         getChunk(immutable).addTileEntity(immutable, tileEntity);
         if (!loadedTileEntityList.contains(tileEntity)) {
             loadedTileEntityList.add(tileEntity);
@@ -171,6 +176,7 @@ public class PonderWorld extends World {
         if (tileEntity instanceof ITickable && !tickableTileEntities.contains(tileEntity)) {
             tickableTileEntities.add(tileEntity);
         }
+        Ic2CableSupport.onTileEntityAdded(tileEntity);
     }
 
     @Override
@@ -382,6 +388,8 @@ public class PonderWorld extends World {
                 }
             }
         }
+        ConduitRenderCompat.onWorldRestored(this);
+        Ic2CableSupport.onWorldChanged(this);
     }
 
     public Snapshot createSnapshot() {
@@ -440,6 +448,8 @@ public class PonderWorld extends World {
         worldInfo.setWorldTotalTime(snapshot.totalWorldTime);
         worldInfo.setWorldTime(snapshot.worldTime);
         stateVersion++;
+        ConduitRenderCompat.onWorldRestored(this);
+        Ic2CableSupport.onWorldChanged(this);
     }
 
     public void clear() {
