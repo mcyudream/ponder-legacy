@@ -34,6 +34,10 @@ public final class StandardGuiAdapter implements GuiTutorialAdapter {
         if(t.type()==TargetType.BUTTON)return buttons(gui).stream().filter(b->b.id==t.index()&&b.visible).findFirst().map(b->new Rect(b.x,b.y,b.width,b.height)).orElse(null);
         return t.bounds().move(window.x(),window.y());
     }
+    @Override public boolean enabled(GuiScreen gui,GuiTutorial tutorial,String key){
+        Target t=tutorial.targets().get(key);
+        return t!=null&&(t.type()!=TargetType.BUTTON||buttons(gui).stream().anyMatch(b->b.id==t.index()&&b.enabled&&b.visible));
+    }
     @Override public Stack slot(GuiScreen gui,GuiTutorial tutorial,String key){
         Target t=tutorial.targets().get(key);Slot s=t==null?null:slot(gui,t);if(s==null||!s.isEnabled())return null;
         ItemStack stack=s.getStack();return stack.isEmpty()?Stack.EMPTY:new Stack(stack.getItem().getRegistryName().toString(),stack.getCount());

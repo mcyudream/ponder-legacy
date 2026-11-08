@@ -10,7 +10,7 @@
 
 ## 当前状态
 
-当前版本为 **`1.6.2`**，索引模组分类按当前语言显示本地化名称，中文名／英文原名／Mod ID 均可搜索，支持资源包扩展。Markdown 编辑器新增 **图片／视频插入面板** 与游戏内文件选择器，可填写来源、标题、尺寸和封面，自动导入本地媒体并生成可撤销的 Markdown。保留世界内准星预览、鼠标定位投影与透明工具面板，以及新版 FTB Quests 加载顺序修复。支持 **动画／静态图文双展示**、共享 Markdown 动作编排和游戏内 Markdown 编辑，见 [Markdown 教程手册](docs/MARKDOWN.md)。只使用 W 入口，可在界面切换并保存默认展示。CraftTweaker 保持可选：只有 ZenScript 场景需要安装；JSON、Java API 和游戏内编辑器可独立运行。沿用 `1.4.0` 的 [Revo UI / 焕新 UI 可选适配](docs/REVO-UI.md)，修复现代提示框中的思索进度条覆盖文字、伸入模型预览区的问题；保留可选 MMCE 2.3.2 适配。运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**。当前包与历史发行包的验收范围、SHA-256 分别记录在 [验收记录](LEGACY-VERIFICATION.md)。
+当前开发版本为 **`1.7.0`**，新增 **时间轴 GUI 动画片段**：在机器演示的指定环节，于侧边空白区展示 GUI，支持控件高亮、演示物品、文字讲解、截取帧与定格，并跟随场景暂停、跳转及重播。保留机器界面长按 **W** 的实机引导、只读操作检测、独立演示与游戏内 GUI 采集编辑器。动画编辑器、Markdown、JSON 与 Java API 共用定义，见 [GUI 教程手册](docs/GUI-TUTORIALS.md)。现有双展示、媒体插入、世界投影和可选 Revo UI 适配继续保留。CraftTweaker、MMCE、FTB Quests、Media API 等外置联动均为可选。最低运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**；已发布版本与开发版的验收状态分别记录在 [发布状态](PUBLICATION.md) 与 [验收记录](LEGACY-VERIFICATION.md)。
 
 安装包从 [GitHub Releases](https://github.com/mcyudream/ponder-legacy/releases) 获取，选择无分类后缀的 `ponder-legacy-*.jar`。从 `1.4.1` 起，仅使用 ZenScript 时需要独立安装 CraftTweaker；`1.4.0` 仍要求安装。发行状态见 [PUBLICATION.md](PUBLICATION.md)。
 

@@ -155,7 +155,7 @@ public final class GuiTutorialEvents {
         Minecraft mc=Minecraft.getMinecraft();int x=Mouse.getEventX()*bound.width/mc.displayWidth,y=bound.height-Mouse.getEventY()*bound.height/mc.displayHeight-1;
         for(var entry:live.tutorial().targets().entrySet()){
             Rect r=GuiTutorials.adapter(live.tutorial()).target(bound,live.tutorial(),entry.getKey());
-            boolean enabled=entry.getValue().type()!=TargetType.BUTTON||StandardGuiAdapter.buttons(bound).stream().anyMatch(b->b.id==entry.getValue().index()&&b.enabled&&b.visible);
+            boolean enabled=GuiTutorials.adapter(live.tutorial()).enabled(bound,live.tutorial(),entry.getKey());
             if(enabled&&r!=null&&r.contains(x,y))clicks.add(entry.getKey());
         }
     }

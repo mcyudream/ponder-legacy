@@ -14,7 +14,7 @@ import urllib.request
 from zipfile import ZipFile
 
 PROJECT = Path(__file__).resolve().parent.parent
-WORKSPACE = PROJECT.parent.parent
+WORKSPACE = Path(os.environ.get("PONDER_WORKSPACE", str(PROJECT.parent.parent)))
 VERSION = os.environ.get("PONDER_CLEANROOM_VERSION", "0.4.0")
 INSTALLER_HASHES = {
     "0.4.0": "882435d851a51e14b802e0a9384e4a05cfbb3890fca435c40c494af75e5a166f",

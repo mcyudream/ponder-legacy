@@ -12,7 +12,7 @@ public final class Ponder {
     public static final String MOD_ID = "ponder-legacy";
     public static final String CONTENT_NAMESPACE = "ponder";
     public static final String MOD_NAME = "Ponder Legacy";
-    public static final String VERSION = "1.6.2";
+    public static final String VERSION = "1.7.0";
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
     public static final Random RANDOM = new Random();
 

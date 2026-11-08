@@ -9,20 +9,20 @@
   "java": 25,
   "ae2_implementation": null,
   "ae2_loader_modid": null,
-  "status": "verified-cleanroom-0.4.0-release",
+  "status": "verified-cleanroom-0.4.0",
   "author": "yudream",
   "original_authors": "The Create Team (original Ponder), MCMGGF (1.12.2 base)",
   "original_repository": "https://github.com/MCMGGF/ponder-for-1.12.2",
   "verification_document": "LEGACY-VERIFICATION.md",
-  "verified_jar_sha256": "dddf7f51b50dcd4fa7ebb60e61ab0ddb196bcbff173c429e8a3aaf340c00494e",
+  "verified_jar_sha256": "86e072acb375b28dd68051c87ae2c752a6e9df81794e8da701fb641943f35041",
   "verified_cleanroom_versions": [
     "0.4.0"
   ],
   "previous_verification": {
-    "release_tag": "v1.6.1",
-    "jar_sha256": "4c3f8913b9df79220615e747dd76962b9bf2007c783ec4c0d97ce41f16ce3ed7",
-    "verification_document": "docs/verification/release-1.6.1-cleanroom-0.4.0/summary.json"
+    "release_tag": "v1.6.2",
+    "jar_sha256": "dddf7f51b50dcd4fa7ebb60e61ab0ddb196bcbff173c429e8a3aaf340c00494e",
+    "verification_document": "docs/verification/release-1.6.2-cleanroom-0.4.0/summary.json"
   },
-  "release_tag": "v1.6.2",
-  "verification_directory": "docs/verification/release-1.6.2-cleanroom-0.4.0"
+  "release_tag": "v1.7.0",
+  "verification_directory": "docs/verification/development-1.7.0-cleanroom-0.4.0"
 }

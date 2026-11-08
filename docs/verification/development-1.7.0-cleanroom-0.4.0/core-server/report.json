@@ -1,0 +1,19 @@
+{
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "checks": [
+    "expected optional CraftTweaker installation: absent",
+    "CraftTweaker custom overload is retained only when installed",
+    "CraftTweaker IData NBT overload is retained only when installed",
+    "Java builder registers using optional source capture and logging",
+    "JSON editor API saves and reads a custom instruction without IData",
+    "JSON pack reload succeeds with optional CraftTweaker",
+    "scene compiles, seeks and restarts: ponder_crt_smoke:java",
+    "scene compiles, seeks and restarts: ponder_crt_smoke:json",
+    "ZenScript fixture executes only when CraftTweaker is installed",
+    "scene synchronization snapshot round trips with optional CraftTweaker",
+    "GUI animation data compiles and seeks without client resources or GUI classes"
+  ],
+  "scene": "ponder_server_harness:server_runtime",
+  "result": "PASS"
+}

@@ -1,0 +1,45 @@
+{
+  "version": "1.7.0",
+  "date": "2026-11-08",
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "java": "25.0.5",
+  "production_jar": "ponder-legacy-1.7.0.jar",
+  "sha256": "86e072acb375b28dd68051c87ae2c752a6e9df81794e8da701fb641943f35041",
+  "unit_tests": {
+    "tests": 331,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "fixtures": [
+    {
+      "fixture": "gui-client",
+      "result": "PASS",
+      "checks": 60,
+      "report": "gui-client/report.json"
+    },
+    {
+      "fixture": "core-client",
+      "result": "PASS",
+      "checks": 243,
+      "report": "core-client/report.json"
+    },
+    {
+      "fixture": "core-server",
+      "result": "PASS",
+      "checks": 11,
+      "report": "core-server/report.json"
+    }
+  ],
+  "scope": [
+    "Timeline GUI clips share scene pause, seek and replay; actual framebuffer, small windows, missing optional lesson fallback.",
+    "Real furnace server container: W live observation, native clicks, synchronized progress, embedded demo isolation and capture editor.",
+    "Full core editor, Markdown, index and world projection regression; dedicated server with GUI data and no client classes."
+  ],
+  "limitations": [
+    "Linux llvmpipe; arbitrary modpacks and other GPUs are not certified.",
+    "Optional third-party combinations from previous versions keep their original artifact-specific reports.",
+    "Main CI build, no release tag published by this change."
+  ]
+}

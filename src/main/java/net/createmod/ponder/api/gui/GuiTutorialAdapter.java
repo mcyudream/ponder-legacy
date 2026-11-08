@@ -12,6 +12,8 @@ public interface GuiTutorialAdapter {
     GuiTutorial.Rect target(GuiScreen screen,GuiTutorial tutorial,String key);
     /** null denotes an unresolved target. */
     GuiTutorial.Stack slot(GuiScreen screen,GuiTutorial tutorial,String key);
+    /** Whether an observed click can complete this target; custom widgets need not use numeric button IDs. */
+    default boolean enabled(GuiScreen screen,GuiTutorial tutorial,String key){return true;}
     default String value(GuiScreen screen,String key){return "";}
     default boolean textFocused(GuiScreen screen){return false;}
 }

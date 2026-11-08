@@ -54,6 +54,12 @@ public final class GuiTutorialDrawing {
                 }else if(target.type()==TargetType.BUTTON){
                     Gui.drawRect(r.x(),r.y(),r.x()+r.width(),r.y()+r.height(),0xff526571);
                     mc.fontRenderer.drawString(mc.fontRenderer.trimStringToWidth(text(target.label()),r.width()-4),r.x()+2,r.y()+Math.max(1,(r.height()-8)/2),0xffeef5f8);
+                }else{
+                    String value=session.demoValue(entry.getKey());
+                    if(!value.isEmpty()){
+                        Gui.drawRect(r.x(),r.y(),r.x()+r.width(),r.y()+r.height(),0xff17252c);
+                        mc.fontRenderer.drawString(mc.fontRenderer.trimStringToWidth(text(value),Math.max(1,r.width()-4)),r.x()+2,r.y()+Math.max(1,(r.height()-8)/2),0xffeef5f8);
+                    }
                 }
             }
             if(t.screen().equals("net.minecraft.client.gui.inventory.GuiFurnace")){

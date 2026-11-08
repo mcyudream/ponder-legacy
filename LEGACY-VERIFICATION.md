@@ -1,6 +1,22 @@
 # Ponder Legacy — 安装包验收
 
-## 当前：1.6.2（索引模组名称本地化）
+## 当前开发构建：1.7.0（时间轴 GUI 动画与 W 实机引导）
+
+- 日期：2026-11-08；Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。
+- 生产安装包：`ponder-legacy-1.7.0.jar`；SHA-256：`86e072acb375b28dd68051c87ae2c752a6e9df81794e8da701fb641943f35041`。
+- 331 项单元测试通过；本次仅推送 main CI，正式发行状态见 PUBLICATION.md。
+
+| 组合 | 结果 | 检查项 |
+| --- | --- | --- |
+| gui-client | PASS | 60 |
+| core-client | PASS | 243 |
+| core-server | PASS | 11 |
+
+GUI 片段在同一 3D 思索页面的侧边留白显示，与机器动画共用时钟、暂停、跳转与重播。实机引导在真实熔炉页验证 W 长按、原生点击与槽位同步、燃烧／输出等待、独立演示不改变背包和服务器容器；采集编辑器支持框选区域、保存与重载。小窗口和缺失可选教程回退均通过实际 framebuffer 检查。外置 Mod 保持可选，专服不加载 GUI 客户端类。
+
+[报告、运行指纹与实机截图](docs/verification/development-1.7.0-cleanroom-0.4.0/summary.json)。Linux llvmpipe；历史外置组合仅对应各自验收包。本次全新隔离实例通过；一个复用测试存档时熔炉物品移动未完成的超时记录保留在本地运行目录，不作为通过证据。
+
+## 历史：1.6.2（索引模组名称本地化）
 
 - 日期：2026-11-06；Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。
 - 生产安装包：`ponder-legacy-1.6.2.jar`；SHA-256：`dddf7f51b50dcd4fa7ebb60e61ab0ddb196bcbff173c429e8a3aaf340c00494e`。
