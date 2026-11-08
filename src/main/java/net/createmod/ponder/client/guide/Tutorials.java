@@ -17,7 +17,8 @@ import net.minecraftforge.fml.relauncher.*;
 public final class Tutorials {
     private Tutorials() {}
     public static boolean exists(ResourceLocation component) {
-        return PonderIndex.getSceneAccess().doScenesExistForId(component) || PonderIndex.getTutorials().containsComponent(component);
+        return PonderIndex.getSceneAccess().doScenesExistForId(component) || PonderIndex.getTutorials().containsComponent(component)
+            || !net.createmod.ponder.client.guitutorial.GuiTutorials.forComponent(component).isEmpty();
     }
     public static boolean hasGuide(ResourceLocation id) {
         Tutorial page = PonderIndex.getTutorials().get(id);
@@ -34,6 +35,12 @@ public final class Tutorials {
     public static GuiScreen open(ResourceLocation component) { return open(component, null, preferGuide()); }
     public static GuiScreen open(ResourceLocation component, ResourceLocation selected, boolean guide) {
         List<PonderScene> scenes=PonderIndex.getSceneAccess().compile(component);
+        if (scenes.isEmpty() && pages(component).isEmpty()) {
+            var gui=net.createmod.ponder.client.guitutorial.GuiTutorials.forComponent(component);
+            if (!gui.isEmpty()) return new net.createmod.ponder.client.guitutorial.GuiDemoScreen(gui.get(0),()->{
+                if (!net.createmod.catnip.gui.ScreenOpener.openPreviousScreen()) net.minecraft.client.Minecraft.getMinecraft().displayGuiScreen(null);
+            },false);
+        }
         if (!scenes.isEmpty() && (!guide || pages(component).isEmpty())) {
             PonderUI ui=new PonderUI(scenes);if(selected!=null)ui.selectScene(selected);return ui;
         }

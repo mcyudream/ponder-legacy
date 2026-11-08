@@ -60,6 +60,7 @@ public final class CleanroomEditorSmoke {
     private net.createmod.ponder.client.guide.GuideSmoke guideSmoke;
     private net.createmod.ponder.client.guide.MarkdownMediaSmoke mediaSmoke;
     private net.createmod.ponder.client.projection.ProjectionPlacementSmoke placementSmoke;
+    private net.createmod.ponder.client.guitutorial.GuiTutorialSmoke guiTutorialSmoke;
     private int phase, ticks, waitUntil, exitAt = Integer.MAX_VALUE;
     private String screenshot;
     private CompletableFuture<Void> worldReady;
@@ -90,6 +91,12 @@ public final class CleanroomEditorSmoke {
         if (exitAt != Integer.MAX_VALUE || ticks < waitUntil || screenshot != null) return;
         try {
             if (ticks > 2400) throw new IllegalStateException("Smoke timeout at phase " + phase);
+            if (phase>=2 && Boolean.getBoolean("ponder.dev.guiTutorialOnly")) {
+                if (worldReady!=null&&!worldReady.isDone()) return;
+                if (guiTutorialSmoke==null) guiTutorialSmoke=new net.createmod.ponder.client.guitutorial.GuiTutorialSmoke(mc,this::require,this::requestScreenshot);
+                if (guiTutorialSmoke.advance()) {report("PASS",null);exitAt=ticks+10;}
+                return;
+            }
             if (phase>=2 && Boolean.getBoolean("ponder.dev.catalogOnly")) {
                 if (catalogSmoke==null) catalogSmoke=new net.createmod.ponder.foundation.ui.PonderCatalogSmoke(mc,this::require,this::requestScreenshot);
                 if (catalogSmoke.advance()) { report("PASS",null);exitAt=ticks+10; }
@@ -289,6 +296,7 @@ public final class CleanroomEditorSmoke {
             if (catalogSmoke != null) catalogSmoke.verifyFrame(screenshot);
             if (guideSmoke != null) guideSmoke.verifyFrame(screenshot);
             if (placementSmoke != null) placementSmoke.verifyFrame(screenshot);
+            if (guiTutorialSmoke != null) guiTutorialSmoke.verifyFrame(screenshot);
             require(GL11.glGetError() == GL11.GL_NO_ERROR, "render " + screenshot + " has no OpenGL errors");
         } catch (Throwable failure) {
             report("FAIL", failure); exitAt = ticks + 10;

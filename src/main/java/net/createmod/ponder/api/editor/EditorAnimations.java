@@ -9,6 +9,20 @@ import net.minecraft.util.math.Vec3d;
 public final class EditorAnimations {
     private EditorAnimations() {}
 
+    /** Inserts a sequential GUI segment and its wait as one validated, undoable edit. */
+    public static int insertGuiClip(SceneDocument document,int index,JsonObject instruction){
+        if(!instruction.has("op")||!"overlay.show_gui".equals(instruction.get("op").getAsString()))
+            throw new IllegalArgumentException("Expected overlay.show_gui");
+        SceneDocument candidate=new SceneDocument(document.snapshot());candidate.selectScene(document.sceneIndex());
+        int insertion=Math.max(0,Math.min(index,candidate.steps().size()));
+        for(int i=0;i<insertion;i++)if("scene.finish".equals(candidate.steps().get(i).getAsJsonObject().get("op").getAsString())){insertion=i;break;}
+        candidate.insertStep(insertion,instruction);
+        JsonObject idle=new JsonObject();idle.addProperty("op","scene.idle");idle.addProperty("ticks",instruction.get("duration").getAsInt());
+        candidate.insertStep(insertion+1,idle);ScenePackIO.validate(candidate.snapshot());
+        JsonObject replacement=candidate.scene();document.editScene(scene->scene.add("instructions",replacement.get("instructions")));
+        return insertion;
+    }
+
     public static void insert(SceneDocument document, int index, String handle, CuboidSelection selection,
                               Vec3d move, Vec3d rotation, int duration, boolean wait) {
         if (selection == null) throw new IllegalArgumentException("Pick both selection corners in the preview first");

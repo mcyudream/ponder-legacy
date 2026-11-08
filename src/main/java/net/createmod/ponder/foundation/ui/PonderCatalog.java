@@ -36,6 +36,13 @@ final class PonderCatalog {
             item.tags.addAll(page.tags());
             if (page.scenes().isEmpty() && page.animation() == null) item.sceneCount++;
         }
+        for (var tutorial : net.createmod.ponder.client.guitutorial.GuiTutorials.all()) for (ResourceLocation id : tutorial.components()) {
+            ItemStack stack=PonderIndexScreen.stackFor(id);
+            if (stack.isEmpty() || PonderIndex.getIndexExclusions().isExcluded(stack.getItem())) continue;
+            ItemEntry item=catalog.items.stream().filter(i->i.id.equals(id)).findFirst().orElse(null);
+            if (item==null) { item=new ItemEntry(id); catalog.items.add(item); }
+            item.sceneCount++;
+        }
         return catalog;
     }
 

@@ -198,6 +198,8 @@ final class ScriptSceneProgram {
                 }
                 existing.merge(replacement);
             }, data.getBoolean("redraw"));
+        } else if ("show_gui".equals(op)) {
+            ScriptGuiAnimation.apply(data, scene.overlay());
         } else if ("show_text".equals(op)) {
             TextElementBuilder text = scene.overlay().showText(data.getInteger("duration"))
                 .text(data.getString("text")).pointAt(vector(data)).colored(palette(data.getString("color")));

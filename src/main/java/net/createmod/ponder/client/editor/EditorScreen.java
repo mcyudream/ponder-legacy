@@ -150,11 +150,12 @@ public final class EditorScreen extends GuiScreen {
             catch (RuntimeException failure) { setStatus(failure.getMessage(), true); preview.playing = false; }
         }
         GlStateManager.disableDepth(); GlStateManager.disableLighting();
-        fontRenderer.drawString(tr("preview"), viewX + 8, mainTop + 7, MUTED);
+        var worldArea=preview.worldArea();int overlayX=worldArea==null?viewX:worldArea.x(),overlayWidth=worldArea==null?viewWidth:worldArea.width();
+        fontRenderer.drawString(tr("preview"), overlayX + 8, mainTop + 7, MUTED);
         String hint = selecting ? tr("pick_hint") : tr("orbit_hint");
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(hint, viewWidth - 14), viewX + 7, mainBottom - 15, MUTED);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(hint, Math.max(1,overlayWidth - 14)), overlayX + 7, mainBottom - 15, MUTED);
         if (selection() != null)
-            fontRenderer.drawString(fontRenderer.trimStringToWidth(selection().toString(), viewWidth - 14), viewX + 7, mainBottom - 28, ACCENT);
+            fontRenderer.drawString(fontRenderer.trimStringToWidth(selection().toString(), Math.max(1,overlayWidth - 14)), overlayX + 7, mainBottom - 28, ACCENT);
         drawTimeline();
         fontRenderer.drawString(fontRenderer.trimStringToWidth(status, width - 20), 10, height - 26, error ? 0xffff9c9c : MUTED);
         fontRenderer.drawString(tr("shortcuts"), 10, height - 13, 0xff667c92);
@@ -197,12 +198,24 @@ public final class EditorScreen extends GuiScreen {
         mc.displayGuiScreen(new EditorListScreen<>(this, tr("add_action"), entries, action -> {
             JsonObject template = action.template();
             suggestHandle(template);
-            int index = selected < 0 ? Math.max(0, document.steps().size() - 1) : selected + 1;
-            mc.displayGuiScreen(new EditorFormScreen(this, action.id(), template, selection(), changed -> {
-                SceneDocument candidate = new SceneDocument(document.snapshot()); candidate.selectScene(document.sceneIndex());
-                candidate.insertStep(index, changed); ScenePackIO.validate(candidate.snapshot());
-                document.insertStep(index, changed); selected = index; revealSelected();
-            }));
+            if (action.id().equals("overlay.show_gui")) {
+                mc.displayGuiScreen(new net.createmod.ponder.client.guitutorial.GuiTutorialLibraryScreen(this,lesson->{
+                    template.addProperty("tutorial",lesson.id().toString());
+                    insertAction(action.id(),template);
+                }));
+            } else insertAction(action.id(),template);
+        }));
+    }
+
+    private void insertAction(String operation,JsonObject template) {
+        int index = selected < 0 ? Math.max(0, document.steps().size() - 1) : selected + 1;
+        mc.displayGuiScreen(new EditorFormScreen(this, operation, template, selection(), changed -> {
+            if(operation.equals("overlay.show_gui")){
+                selected=EditorAnimations.insertGuiClip(document,index,changed);revealSelected();return;
+            }
+            SceneDocument candidate = new SceneDocument(document.snapshot()); candidate.selectScene(document.sceneIndex());
+            candidate.insertStep(index, changed); ScenePackIO.validate(candidate.snapshot());
+            document.insertStep(index, changed); selected = index; revealSelected();
         }));
     }
 
@@ -364,6 +377,7 @@ public final class EditorScreen extends GuiScreen {
     @Override protected void mouseClicked(int mx, int my, int button) throws IOException {
         if (button == 0 && my >= height - 53 && my < height - 29) { scrubbing = true; scrub(mx); return; }
         if (inViewport(mx, my)) {
+            if(preview.guiContains(mx,my))return;
             if (selecting && (button == 0 || button == 1)) {
                 BlockPos picked = preview.pick(mx, my);
                 if (picked != null) {
@@ -408,6 +422,8 @@ public final class EditorScreen extends GuiScreen {
     @Override public void handleMouseInput() throws IOException {
         super.handleMouseInput(); int wheel = Mouse.getEventDWheel(); if (wheel == 0) return;
         int mx = Mouse.getEventX() * width / mc.displayWidth;
+        int my = height-Mouse.getEventY()*height/mc.displayHeight-1;
+        if(preview.scrollGui(wheel,mx,my))return;
         if (mx < leftWidth + 8) scroll = Math.max(0, Math.min(scroll - Integer.signum(wheel), Math.max(0, document.steps().size() - rows())));
         else preview.zoom = Math.max(.35f, Math.min(3.5f, preview.zoom * (wheel > 0 ? .9f : 1.1f)));
     }

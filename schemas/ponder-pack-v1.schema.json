@@ -175,6 +175,7 @@
             "world.hide_parrot",
             "world.tile_nbt",
             "overlay.show_text",
+            "overlay.show_gui",
             "overlay.show_shared_text",
             "overlay.show_independent_text",
             "overlay.show_controls",
@@ -223,7 +224,13 @@
         "text": { "type": "string", "maxLength": 8192 },
         "key": { "type": "string", "maxLength": 256 },
         "slot": { "type": "string" }, "pointing": { "type": "string" },
-        "action": { "type": "string" }
+        "action": { "type": "string" },
+        "tutorial": { "$ref": "#/definitions/resourceId" },
+        "scale": { "type": "number", "exclusiveMinimum": 0, "maximum": 4 },
+        "from": { "type": "integer", "minimum": 0, "maximum": 720000 },
+        "to": { "type": "integer", "minimum": 0, "maximum": 720000 },
+        "definition": { "type": "string", "maxLength": 262144 },
+        "pointX": { "type": "number" }, "pointY": { "type": "number" }, "pointZ": { "type": "number" }
       }
     },
     "scene": {

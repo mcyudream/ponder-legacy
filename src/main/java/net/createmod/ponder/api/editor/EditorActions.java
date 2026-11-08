@@ -27,6 +27,10 @@ public final class EditorActions {
             JsonObject template = new JsonObject();
             template.addProperty("op", entry.getKey());
             for (String field : entry.getValue()) template.add(field, defaultValue(entry.getKey(), field, selection));
+            if (entry.getKey().equals("overlay.show_gui")) {
+                for (String field : List.of("x","y","definition","pointX","pointY","pointZ")) template.remove(field);
+                template.addProperty("duration",160);
+            }
             result.add(new Action(entry.getKey(), entry.getKey(), template));
         }
         result.addAll(CUSTOM.values());
@@ -39,7 +43,10 @@ public final class EditorActions {
             case "selection":
                 if (selection != null) return selection.toJson();
                 JsonObject all = new JsonObject(); all.addProperty("type", "everywhere"); return all;
-            case "direction": case "pointing": case "side": wrapper.addProperty("v", "down"); break;
+            case "direction": case "pointing": case "side": wrapper.addProperty("v", op.equals("overlay.show_gui") ? "right" : "down"); break;
+            case "tutorial": wrapper.addProperty("v", "ponder:examples/furnace"); break;
+            case "scale": wrapper.addProperty("v", 1); break;
+            case "to": wrapper.addProperty("v", 720000); break;
             case "handle": wrapper.addProperty("v", "section"); break;
             case "duration": wrapper.addProperty("v", 20); break;
             case "ticks": wrapper.addProperty("v", 20); break;

@@ -162,6 +162,8 @@ public final class ScriptInstructionValidator {
             requireBoolean(data, "replace");
             requireBoolean(data, "redraw");
             requireNbtLimit(nbt, "Tile NBT");
+        } else if ("show_gui".equals(op)) {
+            ScriptGuiAnimation.validate(data);
         } else if ("show_text".equals(op)) {
             requireTextPresentation(data, true);
             requireVector(data);

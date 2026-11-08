@@ -153,6 +153,7 @@ def main():
     parser.add_argument("--video-test", type=Path, help="Copy a local test clip to the isolated guide media directory")
     parser.add_argument("--media-editor-only", action="store_true", help="Run only Markdown media authoring screens after client world startup")
     parser.add_argument("--catalog-only", action="store_true", help="Run only catalog category, localization, search and layout checks after client world startup")
+    parser.add_argument("--gui-tutorial-only", action="store_true", help="Run native furnace GUI guidance, isolated demonstration and authoring acceptance")
     args = parser.parse_args()
     if platform.system() != "Linux" or platform.machine() not in ("x86_64", "amd64"):
         parser.error("This development launcher supports Linux x64")
@@ -161,9 +162,9 @@ def main():
         return
     if args.empty and args.side != "server":
         parser.error("--empty is a dedicated-server probe")
-    if args.media_editor_only and args.catalog_only:
+    if sum((args.media_editor_only,args.catalog_only,args.gui_tutorial_only))>1:
         parser.error("Choose one focused client scenario")
-    if (args.media_editor_only or args.catalog_only) and (args.side != "client" or args.revo or args.mmce):
+    if (args.media_editor_only or args.catalog_only or args.gui_tutorial_only) and (args.side != "client" or args.revo or args.mmce):
         parser.error("Focused client scenarios require the editor client harness; install UI mods with --optional-jar")
     if sum((args.empty, bool(args.mmce), bool(args.revo))) > 1:
         parser.error("--empty, --mmce and --revo are separate fixtures")
@@ -268,6 +269,8 @@ def main():
             command += ["-Dponder.dev.mediaEditorOnly=true"]
         if args.catalog_only:
             command += ["-Dponder.dev.catalogOnly=true"]
+        if args.gui_tutorial_only:
+            command += ["-Dponder.dev.guiTutorialOnly=true"]
         command += ["-Dponder.dev.smoke=true", "top.outlands.foundation.boot.Foundation", "--tweakClass", "net.minecraftforge.fml.common.launcher.FMLTweaker",
                     "--username", "PonderDeveloper", "--uuid", "b4551621-016f-3568-8ef0-15ec7d7d579b", "--accessToken", "0", "--version", f"Cleanroom-{VERSION}",
                     "--gameDir", str(run), "--assetsDir", str(GRADLE / "caches/cleanroom_gradle/assets"), "--assetIndex", "1.12", "--width", "1280", "--height", "720"]
@@ -282,7 +285,7 @@ def main():
         report = run / "ponder-revo-smoke/report.json"
     report.unlink(missing_ok=True)
     (run / "runtime.json").write_text(json.dumps({"cleanroom": VERSION, "side": args.side,
-        "scenario": "catalog" if args.catalog_only else "markdown-media-editor" if args.media_editor_only else "full",
+        "scenario": "gui-tutorial" if args.gui_tutorial_only else "catalog" if args.catalog_only else "markdown-media-editor" if args.media_editor_only else "full",
         "jars": {jar.name: digest(jar, "sha256") for jar in jars},
         "libraries": {str(jar): digest(jar) for jar in classpath}}, indent=2) + "\n")
     print(f"Starting Cleanroom {VERSION} {args.side}; installation jars and SRG harness, no userdev", flush=True)

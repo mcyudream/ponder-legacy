@@ -38,6 +38,7 @@ public final class PonderClientEvents {
         PonderClient.onTick();
         net.createmod.ponder.client.projection.ProjectionService.tick();
         net.createmod.ponder.client.projection.ProjectionPlacementEvents.tick();
+        net.createmod.ponder.client.guitutorial.GuiTutorialEvents.tick();
         PonderTooltipHandler.tick();
         Minecraft minecraft = Minecraft.getMinecraft();
         if (minecraft.player != null) {
@@ -86,6 +87,7 @@ public final class PonderClientEvents {
     @SubscribeEvent
     public void onDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event) {
         net.createmod.ponder.client.projection.ProjectionService.clear();
+        net.createmod.ponder.client.guitutorial.GuiTutorialEvents.stop();
         ScriptSnapshotReceiver.reset();
         ScriptSceneSync.clearServerScenes();
     }

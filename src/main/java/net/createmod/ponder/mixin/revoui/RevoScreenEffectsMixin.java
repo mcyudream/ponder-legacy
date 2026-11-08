@@ -20,7 +20,8 @@ public abstract class RevoScreenEffectsMixin {
     @Inject(method = "onGuiOpen", at = @At("HEAD"), cancellable = true, require = 0, remap = false)
     private void ponder$useOwnScreenBackground(GuiOpenEvent event, CallbackInfo callback) {
         GuiScreen screen = event.getGui();
-        if (screen instanceof AbstractPonderScreen || screen != null && screen.getClass().getName().startsWith("net.createmod.ponder.")) {
+        if (screen instanceof AbstractPonderScreen || screen != null && (screen.getClass().getName().startsWith("net.createmod.ponder.")
+            || net.createmod.ponder.client.guitutorial.GuiTutorialEvents.handles(screen))) {
             // Snap both transitions, so closing a Ponder page cannot start a stale blur fade.
             snapHidden(); discardShader(); callback.cancel();
         }

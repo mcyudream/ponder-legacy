@@ -24,7 +24,7 @@ public final class ScriptInstruction {
             "hide_parrot", "show_shared_text", "show_independent_text", "show_outline_text",
             "show_bounding_box", "show_scroll_input", "show_centered_scroll_input",
             "show_repeater_scroll_input", "show_filter_slot_input", "move_item", "set_item_visible",
-            "remove_item", "custom"
+            "remove_item", "custom", "show_gui"
         )));
     private final String operation;
     private final NBTTagCompound data;

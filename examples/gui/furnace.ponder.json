@@ -1,0 +1,21 @@
+{
+  "format": 1,
+  "id": "example:furnace_gui_pack",
+  "scenes": [{
+    "id": "example:furnace_gui_animation",
+    "component": "minecraft:furnace",
+    "title": "熔炉：从机器到操作面板",
+    "structure": "ponder:demo/smelting",
+    "instructions": [
+      {"op":"world.set_blocks","selection":{"type":"layers_from","y":1},"state":"minecraft:air","particles":false},
+      {"op":"world.set_block","x":2,"y":1,"z":2,"state":"minecraft:furnace","particles":false},
+      {"op":"world.show_section","selection":{"type":"everywhere"},"direction":"down"},
+      {"op":"scene.idle","ticks":40},
+      {"op":"overlay.show_gui","tutorial":"ponder:examples/furnace","duration":300,"side":"right","pointX":2.5,"pointY":1.5,"pointZ":2.5},
+      {"op":"scene.idle","ticks":301},
+      {"op":"scene.rotate_camera","degrees":45},
+      {"op":"scene.idle","ticks":60},
+      {"op":"scene.finish"}
+    ]
+  }]
+}

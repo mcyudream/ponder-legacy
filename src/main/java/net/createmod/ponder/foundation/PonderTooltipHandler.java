@@ -35,6 +35,7 @@ public final class PonderTooltipHandler {
     }
 
     public static void onTooltip(ItemTooltipEvent event) {
+        if (net.createmod.ponder.client.guitutorial.GuiTutorialEvents.handles(Minecraft.getMinecraft().currentScreen)) return;
         if (event.getEntityPlayer() == null || event.getItemStack().isEmpty()) return;
 
         ResolvedPonderSubject subject = PonderSubjectResolvers.resolve(event.getItemStack());
@@ -94,6 +95,9 @@ public final class PonderTooltipHandler {
 
     public static void tick() {
         Minecraft minecraft = Minecraft.getMinecraft();
+        if (net.createmod.ponder.client.guitutorial.GuiTutorialEvents.handles(minecraft.currentScreen)) {
+            progress = 0; clearTrackedSubject(); return;
+        }
         boolean fresh = !tracked.isEmpty() && System.currentTimeMillis() - lastSeen < 180;
         boolean held = fresh && minecraft.currentScreen != null
             && CatnipClientServices.CLIENT_HOOKS.isKeyPressed(PonderKeybinds.PONDER.getMapping());

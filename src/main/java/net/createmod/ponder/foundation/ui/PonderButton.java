@@ -34,6 +34,8 @@ public class PonderButton extends GuiButton {
             " ##   ##   ", "  #####    ", "      ###  ", "       ### ", "        ###", "         ##"),
         GUIDE("##### #####", "#   # #   #", "# # # # # #", "# # # # # #", "#   # #   #",
             "# # # # # #", "# # # # # #", "#   # #   #", "##### #####", "    ###    ", "     #     "),
+        GUI("###########", "#         #", "###########", "#         #", "# ### ### #",
+            "# # # # # #", "# ### ### #", "#         #", "# ####### #", "#         #", "###########"),
         STAR("     #     ", "    ###    ", "    ###    ", "###########", " ######### ",
             "  #######  ", "  #######  ", "  ### ###  ", " ###   ### ", " ##     ## ", " #       # "),
         PROJECT("    ###    ", "  #######  ", "#### # ####", "##   #   ##", "#### # ####", "## ##### ##", "##   #   ##", "#### # ####", "  #######  ", "    ###    ", "###########"),
@@ -45,7 +47,7 @@ public class PonderButton extends GuiButton {
         Icon(String... pixels) { this.pixels = pixels; }
     }
 
-    private final Icon icon;
+    private Icon icon;
     private ItemStack item = ItemStack.EMPTY;
     private PonderTag tag;
     private Runnable callback;
@@ -64,6 +66,7 @@ public class PonderButton extends GuiButton {
     public PonderButton enabled(boolean value) { enabled = value; return this; }
     public PonderButton withTooltip(String value) { tooltipKey = value; return this; }
     public PonderButton withLabel(String value) { displayString = value; return this; }
+    public PonderButton withIcon(Icon value) { icon = value; return this; }
     public ItemStack getItem() { return item.copy(); }
     @Nullable public PonderTag getTag() { return tag; }
     @Nullable public String getTooltipKey() { return tooltipKey; }

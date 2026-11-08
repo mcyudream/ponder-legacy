@@ -45,6 +45,16 @@ public final class SceneProjection {
         return new ProjectedPoint(x, y, depth, depth >= 0 && depth <= 1);
     }
 
+    /** The logical stage area used by the captured 3D camera, also used to keep text beside GUI clips. */
+    public static net.createmod.ponder.api.gui.GuiTutorial.Rect viewport() {
+        Minecraft mc=Minecraft.getMinecraft();ScaledResolution scaled=new ScaledResolution(mc);
+        Snapshot snapshot=latest;
+        if(snapshot==null)return new net.createmod.ponder.api.gui.GuiTutorial.Rect(0,0,scaled.getScaledWidth(),scaled.getScaledHeight());
+        int x=snapshot.viewport.get(0)*scaled.getScaledWidth()/mc.displayWidth;
+        int y=scaled.getScaledHeight()-(snapshot.viewport.get(1)+snapshot.viewport.get(3))*scaled.getScaledHeight()/mc.displayHeight;
+        return new net.createmod.ponder.api.gui.GuiTutorial.Rect(x,y,Math.max(1,snapshot.viewport.get(2)*scaled.getScaledWidth()/mc.displayWidth),Math.max(1,snapshot.viewport.get(3)*scaled.getScaledHeight()/mc.displayHeight));
+    }
+
     /** Converts a scaled-GUI coordinate and OpenGL depth back into scene coordinates. */
     public static Vec3d unproject(float mouseX, float mouseY, float depth) {
         Snapshot snapshot = latest;

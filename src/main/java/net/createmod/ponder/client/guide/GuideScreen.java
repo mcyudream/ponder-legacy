@@ -102,7 +102,7 @@ public final class GuideScreen extends AbstractPonderScreen {
                 case RECIPE -> h=84;
                 case IMAGE -> {int[] size=images.dimensions(block.target());h=block.media()!=null&&block.media().height()>0?Math.min(300,block.media().height()):size[0]==0?Math.min(180,mediaWidth(block)*9/16):Math.min(240,Math.max(16,mediaWidth(block)*size[1]/size[0]));}
                 case VIDEO -> h=(block.media()!=null&&block.media().height()>0?Math.max(40,Math.min(300,block.media().height())):Math.max(40,Math.min(200,mediaWidth(block)*9/16)))+26;
-                case QUEST_LINK -> h=26;
+                case QUEST_LINK, GUI_TUTORIAL -> h=26;
                 case RULE -> h=8;
                 case TABLE -> {lines=tableLines(block.text());h=tableHeight(lines);}
                 default -> {
@@ -226,11 +226,11 @@ public final class GuideScreen extends AbstractPonderScreen {
                 if(video.seekable()&&video.duration()>0){Gui.drawRect(x+47,cy+17,x+mediaWidth-5,cy+21,0xff455d6b);int fill=(int)((mediaWidth-52)*Math.min(1,video.position()/(double)video.duration()));Gui.drawRect(x+47,cy+17,x+47+fill,cy+21,0xff9fd6d2);}
                 if(hover&&mx>=x&&mx<x+mediaWidth){hoveredVideo=video;hoveredVideoBlock=placed;hoveredVideoX=x;hoveredVideoY=y;hoveredVideoWidth=mediaWidth;}
             }
-            case QUEST_LINK -> {
+            case QUEST_LINK, GUI_TUTORIAL -> {
                 Gui.drawRect(x,y,x+contentWidth,y+24,hover?0xff375564:0xff273d49);
                 PonderButton.drawIcon(PonderButton.Icon.RIGHT,x+12,y+12,14,0xffa9ddd4);
-                fontRenderer.drawString(fontRenderer.trimStringToWidth(b.text(),contentWidth-32),x+26,y+8,0xffa9ddd4);
-                if(hover)link=b.target();
+                fontRenderer.drawString(fontRenderer.trimStringToWidth(b.kind()==Kind.GUI_TUTORIAL?net.createmod.ponder.client.guitutorial.GuiTutorialDrawing.text(b.text()):b.text(),contentWidth-32),x+26,y+8,0xffa9ddd4);
+                if(hover)link=b.kind()==Kind.GUI_TUTORIAL?"gui:"+b.target():b.target();
             }
             case RULE -> Gui.drawRect(x,y+3,x+contentWidth,y+4,0xff3c4c57);
             case TABLE -> {
@@ -325,6 +325,12 @@ public final class GuideScreen extends AbstractPonderScreen {
     private void scrollToMouse(int my){scroll=(int)((my-44)/(float)viewHeight()*documentHeight-viewHeight()/2f);clampScroll();}
     @Override protected void mouseReleased(int mx,int my,int button){dragWidget=null;scrollDragging=false;super.mouseReleased(mx,my,button);}
     private void follow(String target) {
+        if(target.startsWith("gui:")) {
+            try {mc.displayGuiScreen(new net.createmod.ponder.client.guitutorial.GuiDemoScreen(
+                net.createmod.ponder.client.guitutorial.GuiTutorials.resolve(target.substring(4)),()->mc.displayGuiScreen(this),false));}
+            catch(RuntimeException failure){error=failure.getMessage();}
+            return;
+        }
         try {
             if(target.startsWith("quest:")||target.startsWith("ftbquests:")) {
                 if(!net.createmod.ponder.compat.ftbquests.FTBQuestBridge.available())error=I18n.format("ponder.guide.quest_missing");

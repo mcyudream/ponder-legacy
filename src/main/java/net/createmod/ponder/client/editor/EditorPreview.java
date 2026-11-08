@@ -34,7 +34,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 final class EditorPreview {
     private final PonderWorldRenderer renderer = new PonderWorldRenderer();
+    private final net.createmod.ponder.client.guitutorial.GuiAnimationRenderer guiAnimations=new net.createmod.ponder.client.guitutorial.GuiAnimationRenderer();
     private PonderScene scene;
+    private net.createmod.ponder.api.gui.GuiTutorial.Rect worldArea;
+    net.createmod.ponder.api.gui.GuiTutorial.Rect worldArea(){return worldArea;}
+    boolean guiContains(int x,int y){return guiAnimations.contains(x,y);}
+    boolean scrollGui(int wheel,int x,int y){return guiAnimations.scroll(wheel,x,y);}
     float yaw = -35, pitch = 25, zoom = 1;
     boolean playing;
 
@@ -72,6 +77,10 @@ final class EditorPreview {
                 int mouseX, int mouseY, float partialTicks, CuboidSelection selection) {
         if (scene == null || width < 4 || height < 4) return;
         Minecraft mc = Minecraft.getMinecraft();
+        var guiLayout=guiAnimations.prepare(scene,new net.createmod.ponder.api.gui.GuiTutorial.Rect(x,y,width,height));
+        worldArea=guiLayout.world();
+        int stageX=x,stageY=y,stageWidth=width,stageHeight=height;
+        x=guiLayout.world().x();y=guiLayout.world().y();width=guiLayout.world().width();height=guiLayout.world().height();
         int px = x * mc.displayWidth / guiWidth;
         int py = mc.displayHeight - (y + height) * mc.displayHeight / guiHeight;
         int pw = width * mc.displayWidth / guiWidth;
@@ -81,7 +90,8 @@ final class EditorPreview {
             (min.getY() + max.getY() + 1) / 2d, (min.getZ() + max.getZ() + 1) / 2d);
         double span = Math.max(2, Math.max(max.getX() - min.getX() + 1,
             Math.max(max.getY() - min.getY() + 1, max.getZ() - min.getZ() + 1)));
-        double distance = span * 1.75 * zoom / scene.getScale();
+        double distance = span * (guiLayout.panels().isEmpty()?1.75:2.35) * zoom / scene.getScale()
+            / Math.min(1,width/(double)Math.max(1,height));
         float viewPitch = pitch + scene.getCameraPitch(), viewYaw = yaw + scene.getCameraYaw();
         Vec3d sortingCamera = center.add(rotateY(rotateX(new Vec3d(0, -scene.getYOffset(), distance), -viewPitch), -viewYaw));
         float partial = playing ? partialTicks : 1;
@@ -109,10 +119,15 @@ final class EditorPreview {
                 if (overlay.isVisible() && !(overlay instanceof OverlayDataElement))
                     overlay.render(scene, mouseX, mouseY, partial);
         }
+        try(GlStateGuard ignored=GlStateGuard.capture()){
+            GL11.glEnable(GL11.GL_SCISSOR_TEST);
+            GL11.glScissor(stageX*mc.displayWidth/guiWidth,mc.displayHeight-(stageY+stageHeight)*mc.displayHeight/guiHeight,stageWidth*mc.displayWidth/guiWidth,stageHeight*mc.displayHeight/guiHeight);
+            guiAnimations.render(scene);
+        }
     }
 
     BlockPos pick(int mouseX, int mouseY) {
-        if (scene == null) return null;
+        if (scene == null || guiAnimations.contains(mouseX,mouseY)) return null;
         SceneProjection.ScreenRay ray = SceneProjection.screenRay(mouseX, mouseY);
         if (ray == null) return null;
         Pair<ItemStack, BlockPos> result = scene.rayTraceScene(ray.near, ray.far, playing ? 0 : 1);

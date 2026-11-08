@@ -90,6 +90,22 @@ public final class MarkdownTutorialCompiler {
         if (node instanceof MdxJsxElementFields jsx) {
             validateAttributes(jsx);
             String name = jsx.name();
+            if ("GuiTutorial".equals(name)) {
+                String target = id(attr(jsx,"id","")).toString();
+                if (guide) blocks.add(new Block(Kind.GUI_TUTORIAL,attr(jsx,"title","GUI"),0,target,null));
+                if (generated && animate) {
+                    int duration=integer(attr(jsx,"duration",Integer.toString(stepTicks)),1,72000,"duration");
+                    JsonObject action=op("overlay.show_gui","duration",duration,"tutorial",target);
+                    for(String key:List.of("side","x","y","scale","from","to","pointX","pointY","pointZ")) {
+                        String value=attr(jsx,key,"");if(value.isEmpty())continue;
+                        if(key.equals("side"))action.addProperty(key,value);
+                        else if(key.equals("from")||key.equals("to"))action.addProperty(key,integer(value,0,720000,key));
+                        else action.addProperty(key,number(value));
+                    }
+                    guiAnimation(action,guide);
+                }
+                return;
+            }
             if ("GuideOnly".equals(name) || "AnimationOnly".equals(name)) {
                 finishStep();
                 for (var child : jsx.children()) flow((MdAstNode)child,
@@ -131,6 +147,16 @@ public final class MarkdownTutorialCompiler {
                 if (guide) blocks.add(Block.text(Kind.TEXT, attr(jsx, "id", ""))); return;
             }
             throw error(node, "Unsupported MDX element: " + name);
+        }
+        if (node instanceof MdAstCode code && "ponder-gui".equals(code.lang)) {
+            var tutorial = net.createmod.ponder.gui.GuiTutorialJson.parse(code.value);
+            if (guide) blocks.add(new Block(Kind.GUI_TUTORIAL,tutorial.title(),0,net.createmod.ponder.gui.GuiTutorialJson.write(tutorial),null));
+            if(generated && animate) {
+                int duration=Math.min(72000,new net.createmod.ponder.gui.GuiTutorialSession(tutorial).lastTick()+1);
+                guiAnimation(op("overlay.show_gui","duration",duration,"tutorial",tutorial.id().toString(),
+                    "definition",net.createmod.ponder.gui.GuiTutorialJson.write(tutorial)),guide);
+            }
+            return;
         }
         if (node instanceof MdAstCode code && "ponder".equals(code.lang)) {
             if (!generated) throw error(node, "ponder actions need structure and presentation: both or animation");
@@ -197,6 +223,10 @@ public final class MarkdownTutorialCompiler {
             return;
         }
         if (!node.toText().isBlank()) throw error(node, "Unsupported Markdown node: " + node.type());
+    }
+    private void guiAnimation(JsonObject action,boolean guide) {
+        pending.add(action);longestAction=Math.max(longestAction,cursor+action.get("duration").getAsInt());
+        stepContent=true;stepGuide|=guide;
     }
     private void finishStep() {
         if (!generated || !stepContent) return;

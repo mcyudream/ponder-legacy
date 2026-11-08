@@ -62,6 +62,7 @@ public final class PonderScene {
     private final LinkedHashSet<PonderElement> elements = new LinkedHashSet<PonderElement>();
     private final Map<UUID, PonderElement> linkedElements = new LinkedHashMap<UUID, PonderElement>();
     private final List<Integer> keyframes = new ArrayList<Integer>();
+    private final List<net.createmod.ponder.foundation.element.GuiAnimationElement> guiAnimations = new ArrayList<>();
     private final NavigableMap<Integer, RuntimeSnapshot> snapshots = new TreeMap<Integer, RuntimeSnapshot>();
     private final WorldSectionElement baseWorldSection;
     private final SceneTransform transform;
@@ -140,6 +141,20 @@ public final class PonderScene {
     }
 
     public int getBuildCursor() { return buildCursor; }
+
+    public void addGuiAnimation(net.createmod.ponder.foundation.element.GuiAnimationElement animation) {
+        guiAnimations.add(animation);
+        // Include the tick which removes the clip, even if there are no subsequent instructions.
+        totalTicks = Math.max(totalTicks, animation.start() + animation.duration() + 1);
+    }
+
+    public List<net.createmod.ponder.foundation.element.GuiAnimationElement> getGuiAnimations() {
+        return Collections.unmodifiableList(guiAnimations);
+    }
+
+    public List<net.createmod.ponder.foundation.element.GuiAnimationElement> getActiveGuiAnimations() {
+        return guiAnimations.stream().filter(animation -> animation.active(this)).toList();
+    }
 
     public synchronized void declareKeyframe(int tick) {
         int safeTick = Math.max(0, tick);

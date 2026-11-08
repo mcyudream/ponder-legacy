@@ -16,7 +16,7 @@ public record Tutorial(ResourceLocation id, String title, List<ResourceLocation>
         scenes = List.copyOf(scenes);
     }
     public enum Presentation { BOTH, ANIMATION, GUIDE }
-    public enum Kind { HEADING, TEXT, CODE, RULE, ITEMS, RECIPE, IMAGE, SCENE, TABLE, VIDEO, QUEST_LINK }
+    public enum Kind { HEADING, TEXT, CODE, RULE, ITEMS, RECIPE, IMAGE, SCENE, TABLE, VIDEO, QUEST_LINK, GUI_TUTORIAL }
     /** target is a tutorial, item, recipe, image resource, or heading anchor, depending on kind. */
     public record Media(String poster, int width, int height) {}
     public record Block(Kind kind, String text, int level, String target, Snapshot snapshot, Media media) {

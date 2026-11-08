@@ -416,6 +416,9 @@ public final class PonderJsonLoader {
 
         op(result, "overlay.show_text", "show_text",
             "duration", "text", "x", "y", "z", "color", "near", "keyframe");
+        opOptional(result, "overlay.show_gui", "show_gui",
+            fields("side", "x", "y", "scale", "from", "to", "definition", "pointX", "pointY", "pointZ"),
+            "duration", "tutorial", "side", "x", "y", "scale", "from", "to", "definition", "pointX", "pointY", "pointZ");
         op(result, "overlay.show_shared_text", "show_shared_text",
             "duration", "key", "params", "x", "y", "z", "color", "near", "keyframe");
         op(result, "overlay.show_independent_text", "show_independent_text",

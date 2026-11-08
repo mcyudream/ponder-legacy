@@ -88,7 +88,9 @@ public final class MarkdownMediaSmoke {
                 var buttons = buttons(editor); boolean bounded = true, overlap = false;
                 for (var b : buttons) bounded &= b.x >= 0 && b.y >= 0 && b.x + b.width <= editor.width && b.y + b.height < (int) get(editor, "contentTop");
                 for (var a : buttons) for (var b : buttons) if (a != b) overlap |= a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
-                check.accept(editor.width == 320 && bounded && !overlap && buttons.size() == 8, "all eight toolbar controls fit without overlap in a 320x240 GUI");
+                check.accept(editor.width == 320 && bounded && !overlap && buttons.size() == 9
+                    && buttons.stream().anyMatch(b->b.displayString.equals(I18n.format("ponder.gui.insert"))),
+                    "all nine toolbar controls, including GUI insertion, fit without overlap in a 320x240 GUI");
                 screenshot.accept("markdown-editor-media-small-zh.png"); break;
             }
             case 7:
@@ -149,7 +151,16 @@ public final class MarkdownMediaSmoke {
                 screenshot.accept("markdown-inserted-video-preview.png"); break;
             case 14:
                 key(preview, Keyboard.KEY_ESCAPE); check.accept(mc.currentScreen == editor, "media preview returns to the same Markdown draft");
-                resize(1280, 720); return true;
+                resize(1280, 720); break;
+            case 15: {
+                String before=editor.document().text();
+                GuiButton insert=buttons(editor).stream().filter(b->b.displayString.equals(I18n.format("ponder.gui.insert"))).findFirst().orElseThrow();
+                clickButton(editor,insert);check.accept(mc.currentScreen instanceof net.createmod.ponder.client.guitutorial.GuiTutorialLibraryScreen,"Markdown GUI insertion opens the tutorial library");
+                GuiButton example=buttons(mc.currentScreen).stream().filter(b->b.id==1).findFirst().orElseThrow();clickButton(mc.currentScreen,example);
+                check.accept(mc.currentScreen==editor&&compiled().blocks().stream().anyMatch(b->b.kind()==Tutorial.Kind.GUI_TUTORIAL),"selecting a GUI lesson inserts its complete definition into the same Markdown draft");
+                editor.document().undo();check.accept(editor.document().text().equals(before),"one undo removes the entire GUI lesson insertion and preserves media content");
+                return true;
+            }
             default: return true;
         }
         return false;
@@ -161,6 +172,9 @@ public final class MarkdownMediaSmoke {
     @SuppressWarnings("unchecked") private List<GuiButton> buttons(GuiScreen screen) throws Exception { return (List<GuiButton>) ReflectionHelper.findField(GuiScreen.class, "buttonList", "field_146292_n").get(screen); }
     private void click(GuiScreen screen, String key) throws Exception {
         GuiButton button = buttons(screen).stream().filter(b -> b.displayString.equals(I18n.format("ponder.guide.insert_media." + key))).findFirst().orElseThrow();
+        clickButton(screen,button);
+    }
+    private void clickButton(GuiScreen screen,GuiButton button)throws Exception{
         Method method = ReflectionHelper.findMethod(screen.getClass(), "mouseClicked", "func_73864_a", int.class, int.class, int.class);
         method.setAccessible(true); method.invoke(screen, button.x + button.width / 2, button.y + button.height / 2, 0);
     }

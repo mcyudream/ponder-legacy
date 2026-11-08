@@ -39,6 +39,7 @@ public final class CleanroomServerSmoke {
                         scene.title("server_runtime", "Dedicated server fixture");
                         scene.configureBasePlate(0, 0, 5);
                         scene.showBasePlate();
+                        scene.overlay().showGui(8,new ResourceLocation("server_only:unavailable_gui")).holdFrame(24);
                         scene.idle(20);
                         scene.markAsFinished();
                     }).identifiedBy(new ResourceLocation("ponder_server_harness:server_runtime"));
@@ -60,7 +61,12 @@ public final class CleanroomServerSmoke {
             for (String check : net.createmod.ponder.verification.optional.CraftTweakerChecks.verify()) checks.add(check);
             report.add("checks", checks);
             PonderScene scene = PonderIndex.getSceneAccess().compile(new ResourceLocation("minecraft:crafting_table")).get(0);
-            scene.begin(); scene.seek(scene.getTotalTicks()); scene.restart();
+            scene.begin();scene.seek(4);
+            if(scene.getActiveGuiAnimations().size()!=1||scene.isPaused())throw new IllegalStateException("Headless GUI clip failed");
+            checks.add("GUI animation data compiles and seeks without client resources or GUI classes");
+            scene.seek(scene.getTotalTicks());
+            if(!scene.getActiveGuiAnimations().isEmpty())throw new IllegalStateException("Headless GUI clip did not end");
+            scene.restart();
             if (scene.getWorld() == null || scene.getCurrentTick() != 0) throw new IllegalStateException("Server scene runtime failed");
             report.addProperty("scene", scene.getId().toString());
             report.addProperty("result", "PASS");

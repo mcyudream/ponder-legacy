@@ -44,6 +44,8 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(events);
         MinecraftForge.EVENT_BUS.register(net.createmod.ponder.client.projection.ProjectionOverlay.INSTANCE);
         MinecraftForge.EVENT_BUS.register(new net.createmod.ponder.client.projection.ProjectionPlacementEvents());
+        MinecraftForge.EVENT_BUS.register(net.createmod.ponder.client.guitutorial.GuiTutorialEvents.INSTANCE);
+        net.minecraftforge.client.ClientCommandHandler.instance.registerCommand(new net.createmod.ponder.client.guitutorial.GuiTutorialCommand());
         net.minecraftforge.client.ClientCommandHandler.instance.registerCommand(new net.createmod.ponder.client.projection.ProjectionCommand());
         FMLCommonHandler.instance().bus().register(events);
         MinecraftForge.EVENT_BUS.register(new net.createmod.ponder.client.editor.EditorClientEvents());
@@ -81,7 +83,7 @@ public class ClientProxy extends CommonProxy {
                     SectionRenderCache.invalidateAll();
                     PonderClient.invalidateRenderers();
                     PonderStructureLoader.invalidateCaches();
-                    if (guidesReady) try { PonderIndex.reload(); }
+                    if (guidesReady) try { PonderIndex.reload(); net.createmod.ponder.client.guitutorial.GuiTutorials.reload(); }
                     catch (RuntimeException failure) { Ponder.LOGGER.error("Ponder guide reload failed; retaining previous registration", failure); }
                 }
             });
@@ -92,6 +94,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void loadComplete(net.minecraftforge.fml.common.event.FMLLoadCompleteEvent event) {
         guidesReady = true;
+        net.createmod.ponder.client.guitutorial.GuiTutorials.reload();
     }
 
     @Override

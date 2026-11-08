@@ -38,11 +38,13 @@ public class TextWindowElement extends PonderElementBase implements TextElementB
     @Override public TextElementBuilder placeNearTarget(){nearTarget=true;return this;}
     @Override public TextElementBuilder attachKeyFrame(){scene.declareKeyframe(scene.getBuildCursor());return this;}
     @Override public void render(PonderScene scene,int mouseX,int mouseY,float partialTicks){
-        FontRenderer font=Minecraft.getMinecraft().fontRenderer;int width=180;
-        int x=(Minecraft.getMinecraft().currentScreen==null?0:Minecraft.getMinecraft().currentScreen.width/2)-width/2;
+        FontRenderer font=Minecraft.getMinecraft().fontRenderer;var viewport=SceneProjection.viewport();int width=Math.min(180,Math.max(20,viewport.width()-16));
+        int x=viewport.x()+(viewport.width()-width)/2;
         int y=independent?independentY:18;
         if(target!=null){ProjectedPoint projected=SceneProjection.project(target);if(projected.visible){x=(int)projected.x+(nearTarget?14:-width/2);y=(int)projected.y-(nearTarget?10:48);}}
         List<String> lines=font.listFormattedStringToWidth(text.get(),width-12);int height=lines.size()*10+10;
+        x=Math.max(viewport.x()+4,Math.min(x,viewport.x()+viewport.width()-width-4));
+        y=Math.max(viewport.y()+6,Math.min(y,viewport.y()+viewport.height()-height-4));
         Gui.drawRect(x,y,x+width,y+height,0xcc101418);Gui.drawRect(x,y,x+3,y+height,0xff000000|color.getColor());
         int lineY=y+5;for(String line:lines){font.drawString(line,x+8,lineY,0xffeeeeee);lineY+=10;}
     }

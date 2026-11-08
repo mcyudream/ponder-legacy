@@ -20,6 +20,7 @@ public final class SceneWidget {
     public final boolean interactive;
     public float yaw,pitch,zoom;
     private final PonderWorldRenderer renderer=new PonderWorldRenderer();
+    private final net.createmod.ponder.client.guitutorial.GuiAnimationRenderer guiAnimations=new net.createmod.ponder.client.guitutorial.GuiAnimationRenderer();
     private final boolean annotations;
     public SceneWidget(PonderScene scene,Snapshot snapshot) {
         this.scene=scene;interactive=snapshot.interactive();annotations=snapshot.definition()!=null;
@@ -30,6 +31,9 @@ public final class SceneWidget {
         Minecraft mc=Minecraft.getMinecraft();
         int clipTop=Math.max(y,top),clipBottom=Math.min(y+h,bottom);
         if(clipBottom<=clipTop||w<4||h<4)return ItemStack.EMPTY;
+        int stageX=x,stageW=w;
+        var guiLayout=guiAnimations.prepare(scene,new net.createmod.ponder.api.gui.GuiTutorial.Rect(x,y,w,h));
+        x=guiLayout.world().x();w=guiLayout.world().width();
         BlockPos min=scene.getWorld().getBoundsMin(),max=scene.getWorld().getBoundsMax();
         Vec3d center=new Vec3d((min.getX()+max.getX()+1)/2d,(min.getY()+max.getY()+1)/2d,(min.getZ()+max.getZ()+1)/2d);
         double span=Math.max(2,Math.max(max.getX()-min.getX()+1,Math.max(max.getY()-min.getY()+1,max.getZ()-min.getZ()+1)));
@@ -56,6 +60,10 @@ public final class SceneWidget {
         if(annotations)try(GlStateGuard ignored=GlStateGuard.capture()) {
             GL11.glEnable(GL11.GL_SCISSOR_TEST);GL11.glScissor(px,sy,pw,sh);
             for(var overlay:scene.getOverlayElements())if(overlay.isVisible()&&!(overlay instanceof OverlayDataElement))overlay.render(scene,mx,my,1);
+        }
+        try(GlStateGuard ignored=GlStateGuard.capture()){
+            GL11.glEnable(GL11.GL_SCISSOR_TEST);GL11.glScissor(stageX*mc.displayWidth/guiW,sy,stageW*mc.displayWidth/guiW,sh);
+            guiAnimations.render(scene);
         }
         return hover;
     }

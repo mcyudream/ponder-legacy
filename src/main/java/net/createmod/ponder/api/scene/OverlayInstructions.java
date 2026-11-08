@@ -10,6 +10,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 public interface OverlayInstructions {
+    /** Reserves a side of the stage for a GUI animation; the scene keeps playing. */
+    default net.createmod.ponder.api.element.GuiElementBuilder showGui(int duration, net.minecraft.util.ResourceLocation tutorial) {
+        throw new UnsupportedOperationException("GUI animation is unavailable in this scene builder");
+    }
+    default net.createmod.ponder.api.element.GuiElementBuilder showGui(int duration, net.createmod.ponder.api.gui.GuiTutorial tutorial) {
+        throw new UnsupportedOperationException("Inline GUI animation is unavailable in this scene builder");
+    }
     TextElementBuilder showText(int duration);
     TextElementBuilder showOutlineWithText(Selection selection, int duration);
     InputElementBuilder showControls(Vec3d sceneSpace, Pointing direction, int duration);

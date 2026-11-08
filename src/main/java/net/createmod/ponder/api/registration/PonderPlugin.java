@@ -9,6 +9,10 @@ public interface PonderPlugin {
     default void registerTutorials(net.createmod.ponder.api.guide.TutorialRegistrationHelper helper) {
     }
 
+    /** Read on the client; data values are safe to reference from a common plugin. */
+    default void registerGuiTutorials(java.util.function.Consumer<net.createmod.ponder.api.gui.GuiTutorial> lessons) {
+    }
+
     default void registerScenes(PonderSceneRegistrationHelper<ResourceLocation> helper) {
     }
 

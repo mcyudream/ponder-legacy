@@ -48,6 +48,9 @@ public final class MarkdownEditor extends AbstractPonderScreen {
         button(bw,columns,"ponder.guide.action",()->insert("\n```ponder\n[\n  {\"op\":\"world.show_section\",\"selection\":{\"type\":\"from_to\",\"from\":[0,1,0],\"to\":[2,1,2]},\"direction\":\"down\"},\n  {\"op\":\"scene.idle\",\"ticks\":20}\n]\n```\n"));
         button(bw,columns,"ponder.guide.insert_media.image",()->mc.displayGuiScreen(new MarkdownMediaScreen(this,MarkdownMedia.Type.IMAGE)));
         button(bw,columns,"ponder.guide.insert_media.video",()->mc.displayGuiScreen(new MarkdownMediaScreen(this,MarkdownMedia.Type.VIDEO)));
+        button(bw,columns,"ponder.gui.insert",()->mc.displayGuiScreen(new net.createmod.ponder.client.guitutorial.GuiTutorialLibraryScreen(this,lesson->{
+            document.insertBlock("```ponder-gui\n"+net.createmod.ponder.gui.GuiTutorialJson.write(lesson)+"\n```");changed();mc.displayGuiScreen(this);
+        })));
         button(bw,columns,"ponder.guide.back",()->mc.displayGuiScreen(parent));
         contentTop=40+((buttonList.size()-1)/columns)*24;ensureCursor();
         compile();

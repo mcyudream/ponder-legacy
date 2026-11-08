@@ -148,6 +148,22 @@ public final class PonderSceneBuilder implements SceneBuilder {
     }
 
     private final class Overlay implements OverlayInstructions {
+        @Override public net.createmod.ponder.api.element.GuiElementBuilder showGui(int duration, net.minecraft.util.ResourceLocation tutorial) {
+            return gui(duration, tutorial, null);
+        }
+
+        @Override public net.createmod.ponder.api.element.GuiElementBuilder showGui(int duration, net.createmod.ponder.api.gui.GuiTutorial tutorial) {
+            tutorial=net.createmod.ponder.gui.GuiTutorialJson.parse(net.createmod.ponder.gui.GuiTutorialJson.write(tutorial));
+            return gui(duration, tutorial.id(), tutorial);
+        }
+
+        private net.createmod.ponder.api.element.GuiElementBuilder gui(int duration, net.minecraft.util.ResourceLocation id,
+                net.createmod.ponder.api.gui.GuiTutorial tutorial) {
+            var element = new net.createmod.ponder.foundation.element.GuiAnimationElement(id, tutorial, scene.getBuildCursor(), duration);
+            scene.addGuiAnimation(element);
+            return element;
+        }
+
         @Override public TextElementBuilder showText(int duration) {
             TextElementBuilder builder = PonderElementFactories.get().createText(scene, duration);
             addInstruction(new ShowElementInstruction(PonderElementFactories.get().asElement(builder), duration, true));

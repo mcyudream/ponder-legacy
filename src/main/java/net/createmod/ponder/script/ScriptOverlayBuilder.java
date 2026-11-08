@@ -20,6 +20,20 @@ public final class ScriptOverlayBuilder {
     }
 
     @ZenMethod
+    public void showGui(int duration, String tutorial) {
+        NBTTagCompound data=new NBTTagCompound();data.setInteger("duration",duration);
+        data.setString("tutorial",ScriptSceneRegistry.parseId(tutorial,"GUI tutorial id").toString());
+        ScriptGuiAnimation.validate(data);scene.add("show_gui",data);
+    }
+
+    @ZenMethod
+    public void showGui(int duration, String tutorial, String side, int from, int to) {
+        NBTTagCompound data=new NBTTagCompound();data.setInteger("duration",duration);
+        data.setString("tutorial",ScriptSceneRegistry.parseId(tutorial,"GUI tutorial id").toString());data.setString("side",side);
+        data.setInteger("from",from);data.setInteger("to",to);ScriptGuiAnimation.validate(data);scene.add("show_gui",data);
+    }
+
+    @ZenMethod
     public void showText(int duration, String text, double x, double y, double z, String color,
                          boolean nearTarget, boolean keyframe) {
         NBTTagCompound data = ScriptWorldBuilder.vector(x, y, z);

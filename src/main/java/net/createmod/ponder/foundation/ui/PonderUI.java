@@ -49,6 +49,8 @@ public class PonderUI extends AbstractPonderScreen {
     private final PonderSceneMenu sceneMenu;
     private PonderButton sceneMenuButton;
     private final PonderWorldRenderer renderer = new PonderWorldRenderer();
+    private final net.createmod.ponder.client.guitutorial.GuiAnimationRenderer guiAnimations = new net.createmod.ponder.client.guitutorial.GuiAnimationRenderer();
+    private net.createmod.ponder.gui.GuiAnimationLayout guiLayout;
     private int sceneIndex;
     private float yaw = -35;
     private float pitch = 25;
@@ -99,6 +101,11 @@ public class PonderUI extends AbstractPonderScreen {
             .active(!net.createmod.ponder.client.guide.Tutorials.preferGuide())
             .withTooltip("ponder.guide.default_animation").withCallback(() -> {
                 net.createmod.ponder.client.guide.Tutorials.setPreferGuide(false); initGui();
+            }));
+        if (!net.createmod.ponder.client.guitutorial.GuiTutorials.forComponent(getActiveScene().getComponent()).isEmpty())
+            addButton(new PonderButton(14,64,7,22,20,PonderButton.Icon.GUI).withTooltip("ponder.gui.demo").withCallback(()->{
+                var lesson=net.createmod.ponder.client.guitutorial.GuiTutorials.forComponent(getActiveScene().getComponent()).get(0);
+                mc.displayGuiScreen(new net.createmod.ponder.client.guitutorial.GuiDemoScreen(lesson,()->mc.displayGuiScreen(this),false));
             }));
         addButton(new PonderButton(1, 8, bottom, 22, 20, PonderButton.Icon.INDEX)
             .withTooltip("ponder.ui.index_title")
@@ -175,6 +182,7 @@ public class PonderUI extends AbstractPonderScreen {
         }
         PonderScene scene = getActiveScene();
         if (!identifyMode && !scene.isPaused()) lastPartialTicks = partialTicks;
+        guiLayout = guiAnimations.prepare(scene, new net.createmod.ponder.api.gui.GuiTutorial.Rect(0,34,width,Math.max(1,height-72)));
         float scenePartialTicks = identifyMode || scene.isPaused() ? frozenPartialTicks : partialTicks;
         clearSceneDepth();
         beforeScenePassForTesting();
@@ -184,11 +192,13 @@ public class PonderUI extends AbstractPonderScreen {
             for (PonderOverlayElement overlay : scene.getOverlayElements())
                 if (overlay.isVisible() && !(overlay instanceof OverlayDataElement))
                     overlay.render(scene, mouseX, mouseY, scenePartialTicks);
+            guiAnimations.render(scene);
         }
         Gui.drawRect(0, 0, width, 34, 0xdd171b20);
         Gui.drawRect(0, height - 38, width, height, 0xff171b20);
-        int titleWidth = (sceneMenuButton == null ? width - 56 : sceneMenuButton.x) - 72;
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(scene.getTitle(), Math.max(0, titleWidth)), 68, 13, 0xffeef2f5);
+        int titleStart=buttonList.stream().anyMatch(button->button.id==14)?94:68;
+        int titleWidth = (sceneMenuButton == null ? width - 56 : sceneMenuButton.x) - titleStart - 4;
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(scene.getTitle(), Math.max(0, titleWidth)), titleStart, 13, 0xffeef2f5);
         if (sceneMenu == null) fontRenderer.drawString("1 / 1", width - fontRenderer.getStringWidth("1 / 1") - 12, 13, 0xffaeb8c2);
     }
 
@@ -209,13 +219,14 @@ public class PonderUI extends AbstractPonderScreen {
     }
 
     private void renderScene(PonderScene scene, int mouseX, int mouseY, float partialTicks) {
+        var viewport = guiLayout.panels().isEmpty() ? new net.createmod.ponder.api.gui.GuiTutorial.Rect(0,0,width,height) : guiLayout.world();
         BlockPos min = scene.getWorld().getBoundsMin();
         BlockPos max = scene.getWorld().getBoundsMax();
         Vec3d center = new Vec3d((min.getX() + max.getX() + 1) / 2d,
             (min.getY() + max.getY() + 1) / 2d, (min.getZ() + max.getZ() + 1) / 2d);
         double span = Math.max(2, Math.max(max.getX() - min.getX() + 1,
             Math.max(max.getY() - min.getY() + 1, max.getZ() - min.getZ() + 1)));
-        double distance = span * 2.35 * zoom / scene.getScale();
+        double distance = span * 2.35 * zoom / scene.getScale() / Math.min(1,viewport.width()/(double)Math.max(1,viewport.height()));
         float viewPitch = pitch + scene.getCameraPitch();
         float viewYaw = yaw + scene.getCameraYaw();
         Vec3d cameraOffset = rotateX(new Vec3d(0, -scene.getYOffset(), distance), -viewPitch);
@@ -224,12 +235,16 @@ public class PonderUI extends AbstractPonderScreen {
         int previousMatrixMode = GL11.glGetInteger(GL11.GL_MATRIX_MODE);
         boolean projectionPushed = false;
         boolean modelViewPushed = false;
+        java.nio.IntBuffer previousViewport = org.lwjgl.BufferUtils.createIntBuffer(16);
+        GL11.glGetIntegerv(GL11.GL_VIEWPORT, previousViewport);
         try {
+            GL11.glViewport(viewport.x()*mc.displayWidth/width,mc.displayHeight-(viewport.y()+viewport.height())*mc.displayHeight/height,
+                Math.max(1,viewport.width()*mc.displayWidth/width),Math.max(1,viewport.height()*mc.displayHeight/height));
             GlStateManager.matrixMode(GL11.GL_PROJECTION);
             GlStateManager.pushMatrix();
             projectionPushed = true;
             GlStateManager.loadIdentity();
-            Project.gluPerspective(45, width / (float) Math.max(1, height), .05f, 256);
+            Project.gluPerspective(45, viewport.width() / (float) Math.max(1, viewport.height()), .05f, 256);
             GlStateManager.matrixMode(GL11.GL_MODELVIEW);
             GlStateManager.pushMatrix();
             modelViewPushed = true;
@@ -251,6 +266,7 @@ public class PonderUI extends AbstractPonderScreen {
                 GlStateManager.popMatrix();
             }
             GlStateManager.matrixMode(previousMatrixMode);
+            GL11.glViewport(previousViewport.get(0),previousViewport.get(1),previousViewport.get(2),previousViewport.get(3));
         }
     }
 
@@ -258,7 +274,7 @@ public class PonderUI extends AbstractPonderScreen {
         identifiedStack = ItemStack.EMPTY;
         identifiedBlock = null;
         if (!identifyMode) return;
-        if (mouseY <= 34 || mouseY >= height - 38 || sceneMenu != null && sceneMenu.isOpen() && sceneMenu.contains(mouseX, mouseY)) {
+        if (mouseY <= 34 || mouseY >= height - 38 || guiAnimations.contains(mouseX,mouseY) || sceneMenu != null && sceneMenu.isOpen() && sceneMenu.contains(mouseX, mouseY)) {
             scene.deselect();
             return;
         }
@@ -287,7 +303,7 @@ public class PonderUI extends AbstractPonderScreen {
                 return;
             }
         }
-        if (!identifyMode || mouseY <= 34 || mouseY >= height - 38) return;
+        if (!identifyMode || mouseY <= 34 || mouseY >= height - 38 || guiAnimations.contains(mouseX,mouseY)) return;
         if (!identifiedStack.isEmpty()) {
             renderToolTip(identifiedStack, mouseX, mouseY);
             return;
@@ -329,6 +345,7 @@ public class PonderUI extends AbstractPonderScreen {
             return;
         }
         super.mouseClicked(mouseX, mouseY, button);
+        if (guiAnimations.contains(mouseX,mouseY)) return;
         if (button == 0 && !identifyMode && mouseY > 34 && mouseY < height - 38) {
             dragging = true;
             lastMouseX = mouseX;
@@ -371,6 +388,7 @@ public class PonderUI extends AbstractPonderScreen {
                 sceneMenu.scroll(wheel > 0 ? -1 : 1);
             return;
         }
+        if (wheel != 0 && guiAnimations.scroll(wheel,mouseX,mouseY)) return;
         if (wheel != 0) zoom = Math.max(.35f, Math.min(3, zoom * (wheel > 0 ? .9f : 1.1f)));
     }
 

@@ -1,0 +1,194 @@
+{
+  "format": 1,
+  "id": "ponder:examples/furnace",
+  "title": "@ponder.gui.furnace.title",
+  "components": [
+    "minecraft:furnace"
+  ],
+  "screen": "net.minecraft.client.gui.inventory.GuiFurnace",
+  "adapter": "generic",
+  "width": 176,
+  "height": 166,
+  "texture": "minecraft:textures/gui/container/furnace.png",
+  "targets": {
+    "input": {
+      "type": "slot",
+      "index": 0,
+      "x": 56,
+      "y": 17,
+      "width": 16,
+      "height": 16,
+      "label": "@ponder.gui.furnace.input",
+      "item": "",
+      "count": 0
+    },
+    "fuel": {
+      "type": "slot",
+      "index": 1,
+      "x": 56,
+      "y": 53,
+      "width": 16,
+      "height": 16,
+      "label": "@ponder.gui.furnace.fuel",
+      "item": "",
+      "count": 0
+    },
+    "output": {
+      "type": "slot",
+      "index": 2,
+      "x": 116,
+      "y": 35,
+      "width": 16,
+      "height": 16,
+      "label": "@ponder.gui.furnace.output",
+      "item": "",
+      "count": 0
+    },
+    "progress": {
+      "type": "region",
+      "index": 3,
+      "x": 79,
+      "y": 34,
+      "width": 24,
+      "height": 16,
+      "label": "@ponder.gui.furnace.progress",
+      "item": "",
+      "count": 0
+    }
+  },
+  "steps": [
+    {
+      "title": "@ponder.gui.furnace.input",
+      "text": "@ponder.gui.furnace.input_text",
+      "target": "input",
+      "wait": {
+        "type": "slot_has",
+        "item": "minecraft:iron_ore"
+      },
+      "duration": 80,
+      "demo": [
+        {
+          "op": "set_slot",
+          "target": "input",
+          "item": "minecraft:iron_ore",
+          "count": 1,
+          "field": "",
+          "value": "",
+          "at": 20
+        }
+      ]
+    },
+    {
+      "title": "@ponder.gui.furnace.fuel",
+      "text": "@ponder.gui.furnace.fuel_text",
+      "target": "fuel",
+      "wait": {
+        "type": "value_at_least",
+        "field": "inventory_field.0",
+        "value": "1"
+      },
+      "duration": 80,
+      "demo": [
+        {
+          "op": "set_slot",
+          "target": "fuel",
+          "item": "minecraft:coal",
+          "count": 1,
+          "field": "",
+          "value": "",
+          "at": 20
+        },
+        {
+          "op": "set_value",
+          "target": "",
+          "item": "",
+          "count": 0,
+          "field": "inventory_field.0",
+          "value": "1600",
+          "at": 20
+        }
+      ]
+    },
+    {
+      "title": "@ponder.gui.furnace.progress",
+      "text": "@ponder.gui.furnace.progress_text",
+      "target": "progress",
+      "wait": {
+        "type": "value_at_least",
+        "field": "inventory_field.2",
+        "value": "1"
+      },
+      "duration": 100,
+      "demo": [
+        {
+          "op": "set_value",
+          "target": "",
+          "item": "",
+          "count": 0,
+          "field": "inventory_field.2",
+          "value": "100",
+          "at": 20
+        },
+        {
+          "op": "set_value",
+          "target": "",
+          "item": "",
+          "count": 0,
+          "field": "inventory_field.2",
+          "value": "200",
+          "at": 70
+        }
+      ]
+    },
+    {
+      "title": "@ponder.gui.furnace.output",
+      "text": "@ponder.gui.furnace.output_text",
+      "target": "output",
+      "wait": {
+        "type": "slot_has",
+        "item": "minecraft:iron_ingot"
+      },
+      "duration": 80,
+      "demo": [
+        {
+          "op": "set_slot",
+          "target": "input",
+          "item": "",
+          "count": 0,
+          "field": "",
+          "value": "",
+          "at": 20
+        },
+        {
+          "op": "set_slot",
+          "target": "output",
+          "item": "minecraft:iron_ingot",
+          "count": 1,
+          "field": "",
+          "value": "",
+          "at": 20
+        }
+      ]
+    },
+    {
+      "title": "@ponder.gui.furnace.collect",
+      "text": "@ponder.gui.furnace.collect_text",
+      "target": "output",
+      "wait": {
+        "type": "slot_empty"
+      },
+      "duration": 80,
+      "demo": [
+        {
+          "op": "set_slot",
+          "target": "output",
+          "item": "",
+          "count": 0,
+          "field": "",
+          "value": "",
+          "at": 20
+        }
+      ]
+    }
+  ]
+}
