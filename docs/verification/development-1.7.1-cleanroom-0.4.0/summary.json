@@ -4,7 +4,7 @@
   "minecraft": "1.12.2",
   "cleanroom": "0.4.0",
   "java": 25,
-  "jar_sha256": "737dbd1488377a4464e8817f1e2465cb06883b34ca93559ac157802d6589dbf7",
+  "jar_sha256": "0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e",
   "unit_tests": 336,
   "unit_test_results": {
     "tests": 336,
@@ -53,11 +53,12 @@
     "Network-thread disconnect defers GUI cleanup and scene registration to the client thread.",
     "Dedicated server startup with the production jar; CraftTweaker remains absent.",
     "Nested layout coordinates, clipping, stable layers, hidden controls and shared highlight nodes.",
-    "Read-only GuiDemoState and layout SDK compile using only the API jar."
+    "Read-only GuiDemoState and layout SDK compile using only the API jar.",
+    "Tall standalone appearances reserve the footer hint and playback controls."
   ],
   "limitations": [
     "Linux x64 llvmpipe; AE2S complete-appearance acceptance is recorded separately.",
-    "A first core input fixture failed a scene-menu Enter assertion; a fresh core fixture passed on this identical production jar. Its failure log remains in the local run directory.",
+    "Earlier candidate run logs remain local; only the final artifact fingerprints below are accepted.",
     "Main CI build; no release tag created."
   ]
 }

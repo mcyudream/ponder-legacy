@@ -3,7 +3,7 @@
 
 ## 当前开发构建：1.7.1（完整 GUI 布局）
 
-Minecraft 1.12.2 / Cleanroom **0.4.0 正式版** / Java 25。生产包 `ponder-legacy-1.7.1.jar`，SHA-256：`737dbd1488377a4464e8817f1e2465cb06883b34ca93559ac157802d6589dbf7`。
+Minecraft 1.12.2 / Cleanroom **0.4.0 正式版** / Java 25。生产包 `ponder-legacy-1.7.1.jar`，SHA-256：`0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e`。
 
 336 项单元测试通过；实际生产包在全新隔离实例通过 243 项核心客户端回归、62 项 GUI 专项与 11 项专服检查，未安装 CraftTweaker。新增五项布局测试覆盖嵌套坐标、裁切、弹窗层级、隐藏目标及用实际控件替换旧近似坐标。
 

@@ -3,7 +3,7 @@
   "side": "server",
   "scenario": "full",
   "jars": {
-    "ponder-legacy-1.7.1.jar": "737dbd1488377a4464e8817f1e2465cb06883b34ca93559ac157802d6589dbf7",
+    "ponder-legacy-1.7.1.jar": "0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e",
     "ponder-server-harness-srg.jar": "c0d254277dd3719bab6469a584b2da0087eb8dbc42e952c32b88a71813c5e75a"
   },
   "libraries": {

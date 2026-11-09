@@ -22,8 +22,9 @@ public final class GuiDemoScreen extends AbstractPonderScreen {
     public Rect machineBounds(){return new Rect(x,y,Math.round(session.tutorial().width()*scale),Math.round(session.tutorial().height()*scale));}
     @Override public void initGui(){
         buttonList.clear();panelWidth=Math.min(240,Math.max(128,width/3));panelX=width-panelWidth-10;
-        scale=Math.max(.05f,Math.min(1.5f,Math.min((panelX-20)/(float)session.tutorial().width(),(height-80)/(float)session.tutorial().height())));
-        x=Math.max(6,(panelX-Math.round(session.tutorial().width()*scale))/2);y=40+Math.max(0,(height-82-Math.round(session.tutorial().height()*scale))/2);
+        int availableHeight=Math.max(1,height-92); // Below the header, above the operation hint and playback controls.
+        scale=Math.max(.05f,Math.min(1.5f,Math.min((panelX-20)/(float)session.tutorial().width(),availableHeight/(float)session.tutorial().height())));
+        x=Math.max(6,(panelX-Math.round(session.tutorial().width()*scale))/2);y=40+Math.max(0,(availableHeight-Math.round(session.tutorial().height()*scale))/2);
         addButton(new PonderButton(1,8,height-29,22,20,PonderButton.Icon.LEFT).withTooltip("ponder.gui.previous").withCallback(()->{session.previous();scroll=0;}));
         addButton(new PonderButton(2,34,height-29,22,20,PonderButton.Icon.REPLAY).withTooltip("ponder.gui.replay").withCallback(()->{session.seek(session.stepIndex(),0);session.playing(true);}));
         addButton(new PonderButton(3,60,height-29,22,20,PonderButton.Icon.PAUSE).withTooltip("ponder.gui.pause").withCallback(()->session.playing(!session.playing())));

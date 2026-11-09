@@ -126,7 +126,7 @@ public final class GuiTutorialSmoke {
             }
             case 10 -> {
                 Display.setDisplayMode(new DisplayMode(320,240));mc.resize(320,240);
-                Rect bounds=demo.machineBounds();check.accept(bounds.x()>=0&&bounds.y()>=34&&bounds.x()+bounds.width()<demo.width&&bounds.y()+bounds.height()<=demo.height-38,"small-screen demonstration keeps the machine within its viewport");
+                Rect bounds=demo.machineBounds();check.accept(bounds.x()>=0&&bounds.y()>=34&&bounds.x()+bounds.width()<demo.width&&bounds.y()+bounds.height()<=demo.height-52,"small-screen demonstration keeps the machine above the operation hint and playback controls");
                 screenshot.accept("gui-demo-small-en.png");phase++;
             }
             case 11 -> {

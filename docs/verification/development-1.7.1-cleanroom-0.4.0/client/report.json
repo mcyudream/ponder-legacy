@@ -249,7 +249,7 @@
     "projection-occluded-outline.png contains the world blueprint outline, including occluded geometry",
     "render projection-occluded-outline.png has no OpenGL errors"
   ],
-  "ponderSource": "jar:file:/home/yudream/code/mods/.dev/github-legacy/ponder-legacy/run/cleanroom-0.4.0-optional/gui-layout-171-thread-core-r2/client/mods/ponder-legacy-1.7.1.jar!/net/createmod/ponder/PonderMod.class",
+  "ponderSource": "jar:file:/home/yudream/code/mods/.dev/github-legacy/ponder-legacy/run/cleanroom-0.4.0-optional/gui-layout-171-viewport-core/client/mods/ponder-legacy-1.7.1.jar!/net/createmod/ponder/PonderMod.class",
   "renderer": "llvmpipe (LLVM 21.1.8, 256 bits)",
-  "ponderSha256": "737dbd1488377a4464e8817f1e2465cb06883b34ca93559ac157802d6589dbf7"
+  "ponderSha256": "0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e"
 }
