@@ -1,6 +1,15 @@
 # Ponder Legacy 发布状态
 
-## 当前开发版：1.7.0
+
+## 当前开发版：1.7.1
+
+- 提供完整 GUI 的分组布局、绘制层级、裁切、动态可见性与共享高亮坐标；修正分数缩放的边缘取整。
+- 336 项单元测试、正式 Cleanroom 0.4.0 客户端 243 项与专服 11 项检查通过。
+- 生产 SHA-256：`4407b5f7d17426e10053917d8686f2795dde0997d7231836f8df6b791f394a6a`；[验收记录](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。
+- main CI 构建；本次未创建标签或 GitHub Release。
+
+
+## 历史开发版：1.7.0
 
 - 新增时间轴 GUI 动画、W 实机引导、独立演示与 GUI 采集编辑，详见 [使用说明](docs/GUI-TUTORIALS.md)。
 - 331 项单元测试、314 项正式 Cleanroom 0.4.0 运行检查通过；[验收证据](LEGACY-VERIFICATION.md)。

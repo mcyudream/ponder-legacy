@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'net.createmod.ponder'
-version = '1.7.0'
+version = '1.7.1'
 base.archivesName = 'ponder-legacy'
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(25)

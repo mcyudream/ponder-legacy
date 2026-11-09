@@ -1,5 +1,17 @@
 # Ponder Legacy — 安装包验收
 
+
+## 当前开发构建：1.7.1（完整 GUI 布局）
+
+Minecraft 1.12.2 / Cleanroom **0.4.0 正式版** / Java 25。生产包 `ponder-legacy-1.7.1.jar`，SHA-256：`4407b5f7d17426e10053917d8686f2795dde0997d7231836f8df6b791f394a6a`。
+
+336 项单元测试通过；实际生产包在全新隔离实例通过 243 项客户端回归与 11 项专服检查，未安装 CraftTweaker。新增五项布局测试覆盖嵌套坐标、裁切、弹窗层级、隐藏目标及用实际控件替换旧近似坐标。
+
+`GuiDemoLayout` 统一处理完整界面节点、分组偏移、图层、裁切与高亮；AE2S 的逐页面外观及真实控件几何验收由 AE2S Ponder 单独保存。
+
+[报告、安装指纹和范围](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。此构建先通过 main CI 提供，未创建发行标签。
+
+
 ## 当前开发构建：1.7.0（时间轴 GUI 动画与 W 实机引导）
 
 - 日期：2026-11-08；Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。

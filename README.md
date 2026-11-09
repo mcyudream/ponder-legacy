@@ -1,5 +1,10 @@
 # Ponder Legacy
 
+
+**1.7.1 GUI 布局修复**：复杂 GUI 演示可使用统一的 `GuiDemoLayout` 分组、图层与裁切。
+绘制元素和高亮框读取同一坐标树，弹窗、侧栏和隐藏控件按当前状态处理，分数缩放按边缘取整。
+[完整界面 API](docs/GUI-TUTORIALS.md#完整界面布局-api171)。
+
 [![构建与发行](https://github.com/mcyudream/ponder-legacy/actions/workflows/ci.yml/badge.svg)](https://github.com/mcyudream/ponder-legacy/actions/workflows/ci.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/mcyudream/ponder-legacy?include_prereleases)](https://github.com/mcyudream/ponder-legacy/releases)
 
@@ -10,7 +15,7 @@
 
 ## 当前状态
 
-当前开发版本为 **`1.7.0`**，新增 **时间轴 GUI 动画片段**：在机器演示的指定环节，于侧边空白区展示 GUI，支持控件高亮、演示物品、文字讲解、截取帧与定格，并跟随场景暂停、跳转及重播。保留机器界面长按 **W** 的实机引导、只读操作检测、独立演示与游戏内 GUI 采集编辑器。动画编辑器、Markdown、JSON 与 Java API 共用定义，见 [GUI 教程手册](docs/GUI-TUTORIALS.md)。现有双展示、媒体插入、世界投影和可选 Revo UI 适配继续保留。CraftTweaker、MMCE、FTB Quests、Media API 等外置联动均为可选。最低运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**；已发布版本与开发版的验收状态分别记录在 [发布状态](PUBLICATION.md) 与 [验收记录](LEGACY-VERIFICATION.md)。
+当前开发版本为 **`1.7.1`**，新增 **时间轴 GUI 动画片段**：在机器演示的指定环节，于侧边空白区展示 GUI，支持控件高亮、演示物品、文字讲解、截取帧与定格，并跟随场景暂停、跳转及重播。保留机器界面长按 **W** 的实机引导、只读操作检测、独立演示与游戏内 GUI 采集编辑器。动画编辑器、Markdown、JSON 与 Java API 共用定义，见 [GUI 教程手册](docs/GUI-TUTORIALS.md)。现有双展示、媒体插入、世界投影和可选 Revo UI 适配继续保留。CraftTweaker、MMCE、FTB Quests、Media API 等外置联动均为可选。最低运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**；已发布版本与开发版的验收状态分别记录在 [发布状态](PUBLICATION.md) 与 [验收记录](LEGACY-VERIFICATION.md)。
 
 安装包从 [GitHub Releases](https://github.com/mcyudream/ponder-legacy/releases) 获取，选择无分类后缀的 `ponder-legacy-*.jar`。从 `1.4.1` 起，仅使用 ZenScript 时需要独立安装 CraftTweaker；`1.4.0` 仍要求安装。发行状态见 [PUBLICATION.md](PUBLICATION.md)。
 

@@ -120,3 +120,36 @@ scene.idle(80);
 `showGui` 也接受完整 `GuiTutorial` 对象。GUI 片段数据和场景 API 可用于专服；客户端渲染器及 `GuiTutorialAdapter` 应隔离在客户端兼容包。自定义实机适配器通过 `GuiTutorials.registerAdapter` 注册，负责提供目标位置、只读槽位／同步值及文本框焦点。AE2S 等自有控件不在原生按钮列表时，可用矩形区域或专用适配器。
 
 可选 CraftTweaker 安装后还可使用 `scene.overlay().showGui(200, "mypack:machine_gui")`，或带 `side`、`from`、`to` 的重载。其他 Mod 均保持可选；此功能无需 CraftTweaker。
+
+
+## 完整界面布局 API（1.7.1）
+
+复杂界面应通过客户端适配器的 `demoLayout(session)` 提供 `GuiDemoLayout`。
+Ponder 负责分组坐标、稳定图层顺序、裁切、缩放和高亮；布局节点同时声明绘制区域和目标标识，
+不再把“教程提到的目标”当作“整个界面”。标题、工具栏、升级区、列表以及未被讲解的槽位也应建成可见节点。
+
+```java
+@Override
+public GuiDemoLayout demoLayout(GuiTutorialSession session) {
+    var builder = GuiDemoLayout.builder(240, 200);
+    var machine = builder.root().group(24, 8);
+    machine.node("", new Rect(0, 0, 176, 166), GuiDemoLayout.BACKGROUND, this::drawBackground);
+    var input = new Rect(8, 18, 16, 16);
+    machine.node("input", input, GuiDemoLayout.SLOT, () -> drawSampleSlot(input, session));
+    var list = machine.group(8, 40).clip(new Rect(0, 0, 160, 64));
+    list.node("list.row.0", new Rect(0, 0, 160, 18), GuiDemoLayout.CONTENT, this::drawSampleRow);
+    return builder.build();
+}
+```
+
+绘制回调的坐标属于所在分组；Ponder 统一应用分组原点。同一节点的 `bounds` 决定指引框，
+嵌套裁切也会裁切高亮。`BACKGROUND`、`PANEL`、`SLOT`、`CONTENT`、`CONTROL`、`TEXT`、`MODAL`
+按层级绘制，同一层保持声明顺序。弹窗必须放在 `MODAL` 层，避免底层标题压在弹窗上。
+
+每一帧只加入当前可见节点。暂时隐藏的控件使用 `hideTarget(key)` 清除预先声明的备用区域，
+防止引导框浮在关闭的弹窗或未选择的页面上。文本节点的矩形应使用实际文本宽度、对齐、换行和缩放计算。
+
+回调可以使用不绑定容器的原生按钮、文本框或数值控件，保留原版皮肤与复合控件行为；
+不能创建真实机器 GUI、发送操作数据包，或写入真实背包、机器、配置文件。
+此 API 同时用于独立演示、嵌入实机页的演示和场景时间轴中的 GUI 动画片段。
+返回 `null` 的适配器继续使用原有 JSON 目标与纹理绘制。

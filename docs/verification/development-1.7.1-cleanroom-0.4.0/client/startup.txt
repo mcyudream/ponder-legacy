@@ -1,0 +1,1151 @@
+Starting Cleanroom 0.4.0 client; installation jars and SRG harness, no userdev
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldOffset has been called by zone.rong.imaginebreaker.ImagineBreaker (file:/home/yudream/code/mods/.dev/cleanroom-0.4.0-runtime/libraries/zone/rong/imaginebreaker/2.1/imaginebreaker-2.1.jar)
+WARNING: Please consider reporting this to the maintainers of class zone.rong.imaginebreaker.ImagineBreaker
+WARNING: sun.misc.Unsafe::staticFieldOffset will be removed in a future release
+[19:57:43] [main/INFO] [Foundation]: Loading tweak name net.minecraftforge.fml.common.launcher.FMLTweaker
+[19:57:43] [main/INFO] [FML.TWEAK]: Initializing Mixins...
+[19:57:43] [main/INFO] [mixin]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=jar:file:/home/yudream/code/mods/.dev/cleanroom-0.4.0-runtime/libraries/com/cleanroommc/sponge-mixin/0.20.12+mixin.0.8.7/sponge-mixin-0.20.12+mixin.0.8.7.jar!/org/spongepowered/asm/mixin/MixinEnvironment.class Service=LaunchWrapper Env=UNKNOWN
+[19:57:44] [main/INFO] [FML.TWEAK]: Initializing MixinExtras...
+[19:57:44] [main/INFO] [Foundation]: Using primary tweak name net.minecraftforge.fml.common.launcher.FMLTweaker
+[19:57:44] [main/INFO] [Foundation]: Loading tweak name org.spongepowered.asm.mixin.EnvironmentStateTweaker
+[19:57:44] [main/INFO] [Foundation]: Calling tweak net.minecraftforge.fml.common.launcher.FMLTweaker@3e30646a
+[19:57:44] [main/INFO] [FML.TWEAK]: Jar location: file:/home/yudream/code/mods/.dev/cleanroom-0.4.0-runtime/libraries/com/cleanroommc/cleanroom/0.4.0/cleanroom-0.4.0.jar
+[19:57:44] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2864 for Minecraft 1.12.2 loading
+[19:57:44] [main/INFO] [FML]: Cleanroom version 0.4.0
+[19:57:44] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 25.0.5, running on Linux:amd64:7.0.0-42-generic, installed at /home/yudream/code/mods/.dev/jdk-25.0.5+8
+[19:57:44] [main/INFO] [FML]: Searching /home/yudream/code/mods/.dev/github-legacy/ponder-legacy/run/cleanroom-0.4.0-optional/gui-layout-171-final/client/mods for mods
+[19:57:44] [main/INFO] [FML]: Found FMLCorePluginContainsFMLMod marker in ponder-legacy-1.7.1.jar.
+[19:57:44] [main/INFO] [Foundation]: Calling tweak org.spongepowered.asm.mixin.EnvironmentStateTweaker@25748410
+[19:57:44] [main/INFO] [Foundation]: Loading tweak name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[19:57:44] [main/INFO] [Foundation]: Loading tweak name org.spongepowered.asm.launch.MixinTweaker
+[19:57:44] [main/INFO] [Foundation]: Loading tweak name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[19:57:44] [main/INFO] [Foundation]: Calling tweak net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker@3829ac1
+[19:57:44] [main/INFO] [Foundation]: Calling tweak net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker@3829ac1
+[19:57:44] [main/INFO] [Foundation]: Calling tweak FMLCorePlugin
+[19:57:45] [main/INFO] [mixin]: Initialised Mixin FML Remapper Adapter with net.minecraftforge.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper@6325f352
+[19:57:45] [main/INFO] [FML]: Found valid fingerprint for Minecraft. Certificate fingerprint cd99959656f753dc28d863b46769f7f8fbaefcfc
+[19:57:45] [main/INFO] [FML]: FML appears to be missing any signature data. This is expected, don't worry.
+[19:57:45] [main/INFO] [Foundation]: Calling tweak FMLForgePlugin
+[19:57:45] [main/INFO] [Foundation]: Calling tweak PonderMixinLoader
+[19:57:45] [main/INFO] [Foundation]: Calling tweak org.spongepowered.asm.launch.MixinTweaker@31dfc6f5
+[19:57:45] [main/INFO] [Foundation]: Calling tweak MixinBooter
+[19:57:45] [main/INFO] [FML]: Loading early loader net.createmod.ponder.mixin.PonderMixinLoader for its mixins.
+[19:57:45] [main/INFO] [FML]: Adding mixins.ponder.json mixin configuration.
+[19:57:45] [main/WARN] [mixin]: The requested compatibility level JAVA_25 is higher than the level supported by the active subsystem 'LaunchWrapper' which supports JAVA_21. This is not a supported configuration and instability may occur.
+[19:57:45] [main/INFO] [mixin]: Compatibility level set to JAVA_25
+[19:57:45] [main/INFO] [Foundation]: Calling tweak net.minecraftforge.fml.common.launcher.FMLDeobfTweaker@f88bfbe
+[19:57:45] [main/WARN] [Foundation]: Tweak name org.spongepowered.asm.mixin.EnvironmentStateTweaker has already been visited -- skipping
+[19:57:45] [main/INFO] [Foundation]: Launching wrapped minecraft net.minecraft.client.main.Main
+[19:57:45] [main/INFO] [MixinExtras|Service]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.lwjgl.system.Library$$Lambda/0x0000000058295380 in an unnamed module (jar:file:/home/yudream/code/mods/.dev/cleanroom-0.4.0-runtime/libraries/org/lwjgl/lwjgl/3.3.6/lwjgl-3.3.6.jar!/org/lwjgl/system/Library.class)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+[19:57:46] [Client thread/INFO] [minecraft/Minecraft]: Setting user: PonderDeveloper
+[19:57:47] [Client thread/INFO] [minecraft/Minecraft]: LWJGL Version: 3.3.6-snapshot
+[19:57:47] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:200]: [LWJGLXX] Creating Display
+[19:57:47] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:205]: [LWJGLXX] Preferred OpenGL version from forge_early.cfg is 4.6
+[19:57:47] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:236]: [LWJGLXX] OpenGL version after validation is 4.6
+[19:57:48] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:288]: [LWJGLXX] Attempting to create OpenGL 4.6 context
+[19:57:48] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:297]: [LWJGLXX] Failed to get OpenGL 4.6 window handle
+[19:57:48] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:288]: [LWJGLXX] Attempting to create OpenGL 4.5 context
+[19:57:48] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:309]: [LWJGLXX] Obtained OpenGL 4.5 window handle
+[19:57:48] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:545]: [LWJGLXX] Current OpenGL version is 4.5
+[19:57:48] [Client thread/INFO] [STDOUT]: [org.lwjgl.opengl.Display:create:548]: [LWJGLXX] Cached current OpenGL version to forge_early.cfg
+[19:57:48] [Client thread/INFO] [FML]: Cleanroom v0.4.0 Initialized
+[19:57:48] [Client thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[19:57:49] [Client thread/INFO] [FML]: Invalid recipe found with multiple oredict ingredients in the same ingredient...
+[19:57:49] [Client thread/INFO] [FML]: Replaced 1227 ore ingredients
+[19:57:49] [Client thread/INFO] [Kirino Core]: Initializing Kirino-Engine's Mod Container.
+[19:57:49] [Client thread/INFO] [Kirino Core]: Initializing Kirino-ECS's Mod Container.
+[19:57:49] [Client thread/INFO] [Kirino Core]: Initializing Kirino-GL's Mod Container.
+[19:57:49] [Client thread/INFO] [FML]: Forge Mod Loader has identified 12 mods to load
+[19:57:49] [Client thread/INFO] [FML]: Instantiating all ILateMixinLoader implemented classes...
+[19:57:49] [Client thread/INFO] [FML]: Instantiating class net.createmod.ponder.compat.revoui.PonderRevoMixinLoader for its mixins.
+[19:57:49] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, cleanroom, mixinbooter, configanytime, kirino_engine, kirino_ecs, kirino_gl, FML, forge, ponder_editor_harness, ponder-legacy] at CLIENT
+[19:57:49] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, cleanroom, mixinbooter, configanytime, kirino_engine, kirino_ecs, kirino_gl, FML, forge, ponder_editor_harness, ponder-legacy] at SERVER
+[19:57:50] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Ponder editor verification, FMLFileResourcePack:Ponder Legacy
+[19:57:50] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[19:57:50] [Client thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[19:57:50] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[19:57:50] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[19:57:50] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[19:57:50] [Cleanroom Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[19:57:50] [Client thread/INFO] [Ponder Legacy]: Starting Ponder Legacy 1.7.1 for Minecraft 1.12.2
+[19:57:50] [Client thread/INFO] [FML]: Setting Object Holders with value...
+[19:57:50] [Client thread/INFO] [FML]: Object Holders set.
+[19:57:50] [Client thread/INFO] [FML]: Setting Object Holders with value...
+[19:57:50] [Client thread/INFO] [FML]: Object Holders set.
+[19:57:50] [Client thread/INFO] [FML]: Setting Object Holders with value...
+[19:57:50] [Client thread/INFO] [FML]: Object Holders set.
+[19:57:50] [Client thread/INFO] [FML]: Setting Object Holders with value...
+[19:57:50] [Client thread/INFO] [FML]: Object Holders set.
+[19:57:50] [Client thread/INFO] [FML]: Injecting itemstacks
+[19:57:50] [Client thread/INFO] [FML]: Itemstack injection complete
+[19:57:50] [Client thread/INFO] [Kirino Core]: KirinoCore Initialization Stage
+[19:57:50] [Client thread/INFO] [Kirino Core]: OpenGL version: 4.5 (Compatibility Profile) Mesa 26.0.8-1ubuntu0.3
+[19:57:50] [Client thread/WARN] [Kirino Core]: OpenGL 4.6 not supported. Marking "RENDER_UNSUPPORTED"=true.
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered the default StructScanningEvent listener.
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered the default ComponentScanningEvent listener.
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered the default ShaderRegistrationEvent listener.
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered the default JobRegistrationEvent listener.
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered the default PostProcessingRegistrationEvent listener.
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered the default DebugHUDRegistrationEvent listener.
+[19:57:50] [Client thread/INFO] [Kirino Core]: ---------------
+[19:57:50] [Client thread/INFO] [Kirino Core]: Initializing ECS Runtime.
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered struct "AABB". Loaded "com.cleanroommc.kirino.engine.render.platform.ecs.struct.AABB".
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered struct "Block". Loaded "com.cleanroommc.kirino.engine.render.platform.ecs.struct.Block".
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered struct "BlockInfo". Loaded "com.cleanroommc.kirino.engine.render.platform.ecs.struct.BlockInfo".
+[19:57:50] [Client thread/INFO] [Kirino Core]: Struct defs are as follows:
+[19:57:50] [Client thread/INFO] [Kirino Core]:   - BlockInfo: StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } }
+[19:57:50] [Client thread/INFO] [Kirino Core]:   - Block: StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } }
+[19:57:50] [Client thread/INFO] [Kirino Core]:   - AABB: StructDef{ FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT } }
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered component "ChunkComponent". Loaded "com.cleanroommc.kirino.engine.render.platform.ecs.component.ChunkComponent".
+[19:57:50] [Client thread/INFO] [Kirino Core]: Registered component "MeshletComponent". Loaded "com.cleanroommc.kirino.engine.render.platform.ecs.component.MeshletComponent".
+[19:57:50] [Client thread/INFO] [Kirino Core]: Component descs are as follows:
+[19:57:50] [Client thread/INFO] [Kirino Core]:   - MeshletComponent: ComponentDesc{ name=MeshletComponent, fields=FieldDef{ structType=(AABB)StructDef{ FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT }, FieldDef{ scalarType=FLOAT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ structType=(Block)StructDef{ FieldDef{ structType=(BlockInfo)StructDef{ FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT } } }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=VEC3 }, FieldDef{ scalarType=INT } }
+[19:57:50] [Client thread/INFO] [Kirino Core]:   - MeshletComponent: ComponentDescFlattened{ FlattenedField{ FLOAT, FLOAT, FLOAT, FLOAT, FLOAT, FLOAT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT }, FlattenedField{ INT }, FlattenedField{ INT }, FlattenedField{ INT }, FlattenedField{ INT }, FlattenedField{ INT }, FlattenedField{ FLOAT, FLOAT, FLOAT }, FlattenedField{ INT } }
+[19:57:50] [Client thread/INFO] [Kirino Core]:   - ChunkComponent: ComponentDesc{ name=ChunkComponent, fields=FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=INT }, FieldDef{ scalarType=BOOL }, FieldDef{ scalarType=INT } }
+[19:57:50] [Client thread/INFO] [Kirino Core]:   - ChunkComponent: ComponentDescFlattened{ FlattenedField{ INT }, FlattenedField{ INT }, FlattenedField{ INT }, FlattenedField{ BOOL }, FlattenedField{ INT } }
+[19:57:51] [Client thread/INFO] [Kirino Core]: Parallel job "com.cleanroommc.kirino.engine.render.platform.task.job.ChunkMeshletGenJob" registered. Data queries are as follows:
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; chunkPosX
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; chunkPosY
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; chunkPosZ
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; isDirty
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; lod
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: blockMeshGenerator
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: chunkProvider
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: gizmosManager
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: lod
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: meshletDestroyCallback
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: meshletGpuRegistry
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: storage
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: tempBuffers
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: world
+[19:57:51] [Client thread/INFO] [Kirino Core]: Parallel job "com.cleanroommc.kirino.engine.render.platform.task.job.ChunkPrioritizationJob" registered. Data queries are as follows:
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; chunkPosX
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; chunkPosY
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; chunkPosZ
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: ChunkComponent; lod
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: camera
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: maxLodCounter
+[19:57:51] [Client thread/INFO] [Kirino Core]: Parallel job "com.cleanroommc.kirino.engine.render.platform.task.job.MeshletDestroyJob" registered. Data queries are as follows:
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosX
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosY
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosZ
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: chunksDestroyedLastFrame
+[19:57:51] [Client thread/INFO] [Kirino Core]: Parallel job "com.cleanroommc.kirino.engine.render.platform.task.job.MeshletDebugJob" registered. Data queries are as follows:
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; blockCount
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosX
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosY
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosZ
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: gizmosManager
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: storage
+[19:57:51] [Client thread/INFO] [Kirino Core]: Parallel job "com.cleanroommc.kirino.engine.render.platform.task.job.MeshletBufferWriteJob" registered. Data queries are as follows:
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block0.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block1.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block10.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block11.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block12.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block13.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block14.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block15.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block16.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block17.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block18.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block19.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block2.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block20.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block21.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block22.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block23.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block24.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block25.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block26.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block27.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block28.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block29.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block3.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block30.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block31.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block4.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block5.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block6.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block7.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block8.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.xPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.yPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zMinusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zMinusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zMinusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zMinusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zPlusFaceTexCoord0
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zPlusFaceTexCoord1
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zPlusFaceTexCoord2
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.blockInfo.zPlusFaceTexCoord3
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; block9.positionAndFaceMask
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; blockCount
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosX
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosY
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; chunkPosZ
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; meshletId
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; normal.x
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; normal.y
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - Array query: MeshletComponent; normal.z
+[19:57:51] [Client thread/INFO] [Kirino Core]:   - External query: meshletGpuWriterContext
+[19:57:51] [Client thread/INFO] [Kirino Core]: ECS Runtime Initialized. Time taken: 685 ms
+[19:57:51] [Client thread/INFO] [Kirino Core]: ---------------
+[19:57:51] [Client thread/INFO] [Kirino Core]: Initializing Kirino Engine.
+[19:57:51] [Client thread/INFO] [Kirino Core]: Registered headless module installer "com.cleanroommc.kirino.engine.analysis.install.AnalyticalWorldInstaller".
+[19:57:51] [Client thread/INFO] [Kirino Core]: Registered graphics module installer "com.cleanroommc.kirino.engine.graphics.install.GraphicsWorldInstaller".
+[19:57:51] [Client thread/INFO] [Kirino Core]: Kirino Engine Initialized. Time taken: 68 ms
+[19:57:51] [Client thread/INFO] [Kirino Core]: ---------------
+[19:57:51] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[19:57:51] [Thread-1/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[19:57:51] [Thread-1/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:57:51] [Thread-1/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[19:57:52] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[19:57:52] [Client thread/INFO] [FML]: Max texture size: 16384
+[19:57:53] [Cleanroom Version Check/INFO] [forge.VersionCheck]: [forge] Found status: BETA Target: null
+[19:57:53] [Cleanroom Version Check/INFO] [forge.VersionCheck]: [cleanroom] Starting version check at https://download.cleanroommc.com/api/forge
+[19:57:53] [Client thread/INFO] [minecraft/TextureMap]: Created: 512x512 textures-atlas
+[19:57:53] [Client thread/INFO] [FML]: Setting Object Holders with value...
+[19:57:53] [Client thread/INFO] [FML]: Object Holders set.
+[19:57:53] [Client thread/INFO] [FML]: Injecting itemstacks
+[19:57:53] [Client thread/INFO] [FML]: Itemstack injection complete
+[19:57:53] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 0 storyboard(s)
+[19:57:53] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 0 storyboard(s)
+[19:57:53] [Client thread/INFO] [Ponder Legacy]: Loaded 0 Ponder JSON pack(s), 0 scene(s), 0 warning(s), 0 error(s)
+[19:57:54] [Cleanroom Version Check/INFO] [forge.VersionCheck]: [cleanroom] Found status: BETA_OUTDATED Target: 0.7.14-alpha
+[19:57:54] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 12 mods
+[19:57:54] [Client thread/INFO] [Kirino Core]: KirinoCore Post-Initialization Stage
+[19:57:54] [Client thread/INFO] [Kirino Core]: ---------------
+[19:57:54] [Client thread/INFO] [Kirino Core]: Post-Initializing Kirino Engine.
+[19:57:54] [Client thread/INFO] [Kirino Core]: Kirino Engine Post-Initialized. Time taken: 2 ms
+[19:57:54] [Client thread/INFO] [Kirino Core]: ---------------
+[19:57:54] [Client thread/INFO] [mojang/NarratorLinux]: Narrator library successfully loaded
+[19:57:54] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.12.2
+[19:57:54] [Server thread/INFO] [minecraft/IntegratedServer]: Generating keypair
+[19:57:54] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[19:57:54] [Server thread/INFO] [FML]: Setting Object Holders with value...
+[19:57:54] [Server thread/INFO] [FML]: Object Holders set.
+[19:57:54] [Server thread/INFO] [FML]: Loading dimension 0 (Ponder editor smoke) (net.minecraft.server.integrated.IntegratedServer@6caedba6)
+[19:57:54] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[19:57:54] [Server thread/INFO] [FML]: Loading dimension -1 (Ponder editor smoke) (net.minecraft.server.integrated.IntegratedServer@6caedba6)
+[19:57:54] [Server thread/INFO] [FML]: Loading dimension 1 (Ponder editor smoke) (net.minecraft.server.integrated.IntegratedServer@6caedba6)
+[19:57:54] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for level 0
+[19:57:54] [Server thread/INFO] [FML]: Unloading dimension -1
+[19:57:54] [Server thread/INFO] [FML]: Unloading dimension 1
+[19:57:54] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 2, from 10
+[19:57:56] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
+[19:57:56] [Netty Local Server IO #1/INFO] [FML]: Client protocol version 2
+[19:57:56] [Netty Local Server IO #1/INFO] [FML]: Client attempting to join with 12 mods : minecraft@1.12.2,cleanroom@0.4.0,configanytime@3.0,kirino_engine@epoch-1.a1,ponder-legacy@1.7.1,FML@8.0.99.99,kirino_gl@epoch-1.a1,forge@14.23.5.2864,mixinbooter@10.7,kirino_ecs@epoch-1.a1,mcp@9.42,ponder_editor_harness@1
+[19:57:56] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
+[19:57:56] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[19:57:56] [Server thread/INFO] [minecraft/PlayerList]: PonderDeveloper[local:E:95be3b20] logged in with entity id 0 at (-167.5, -1.0, -778.5)
+[19:57:56] [Server thread/INFO] [minecraft/MinecraftServer]: PonderDeveloper joined the game
+[19:57:56] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[19:57:56] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'Ponder editor smoke'/overworld
+[19:57:56] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 0 storyboard(s)
+[19:57:56] [Client thread/INFO] [Ponder Legacy]: Applied 0 server Ponder script scene(s)
+[19:57:56] [Server thread/INFO] [Ponder Legacy]: PonderDeveloper applied Ponder script snapshot #1
+[19:57:57] [Client thread/INFO] [Ponder Legacy]: Registered Ponder scene ponder_crt_smoke:java for minecraft:stick
+[19:57:57] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 2 storyboard(s)
+[19:57:57] [Client thread/INFO] [Ponder Legacy]: Loaded 1 Ponder JSON pack(s), 1 scene(s), 0 warning(s), 0 error(s)
+[19:57:57] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 2 storyboard(s)
+[19:57:57] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] [Ponder] Corner A: -3, 64, -5
+[19:57:57] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] [Ponder] Corner B: 1, 66, -1
+[19:57:57] [Client thread/INFO] [minecraft/GuiNewChat]: [CHAT] [Ponder] Captured structure (517 bytes), linked to this scene.
+[19:57:58] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 3 storyboard(s)
+[19:57:58] [Client thread/INFO] [Ponder Legacy]: Loaded 2 Ponder JSON pack(s), 2 scene(s), 0 warning(s), 0 error(s)
+[19:57:58] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 3 storyboard(s)
+[19:57:58] [Client thread/INFO] [Ponder Legacy]: Loaded 2 Ponder JSON pack(s), 2 scene(s), 0 warning(s), 0 error(s)
+[19:57:58] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Ponder editor verification, FMLFileResourcePack:Ponder Legacy
+[19:57:58] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[19:57:58] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[19:57:59] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+[19:57:59] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[19:57:59] [Thread-8/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[19:57:59] [Thread-8/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:57:59] [Thread-8/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[19:57:59] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[19:57:59] [Client thread/INFO] [FML]: Max texture size: 16384
+[19:58:00] [Client thread/INFO] [minecraft/TextureMap]: Created: 512x512 textures-atlas
+[19:58:00] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 3 storyboard(s)
+[19:58:04] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 15 storyboard(s)
+[19:58:04] [Client thread/INFO] [Ponder Legacy]: Loaded 3 Ponder JSON pack(s), 14 scene(s), 0 warning(s), 0 error(s)
+[19:58:06] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Ponder editor verification, FMLFileResourcePack:Ponder Legacy
+[19:58:06] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[19:58:07] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[19:58:07] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+[19:58:07] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[19:58:07] [Thread-10/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[19:58:07] [Thread-10/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:58:07] [Thread-10/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[19:58:07] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[19:58:07] [Client thread/INFO] [FML]: Max texture size: 16384
+[19:58:08] [Client thread/INFO] [minecraft/TextureMap]: Created: 512x512 textures-atlas
+[19:58:08] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 15 storyboard(s)
+[19:58:09] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[19:58:09] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'Ponder editor smoke'/overworld
+[19:58:11] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 256 storyboard(s)
+[19:58:11] [Client thread/INFO] [Ponder Legacy]: Loaded 4 Ponder JSON pack(s), 255 scene(s), 0 warning(s), 0 error(s)
+[19:58:11] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Ponder editor verification, FMLFileResourcePack:Ponder Legacy
+[19:58:11] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[19:58:11] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[19:58:11] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+[19:58:11] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[19:58:11] [Thread-12/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[19:58:11] [Thread-12/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:58:11] [Thread-12/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[19:58:12] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[19:58:12] [Client thread/INFO] [FML]: Max texture size: 16384
+[19:58:13] [Client thread/INFO] [minecraft/TextureMap]: Created: 512x512 textures-atlas
+[19:58:14] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 256 storyboard(s)
+[19:58:17] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Ponder editor verification, FMLFileResourcePack:Ponder Legacy
+[19:58:18] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[19:58:18] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[19:58:18] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+[19:58:18] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[19:58:18] [Thread-14/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[19:58:18] [Thread-14/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:58:18] [Thread-14/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[19:58:19] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[19:58:19] [Client thread/INFO] [FML]: Max texture size: 16384
+[19:58:20] [Client thread/INFO] [minecraft/TextureMap]: Created: 512x512 textures-atlas
+[19:58:20] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 256 storyboard(s)
+[19:58:21] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 257 storyboard(s)
+[19:58:22] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 257 storyboard(s)
+[19:58:23] [Client thread/INFO] [minecraft/AdvancementList]: Loaded 5 advancements
+[19:58:27] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Ponder editor verification, FMLFileResourcePack:Ponder Legacy
+[19:58:27] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[19:58:28] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[19:58:28] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+[19:58:28] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[19:58:28] [Thread-16/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[19:58:28] [Thread-16/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:58:28] [Thread-16/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[19:58:29] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[19:58:29] [Client thread/INFO] [FML]: Max texture size: 16384
+[19:58:30] [Client thread/INFO] [minecraft/TextureMap]: Created: 512x512 textures-atlas
+[19:58:30] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 257 storyboard(s)
+[19:58:30] [Client thread/INFO] [minecraft/AdvancementList]: Loaded 5 advancements
+[19:58:32] [Client thread/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Ponder editor verification, FMLFileResourcePack:Ponder Legacy
+[19:58:32] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[19:58:32] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[19:58:32] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+[19:58:32] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[19:58:33] [Thread-18/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[19:58:33] [Thread-18/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[19:58:33] [Thread-18/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[19:58:33] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[19:58:33] [Client thread/INFO] [FML]: Max texture size: 16384
+[19:58:34] [Client thread/INFO] [minecraft/TextureMap]: Created: 512x512 textures-atlas
+[19:58:34] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 257 storyboard(s)
+[19:58:34] [Client thread/INFO] [minecraft/AdvancementList]: Loaded 5 advancements
+[19:58:35] [Client thread/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 257 storyboard(s)
+[19:58:43] [Client thread/INFO] [minecraft/Minecraft]: Stopping!
+[19:58:43] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[19:58:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[19:58:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[19:58:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'Ponder editor smoke'/overworld
+[19:58:43] [Server thread/INFO] [FML]: Unloading dimension 0
+[19:58:43] [Server thread/INFO] [FML]: Setting Object Holders with value...
+[19:58:43] [Server thread/INFO] [FML]: Object Holders set.
+[19:58:43] [Client thread/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[19:58:43] [Netty Local Client IO #0/INFO] [Ponder Legacy]: Registered 2 Ponder plugin(s) and 257 storyboard(s)
+[19:58:43] [Client thread/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+PASS: no CraftTweaker, ZenScript or optional bridge classes loaded
+PASS: /home/yudream/code/mods/.dev/github-legacy/ponder-legacy/run/cleanroom-0.4.0-optional/gui-layout-171-final/client/ponder-smoke/report.json
