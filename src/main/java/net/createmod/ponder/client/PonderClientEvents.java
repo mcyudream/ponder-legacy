@@ -86,10 +86,14 @@ public final class PonderClientEvents {
 
     @SubscribeEvent
     public void onDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event) {
-        net.createmod.ponder.client.projection.ProjectionService.clear();
-        net.createmod.ponder.client.guitutorial.GuiTutorialEvents.stop();
-        ScriptSnapshotReceiver.reset();
-        ScriptSceneSync.clearServerScenes();
+        // FML can deliver this event on Netty while registries are being restored.
+        // Both GUI state and addon registration must be updated on the client thread.
+        Minecraft.getMinecraft().addScheduledTask(() -> {
+            net.createmod.ponder.client.projection.ProjectionService.clear();
+            net.createmod.ponder.client.guitutorial.GuiTutorialEvents.stop();
+            ScriptSnapshotReceiver.reset();
+            ScriptSceneSync.clearServerScenes();
+        });
     }
 
     public static void onWindowResize(int width, int height) {

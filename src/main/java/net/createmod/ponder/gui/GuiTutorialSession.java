@@ -6,7 +6,7 @@ import net.createmod.ponder.api.gui.GuiTutorial.*;
 import net.createmod.ponder.api.gui.GuiTutorial.Stack;
 
 /** Deterministic demonstration playback and observation-only live completion checks. */
-public final class GuiTutorialSession {
+public final class GuiTutorialSession implements net.createmod.ponder.api.gui.GuiDemoState {
     public interface Observation {
         /** null means that the target is unavailable, rather than an empty slot. */
         Stack slot(String target);

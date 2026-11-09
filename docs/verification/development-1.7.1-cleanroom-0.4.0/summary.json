@@ -1,24 +1,63 @@
 {
   "version": "1.7.1",
+  "date": "2026-11-08",
+  "minecraft": "1.12.2",
   "cleanroom": "0.4.0",
   "java": 25,
-  "date": "2026-11-08",
-  "jar_sha256": "4407b5f7d17426e10053917d8686f2795dde0997d7231836f8df6b791f394a6a",
+  "jar_sha256": "737dbd1488377a4464e8817f1e2465cb06883b34ca93559ac157802d6589dbf7",
   "unit_tests": 336,
+  "unit_test_results": {
+    "tests": 336,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "fixtures": [
+    {
+      "fixture": "client",
+      "result": "PASS",
+      "checks": 243,
+      "report": "client/report.json"
+    },
+    {
+      "fixture": "gui-client",
+      "result": "PASS",
+      "checks": 62,
+      "report": "gui-client/report.json"
+    },
+    {
+      "fixture": "server",
+      "result": "PASS",
+      "checks": 11,
+      "report": "server/report.json"
+    }
+  ],
   "scenarios": {
     "client": {
       "result": "PASS",
       "checks": 243
+    },
+    "gui-client": {
+      "result": "PASS",
+      "checks": 62
     },
     "server": {
       "result": "PASS",
       "checks": 11
     }
   },
+  "standalone_api_compile": "standalone-sdk.json",
   "scope": [
-    "Complete Ponder client regression including furnace GUI guidance, timeline clips, authoring, localization and projection",
-    "Dedicated server startup using the production installation jar",
-    "GuiDemoLayout unit coverage: nested coordinates, clipping, paint order, hidden controls and target binding",
-    "AE2S complete-appearance integration is accepted separately by the AE2S Ponder repository"
+    "Complete core editor, Markdown, catalog and projection client regression.",
+    "Actual furnace GUI guidance, independent demonstration, capture editor and timeline clips.",
+    "Network-thread disconnect defers GUI cleanup and scene registration to the client thread.",
+    "Dedicated server startup with the production jar; CraftTweaker remains absent.",
+    "Nested layout coordinates, clipping, stable layers, hidden controls and shared highlight nodes.",
+    "Read-only GuiDemoState and layout SDK compile using only the API jar."
+  ],
+  "limitations": [
+    "Linux x64 llvmpipe; AE2S complete-appearance acceptance is recorded separately.",
+    "A first core input fixture failed a scene-menu Enter assertion; a fresh core fixture passed on this identical production jar. Its failure log remains in the local run directory.",
+    "Main CI build; no release tag created."
   ]
 }

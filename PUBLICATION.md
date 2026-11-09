@@ -4,8 +4,8 @@
 ## 当前开发版：1.7.1
 
 - 提供完整 GUI 的分组布局、绘制层级、裁切、动态可见性与共享高亮坐标；修正分数缩放的边缘取整。
-- 336 项单元测试、正式 Cleanroom 0.4.0 客户端 243 项与专服 11 项检查通过。
-- 生产 SHA-256：`4407b5f7d17426e10053917d8686f2795dde0997d7231836f8df6b791f394a6a`；[验收记录](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。
+- 336 项单元测试、正式 Cleanroom 0.4.0 核心客户端 243 项、GUI 专项 62 项与专服 11 项检查通过。独立 API jar 编译检查通过。
+- 生产 SHA-256：`737dbd1488377a4464e8817f1e2465cb06883b34ca93559ac157802d6589dbf7`；[验收记录](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。
 - main CI 构建；本次未创建标签或 GitHub Release。
 
 

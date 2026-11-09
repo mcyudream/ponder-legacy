@@ -36,6 +36,7 @@ public final class GuiTutorialSmoke {
     private CompletableFuture<Void> pending;
     private int phase,wait,window;
     private String inventory;
+    private Object beforeDisconnectScenes;
     private final BlockPos pos=new BlockPos(1,65,0);
     public GuiTutorialSmoke(Minecraft mc,BiConsumer<Boolean,String> check,Consumer<String> screenshot){this.mc=mc;this.check=check;this.screenshot=screenshot;}
     public boolean advance()throws Exception{
@@ -182,6 +183,18 @@ public final class GuiTutorialSmoke {
                 var screen=new net.createmod.ponder.client.editor.EditorScreen(document,null);mc.displayGuiScreen(screen);
                 Field f=screen.getClass().getDeclaredField("preview");f.setAccessible(true);Object preview=f.get(screen);var seek=preview.getClass().getDeclaredMethod("seek",int.class);seek.setAccessible(true);seek.invoke(preview,100);
                 screenshot.accept("gui-animation-editor-en.png");phase++;
+            }
+            case 20 -> {
+                mc.displayGuiScreen(furnace);GuiTutorialEvents.start(furnace,lesson);
+                beforeDisconnectScenes=net.createmod.ponder.foundation.PonderIndex.getSceneAccess();
+                Thread network=new Thread(()->new net.createmod.ponder.client.PonderClientEvents().onDisconnect(null),"Ponder disconnect fixture");
+                network.start();network.join();
+                check.accept(GuiTutorialEvents.liveSession()!=null&&beforeDisconnectScenes==net.createmod.ponder.foundation.PonderIndex.getSceneAccess(),"network disconnect defers GUI cleanup and addon reload until the client thread runs");
+                phase++;
+            }
+            case 21 -> {
+                check.accept(GuiTutorialEvents.liveSession()==null&&beforeDisconnectScenes!=net.createmod.ponder.foundation.PonderIndex.getSceneAccess(),"client task clears live GUI state and rebuilds the scene index after network disconnect");
+                phase++;
             }
             default -> {GuiTutorialEvents.stop();return true;}
         }

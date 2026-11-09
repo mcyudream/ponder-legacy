@@ -17,5 +17,5 @@ public interface GuiTutorialAdapter {
     default String value(GuiScreen screen,String key){return "";}
     default boolean textFocused(GuiScreen screen){return false;}
     /** Complete passive appearance; Ponder paints its layers and resolves highlights from the same tree. */
-    default GuiDemoLayout demoLayout(net.createmod.ponder.gui.GuiTutorialSession session){return null;}
+    default GuiDemoLayout demoLayout(GuiDemoState session){return null;}
 }

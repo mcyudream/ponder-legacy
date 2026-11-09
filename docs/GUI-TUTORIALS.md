@@ -130,7 +130,7 @@ Ponder 负责分组坐标、稳定图层顺序、裁切、缩放和高亮；布�
 
 ```java
 @Override
-public GuiDemoLayout demoLayout(GuiTutorialSession session) {
+public GuiDemoLayout demoLayout(GuiDemoState session) {
     var builder = GuiDemoLayout.builder(240, 200);
     var machine = builder.root().group(24, 8);
     machine.node("", new Rect(0, 0, 176, 166), GuiDemoLayout.BACKGROUND, this::drawBackground);

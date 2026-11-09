@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "java": 25,
+  "api_jar_sha256": "022e3de404cb2efb73720146e52cef8ca5f895404ecef0518268aa3f376e85f8",
+  "classpath": [
+    "ponder-legacy-1.7.1-api.jar"
+  ],
+  "source": "LayoutSdkProbe.java",
+  "command": "javac -cp build/libs/ponder-legacy-1.7.1-api.jar -d /tmp/ponder-layout-sdk-probe docs/verification/development-1.7.1-cleanroom-0.4.0/LayoutSdkProbe.java"
+}

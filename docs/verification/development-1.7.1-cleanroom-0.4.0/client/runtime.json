@@ -3,8 +3,8 @@
   "side": "client",
   "scenario": "full",
   "jars": {
-    "ponder-legacy-1.7.1.jar": "4407b5f7d17426e10053917d8686f2795dde0997d7231836f8df6b791f394a6a",
-    "ponder-editor-harness-srg.jar": "2f693258fde59ed8a8aca8abb11bf0e4d37e4cb035efed15bcb3740e44fea65a"
+    "ponder-legacy-1.7.1.jar": "737dbd1488377a4464e8817f1e2465cb06883b34ca93559ac157802d6589dbf7",
+    "ponder-editor-harness-srg.jar": "7fa73d86435490e1562a6aecda8e06e129f05e51347c50037fc35b870021cf94"
   },
   "libraries": {
     "/home/yudream/code/mods/.dev/cleanroom-0.4.0-runtime/libraries/com/cleanroommc/cleanroom/0.4.0/cleanroom-0.4.0.jar": "2b697f6538c4d893ddbd876eb02d9ea55743a4f8",

@@ -112,7 +112,8 @@ public final class GuiTutorialDrawing {
             }
         }finally{
             org.lwjgl.opengl.GL11.glScissor(old.get(0),old.get(1),old.get(2),old.get(3));
-            if(!scissor)org.lwjgl.opengl.GL11.glDisable(org.lwjgl.opengl.GL11.GL_SCISSOR_TEST);
+            if(scissor)org.lwjgl.opengl.GL11.glEnable(org.lwjgl.opengl.GL11.GL_SCISSOR_TEST);
+            else org.lwjgl.opengl.GL11.glDisable(org.lwjgl.opengl.GL11.GL_SCISSOR_TEST);
         }
     }
 }
