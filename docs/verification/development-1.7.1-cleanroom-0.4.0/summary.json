@@ -80,6 +80,7 @@
   "limitations": [
     "Linux x64 llvmpipe; AE2S complete-appearance acceptance is recorded separately.",
     "Earlier candidate run logs remain local; only the final artifact fingerprints below are accepted.",
-    "The joint catalog fixture uses AE2S 1.1.0+a47dfe029 and AE2S Ponder 0.4.0 before its final dependency-lock refresh. Final AE2S 1.1.0 / Ponder 1.7.1 runtime acceptance is recorded separately by AE2S Ponder."
+    "The joint catalog fixture uses AE2S 1.1.0+a47dfe029 and AE2S Ponder 0.4.0 before its final dependency-lock refresh. Final AE2S 1.1.0 / Ponder 1.7.1 runtime acceptance is recorded separately by AE2S Ponder.",
+    "The joint addon catalog logs minecraft:air#inventory model lookup errors during resource reload. Catalog labels and subject rendering checks pass; this catalog fixture does not certify every model supplied by these addons. Original runtime logs are retained locally; the committed transcript trims trailing whitespace only."
   ]
 }

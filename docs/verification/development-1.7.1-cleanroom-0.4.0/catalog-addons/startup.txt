@@ -1047,7 +1047,7 @@
 [02:02:14] [Client thread/INFO] [FML]: Max texture size: 16384
 [02:02:15] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 2048x2048 textures-atlas
 [02:02:16] [Client thread/ERROR] [FML]: MultiModel minecraft:builtin/missing is empty (no base model or parts were provided/resolved)
-[02:02:16] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception: 
+[02:02:16] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:303)
@@ -1068,7 +1068,7 @@ Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
 	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:862)
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
 	... 10 more
-[02:02:16] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception: 
+[02:02:16] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:297)
@@ -1238,7 +1238,7 @@ Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$Missin
 [02:02:32] [Client thread/INFO] [FML]: Max texture size: 16384
 [02:02:33] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 2048x2048 textures-atlas
 [02:02:34] [Client thread/ERROR] [FML]: MultiModel minecraft:builtin/missing is empty (no base model or parts were provided/resolved)
-[02:02:34] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception: 
+[02:02:34] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:303)
@@ -1268,7 +1268,7 @@ Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
 	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:862)
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
 	... 19 more
-[02:02:34] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception: 
+[02:02:34] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:297)
@@ -1311,7 +1311,7 @@ Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$Missin
 [02:02:43] [Client thread/INFO] [FML]: Max texture size: 16384
 [02:02:44] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 2048x2048 textures-atlas
 [02:02:45] [Client thread/ERROR] [FML]: MultiModel minecraft:builtin/missing is empty (no base model or parts were provided/resolved)
-[02:02:45] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception: 
+[02:02:45] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:303)
@@ -1341,7 +1341,7 @@ Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
 	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:862)
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
 	... 19 more
-[02:02:45] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception: 
+[02:02:45] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:297)
@@ -1384,7 +1384,7 @@ Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$Missin
 [02:02:49] [Client thread/INFO] [FML]: Max texture size: 16384
 [02:02:50] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 2048x2048 textures-atlas
 [02:02:51] [Client thread/ERROR] [FML]: MultiModel minecraft:builtin/missing is empty (no base model or parts were provided/resolved)
-[02:02:51] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception: 
+[02:02:51] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:303)
@@ -1414,7 +1414,7 @@ Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
 	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:862)
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
 	... 19 more
-[02:02:51] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception: 
+[02:02:51] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:297)
@@ -1457,7 +1457,7 @@ Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$Missin
 [02:02:56] [Client thread/INFO] [FML]: Max texture size: 16384
 [02:02:57] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 2048x2048 textures-atlas
 [02:02:57] [Client thread/ERROR] [FML]: MultiModel minecraft:builtin/missing is empty (no base model or parts were provided/resolved)
-[02:02:57] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception: 
+[02:02:57] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:303)
@@ -1487,7 +1487,7 @@ Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
 	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:862)
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
 	... 19 more
-[02:02:57] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception: 
+[02:02:57] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:297)
@@ -1530,7 +1530,7 @@ Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$Missin
 [02:03:00] [Client thread/INFO] [FML]: Max texture size: 16384
 [02:03:01] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 2048x2048 textures-atlas
 [02:03:01] [Client thread/ERROR] [FML]: MultiModel minecraft:builtin/missing is empty (no base model or parts were provided/resolved)
-[02:03:01] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception: 
+[02:03:01] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, normal location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:303)
@@ -1560,7 +1560,7 @@ Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
 	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:862)
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157)
 	... 19 more
-[02:03:01] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception: 
+[02:03:01] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory, blockstate location exception:
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161)
 	at net.minecraftforge.client.model.ModelLoader.func_177590_d(ModelLoader.java:297)
