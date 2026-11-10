@@ -1,13 +1,13 @@
 {
   "version": "1.7.1",
-  "date": "2026-11-08",
+  "date": "2026-11-10",
   "minecraft": "1.12.2",
   "cleanroom": "0.4.0",
   "java": 25,
-  "jar_sha256": "0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e",
-  "unit_tests": 336,
+  "jar_sha256": "923cb6653eee53c96e4fbd9ac871c897cb151b91b3e0759c40ed4687611c6dd4",
+  "unit_tests": 341,
   "unit_test_results": {
-    "tests": 336,
+    "tests": 341,
     "failures": 0,
     "errors": 0,
     "skipped": 0
@@ -16,7 +16,7 @@
     {
       "fixture": "client",
       "result": "PASS",
-      "checks": 243,
+      "checks": 249,
       "report": "client/report.json"
     },
     {
@@ -30,18 +30,38 @@
       "result": "PASS",
       "checks": 11,
       "report": "server/report.json"
+    },
+    {
+      "fixture": "catalog-addons",
+      "result": "PASS",
+      "checks": 157,
+      "report": "catalog-addons/report.json"
+    },
+    {
+      "fixture": "addons-server",
+      "result": "PASS",
+      "checks": 11,
+      "report": "addons-server/report.json"
     }
   ],
   "scenarios": {
     "client": {
       "result": "PASS",
-      "checks": 243
+      "checks": 249
     },
     "gui-client": {
       "result": "PASS",
       "checks": 62
     },
     "server": {
+      "result": "PASS",
+      "checks": 11
+    },
+    "catalog-addons": {
+      "result": "PASS",
+      "checks": 157
+    },
+    "addons-server": {
       "result": "PASS",
       "checks": 11
     }
@@ -54,11 +74,12 @@
     "Dedicated server startup with the production jar; CraftTweaker remains absent.",
     "Nested layout coordinates, clipping, stable layers, hidden controls and shared highlight nodes.",
     "Read-only GuiDemoState and layout SDK compile using only the API jar.",
-    "Tall standalone appearances reserve the footer hint and playback controls."
+    "Tall standalone appearances reserve the footer hint and playback controls.",
+    "Actual AE2S Applied Pneumatics 1.0.9-cleanroom.4, BMAddon 1.0.4-cleanroom.1 and Probability Pattern 1.0.2 catalog labels and searches in simplified Chinese, traditional Chinese and English, plus joint dedicated-server startup. Content namespaces resolve owning loader IDs; resource-pack overrides and original metadata search remain available."
   ],
   "limitations": [
     "Linux x64 llvmpipe; AE2S complete-appearance acceptance is recorded separately.",
     "Earlier candidate run logs remain local; only the final artifact fingerprints below are accepted.",
-    "Main CI build; no release tag created."
+    "The joint catalog fixture uses AE2S 1.1.0+a47dfe029 and AE2S Ponder 0.4.0 before its final dependency-lock refresh. Final AE2S 1.1.0 / Ponder 1.7.1 runtime acceptance is recorded separately by AE2S Ponder."
   ]
 }

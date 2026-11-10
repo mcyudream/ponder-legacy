@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="net.createmod.ponder.gui.GuiDemoLayoutTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-09T02:03:19.092Z" hostname="yudream-dev" time="0.004">
+<testsuite name="net.createmod.ponder.gui.GuiDemoLayoutTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:56:41.373Z" hostname="yudream-dev" time="0.007">
   <properties/>
-  <testcase name="clippingFollowsNestedGroupsAndTargets" classname="net.createmod.ponder.gui.GuiDemoLayoutTest" time="0.004"/>
+  <testcase name="clippingFollowsNestedGroupsAndTargets" classname="net.createmod.ponder.gui.GuiDemoLayoutTest" time="0.006"/>
   <testcase name="hiddenAndClippedOutControlsNeverLeaveGhostHighlights" classname="net.createmod.ponder.gui.GuiDemoLayoutTest" time="0.0"/>
   <testcase name="actualControlReplacesAuthoredApproximation" classname="net.createmod.ponder.gui.GuiDemoLayoutTest" time="0.0"/>
-  <testcase name="nestedControlsAndHighlightsShareOneOrigin" classname="net.createmod.ponder.gui.GuiDemoLayoutTest" time="0.0"/>
+  <testcase name="nestedControlsAndHighlightsShareOneOrigin" classname="net.createmod.ponder.gui.GuiDemoLayoutTest" time="0.001"/>
   <testcase name="popupPaintsAfterForegroundRegardlessOfRegistrationOrder" classname="net.createmod.ponder.gui.GuiDemoLayoutTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

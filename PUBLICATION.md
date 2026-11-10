@@ -1,13 +1,12 @@
 # Ponder Legacy 发布状态
 
+## 发行版本：1.7.1
 
-## 当前开发版：1.7.1
-
-- 提供完整 GUI 的分组布局、绘制层级、裁切、动态可见性与共享高亮坐标；修正分数缩放的边缘取整。
-- 336 项单元测试、正式 Cleanroom 0.4.0 核心客户端 243 项、GUI 专项 62 项与专服 11 项检查通过。独立 API jar 编译检查通过。
-- 生产 SHA-256：`0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e`；[验收记录](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。
-- main CI 构建；本次未创建标签或 GitHub Release。
-
+- 提供完整 GUI 的分组布局、绘制层级、裁切、动态可见性与共享高亮坐标；修正分数缩放、退出世界重载与底部播放控件留白。
+- 修正应用气动、血魔法 AE2S 附属和 AE2S 概率样板的简繁中文分类；兼容资源命名空间与 Mod ID 不一致的情况，支持中文名、英文名、命名空间与 Mod ID 搜索。
+- 341 项单元测试；正式 Cleanroom 0.4.0 核心客户端 249 项、GUI 专项 62 项、实际三附属目录专项 157 项及两种专服各 11 项检查通过。独立 API jar 编译检查通过。
+- 生产 SHA-256：`923cb6653eee53c96e4fbd9ac871c897cb151b91b3e0759c40ed4687611c6dd4`；[验收记录](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。
+- [GitHub Release](https://github.com/mcyudream/ponder-legacy/releases/tag/v1.7.1)；标签流水线强制核对已验收产物哈希。最低 Cleanroom 0.4.0 正式版 / Java 25。
 
 ## 历史开发版：1.7.0
 

@@ -148,6 +148,12 @@
     "PonderIndexScreen renders and hit-tests only entries inside its viewport",
     "catalog-en-small.png framebuffer keeps entries clear of the fixed footer",
     "render catalog-en-small.png has no OpenGL errors",
+    "PonderIndexScreen renders and hit-tests only entries inside its viewport",
+    "catalog-addon-names-zh.png framebuffer keeps entries clear of the fixed footer",
+    "render catalog-addon-names-zh.png has no OpenGL errors",
+    "PonderIndexScreen renders and hit-tests only entries inside its viewport",
+    "catalog-addon-names-zh-tw.png framebuffer keeps entries clear of the fixed footer",
+    "render catalog-addon-names-zh-tw.png has no OpenGL errors",
     "Markdown file registers document and animation atomically",
     "only W is registered; G shortcut absent",
     "W defaults to animation initially",
@@ -249,7 +255,7 @@
     "projection-occluded-outline.png contains the world blueprint outline, including occluded geometry",
     "render projection-occluded-outline.png has no OpenGL errors"
   ],
-  "ponderSource": "jar:file:/home/yudream/code/mods/.dev/github-legacy/ponder-legacy/run/cleanroom-0.4.0-optional/gui-layout-171-viewport-core/client/mods/ponder-legacy-1.7.1.jar!/net/createmod/ponder/PonderMod.class",
+  "ponderSource": "jar:file:/home/yudream/code/mods/.dev/github-legacy/ponder-legacy/run/cleanroom-0.4.0-optional/modnames-171-core/client/mods/ponder-legacy-1.7.1.jar!/net/createmod/ponder/PonderMod.class",
   "renderer": "llvmpipe (LLVM 21.1.8, 256 bits)",
-  "ponderSha256": "0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e"
+  "ponderSha256": "923cb6653eee53c96e4fbd9ac871c897cb151b91b3e0759c40ed4687611c6dd4"
 }

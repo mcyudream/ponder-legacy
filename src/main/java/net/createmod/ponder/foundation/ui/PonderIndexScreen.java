@@ -44,7 +44,7 @@ public class PonderIndexScreen extends PonderCatalogScreen {
             String namespace = item.id.getNamespace();
             modNames.computeIfAbsent(namespace, PonderModNames::localized);
             names.put(item.id, stackFor(item.id).getDisplayName() + "\n" + modNames.get(namespace)
-                + "\n" + PonderModNames.original(namespace));
+                + "\n" + PonderModNames.original(namespace) + "\n" + PonderModNames.owner(namespace));
         }
         int sideWidth = Math.max(112, Math.min(160, width / 4));
         categoriesPane.layout(12, 68, 12 + sideWidth, height - 44, categories.size(), 22);

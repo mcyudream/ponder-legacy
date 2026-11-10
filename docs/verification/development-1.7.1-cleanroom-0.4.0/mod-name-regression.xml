@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.createmod.ponder.foundation.ui.PonderModNamesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-10T06:56:41.273Z" hostname="yudream-dev" time="0.004">
+  <properties/>
+  <testcase name="ownerTranslationsServeAliasesWithoutChangingRegistryIdentity" classname="net.createmod.ponder.foundation.ui.PonderModNamesTest" time="0.001"/>
+  <testcase name="invalidTranslationsAndMissingMetadataKeepUsefulFallbacks" classname="net.createmod.ponder.foundation.ui.PonderModNamesTest" time="0.001"/>
+  <testcase name="namespaceOverridesPrecedeOwnerAndNativeTranslations" classname="net.createmod.ponder.foundation.ui.PonderModNamesTest" time="0.0"/>
+  <testcase name="resolvesContentNamespacesThroughTheirActualLoaderIds" classname="net.createmod.ponder.foundation.ui.PonderModNamesTest" time="0.0"/>
+  <testcase name="directlyLoadedNamespaceTakesPriorityOverAliasMetadata" classname="net.createmod.ponder.foundation.ui.PonderModNamesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

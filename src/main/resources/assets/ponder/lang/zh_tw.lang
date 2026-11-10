@@ -34,6 +34,9 @@ ponder.mod_name.ftblib=FTB 前置函式庫
 ponder.mod_name.itemfilters=物品過濾器
 ponder.mod_name.media_api=媒體介面
 ponder.mod_name.appliedpneumatics=應用氣動
+ponder.mod_name.ae2s-appliedpneumatics=應用氣動
+ponder.mod_name.bmaddon-legacy=血魔法 AE2S 附屬
+ponder.mod_name.ae2s-probability-pattern-legacy=AE2S 機率樣板
 ponder.mod_name.pneumaticcraft=氣動工藝：重壓
 
 # GUI tutorials

@@ -172,6 +172,16 @@ public final class PonderCatalogSmoke {
             case 14:
                 clickButton(index, 4); chooseCategory("smoke:category_00");
                 bounded(page); capture("catalog-en-small.png"); break;
+            case 15:
+                clickButton(index, 3); chooseCategory("");
+                resize(1280, 720);
+                language("zh_cn"); index.updateScreen(); addonNames("zh_cn");
+                bounded(page); capture("catalog-addon-names-zh.png"); break;
+            case 16:
+                language("zh_tw"); index.updateScreen(); addonNames("zh_tw");
+                bounded(page); capture("catalog-addon-names-zh-tw.png"); break;
+            case 17:
+                language("en_us"); index.updateScreen(); break;
             default: return true;
         }
         return false;
@@ -249,14 +259,40 @@ public final class PonderCatalogSmoke {
                 typeQuery(PonderModNames.original("ae2")); check.accept(index.entries.size()==ae2, "actual AE2S English original search matches its localized category");
             }
         }
-        if(names.containsKey("appliedpneumatics")) {
-            check.accept((chinese?"应用气动":PonderModNames.original("appliedpneumatics")).equals(names.get("appliedpneumatics")), "actual Applied Pneumatics category follows the active language");
+        addonNames(chinese ? "zh_cn" : "en_us");
+        if(names.containsKey("appliedpneumatics") || names.containsKey("ae2s-appliedpneumatics")) {
             var diagnostics=net.createmod.ponder.foundation.PonderIndex.getDiagnosticSnapshot(net.createmod.ponder.api.diagnostic.PonderDiagnosticView.EFFECTIVE);
-            check.accept(diagnostics.getScenes().stream().filter(s->s.getSceneId()!=null&&s.getSceneId().getNamespace().equals("appliedpneumatics"))
+            check.accept(diagnostics.getScenes().stream().filter(s->s.getSceneId()!=null&&
+                    PonderModNames.owner(s.getSceneId().getNamespace()).equals("ae2s-appliedpneumatics"))
                 .flatMap(s->s.getIssues().stream()).noneMatch(issue->issue.getCode().equals("registration.duplicate_scene_id")), "Applied Pneumatics aliases report no duplicate scene ID");
         }
         typeQuery("");
         index.keyTyped('\0', Keyboard.KEY_ESCAPE);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void addonNames(String language) throws Exception {
+        Map<String, String> names = (Map<String, String>)get(index, "modNames");
+        for (String namespace : List.of("appliedpneumatics", "ae2s-appliedpneumatics", "bmaddon", "statpatterns")) {
+            if (!names.containsKey(namespace)) continue;
+            String expected = switch (namespace) {
+                case "bmaddon" -> language.equals("zh_tw") ? "血魔法 AE2S 附屬" : "血魔法 AE2S 附属";
+                case "statpatterns" -> language.equals("zh_tw") ? "AE2S 機率樣板" : "AE2S 概率样板";
+                default -> language.equals("zh_tw") ? "應用氣動" : "应用气动";
+            };
+            if (language.equals("en_us")) expected = PonderModNames.original(namespace);
+            check.accept(expected.equals(names.get(namespace)), namespace + " category is localized in " + language);
+            String original = PonderModNames.original(namespace);
+            check.accept(!original.equals(namespace), namespace + " resolves its actual owning mod metadata");
+            typeQuery(namespace); int count = index.entries.size();
+            check.accept(count > 0, namespace + " remains searchable by resource namespace in " + language);
+            for (String query : List.of(expected, original, PonderModNames.owner(namespace))) {
+                typeQuery(query);
+                check.accept(index.entries.size() == count && index.entries.stream().allMatch(e -> e.id.getNamespace().equals(namespace)),
+                    namespace + " name and loader ID search resolves the same subjects in " + language + ": " + query);
+            }
+        }
+        typeQuery("");
     }
 
     private void clickButton(GuiScreen screen, int id) throws Exception {

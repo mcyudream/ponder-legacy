@@ -1,18 +1,24 @@
 # Ponder Legacy — 安装包验收
 
+## 1.7.1 发行验收（完整 GUI 布局与附属名称本地化）
 
-## 当前开发构建：1.7.1（完整 GUI 布局）
+日期：2026-11-10。Minecraft 1.12.2 / Cleanroom **0.4.0 正式版（无 -alpha）** / Java 25。生产包 `ponder-legacy-1.7.1.jar`，SHA-256：`923cb6653eee53c96e4fbd9ac871c897cb151b91b3e0759c40ed4687611c6dd4`。
 
-Minecraft 1.12.2 / Cleanroom **0.4.0 正式版** / Java 25。生产包 `ponder-legacy-1.7.1.jar`，SHA-256：`0b4039c5e8cf01e740612136ac188cc41406431d0553f462109bebaf3b2f0f3e`。
+341 项单元测试通过，覆盖嵌套布局、裁切、弹窗层级、隐藏目标、别名所属模组解析、翻译覆盖顺序和缺省回退。独立 API jar 的 `GuiDemoState` 与布局树编译检查通过。
 
-336 项单元测试通过；实际生产包在全新隔离实例通过 243 项核心客户端回归、62 项 GUI 专项与 11 项专服检查，未安装 CraftTweaker。新增五项布局测试覆盖嵌套坐标、裁切、弹窗层级、隐藏目标及用实际控件替换旧近似坐标。
+| 组合 | 结果 | 检查项 |
+| --- | --- | --- |
+| client | PASS | 249 |
+| gui-client | PASS | 62 |
+| server | PASS | 11 |
+| catalog-addons | PASS | 157 |
+| addons-server | PASS | 11 |
 
-独立 API jar 已验证 `GuiDemoState` 与布局树编译。断线回归检查验证网络线程不会直接清理 GUI 或重载附属注册。
+`GuiDemoLayout` 统一处理完整界面节点、分组偏移、图层、裁切与高亮。核心回归覆盖编辑器、Markdown、目录和投影；GUI 专项验证实机熔炉引导、独立演示与采集编辑器；断线回归验证附属重载在客户端主线程执行。AE2S 的逐页面外观及真实控件几何另由 AE2S Ponder 验收。
 
-`GuiDemoLayout` 统一处理完整界面节点、分组偏移、图层、裁切与高亮；AE2S 的逐页面外观及真实控件几何验收由 AE2S Ponder 单独保存。
+联合安装实际应用气动 `1.0.9-cleanroom.4`、血魔法附属 `1.0.4-cleanroom.1`、概率样板 `1.0.2` 及其前置，验证简体／繁体／英文名称、中文名／英文原名／命名空间／所属 Mod ID 搜索、分类切换、应用气动重复注册诊断和联合专服启动。该目录组合使用 AE2S `1.1.0+a47dfe029`；AE2S Ponder 最终版本的正式 `1.1.0` 四组合见其独立记录。CraftTweaker 未安装，类加载审计通过。所有通过报告的生产 Ponder jar 哈希均与本次验收一致。
 
-[报告、安装指纹和范围](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。此构建先通过 main CI 提供，未创建发行标签。
-
+[报告、运行指纹与截图](docs/verification/development-1.7.1-cleanroom-0.4.0/summary.json)。Linux x64 / llvmpipe；未扩大声明到任意整合包或其他 GPU。[发行入口](https://github.com/mcyudream/ponder-legacy/releases/tag/v1.7.1)。
 
 ## 历史开发构建：1.7.0（时间轴 GUI 动画与 W 实机引导）
 

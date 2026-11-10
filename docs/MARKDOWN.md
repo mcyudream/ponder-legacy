@@ -18,11 +18,13 @@
 
 ```properties
 ponder.mod_name.ae2=应用能源 2 超巨星
-ponder.mod_name.appliedpneumatics=应用气动
+ponder.mod_name.ae2s-appliedpneumatics=应用气动
+ponder.mod_name.bmaddon-legacy=血魔法 AE2S 附属
+ponder.mod_name.ae2s-probability-pattern-legacy=AE2S 概率样板
 ponder.mod_name.your_mod_id=你的模组中文名
 ```
 
-查找顺序为 `ponder.mod_name.<物品注册命名空间>` → 模组提供的 `mod.<命名空间>.name` → Forge 元数据名称 → 命名空间。翻译只影响显示与搜索，不修改场景 ID 或物品注册名。资源包重载后重新打开索引即可应用同语言下的新覆盖。
+查找顺序为 `ponder.mod_name.<物品注册命名空间>` → 模组提供的 `mod.<命名空间>.name` → 所属 Mod ID 的同类翻译 → Forge 元数据名称 → 命名空间。已适配 `bmaddon` → `bmaddon-legacy`、`statpatterns` → `ae2s-probability-pattern-legacy`、旧 `appliedpneumatics` → `ae2s-appliedpneumatics` 和 `ponder` → `ponder-legacy`。直接注册在命名空间下的模组元数据优先于别名元数据。中文名、英文原名、资源命名空间与所属 Mod ID 均可搜索。翻译只影响显示与搜索，不修改场景 ID 或物品注册名。资源包重载后重新打开索引即可应用同语言下的新覆盖。
 
 ## 最小共享教程
 
