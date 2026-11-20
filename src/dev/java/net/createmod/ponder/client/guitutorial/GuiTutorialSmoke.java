@@ -34,14 +34,37 @@ public final class GuiTutorialSmoke {
     private GuiStage stage;
     private String sceneInventory;
     private CompletableFuture<Void> pending;
-    private int phase,wait,window;
+    private int phase,wait,window,commandPhase;
+    private GuiScreen interruptedScreen;
     private String inventory;
     private Object beforeDisconnectScenes;
+    private com.google.common.util.concurrent.ListenableFuture<?> disconnectDone;
     private final BlockPos pos=new BlockPos(1,65,0);
     public GuiTutorialSmoke(Minecraft mc,BiConsumer<Boolean,String> check,Consumer<String> screenshot){this.mc=mc;this.check=check;this.screenshot=screenshot;}
     public boolean advance()throws Exception{
         if(wait-->0)return false;
         if(pending!=null){if(!pending.isDone())return false;pending.join();pending=null;}
+        if(commandPhase<6){
+            int index=commandPhase/2;
+            if(commandPhase%2==0){
+                String command=switch(index){case 0->"/pondergui";case 1->"/pondergui demo ponder:examples/furnace";default->"/pondergui edit ponder:examples/furnace";};
+                SubmittedChat chat=new SubmittedChat(command);mc.displayGuiScreen(chat);chat.submit();
+                check.accept(mc.currentScreen==null,"native chat submission finishes before the GUI command opens its screen");
+            }else{
+                boolean expected=switch(index){case 0->mc.currentScreen instanceof GuiTutorialLibraryScreen;case 1->mc.currentScreen instanceof GuiDemoScreen;default->mc.currentScreen instanceof GuiTutorialEditorScreen;};
+                check.accept(expected,"GUI command "+index+" survives native chat Enter and the following client tick");
+                screenshot.accept("gui-command-"+index+".png");
+            }
+            commandPhase++;return false;
+        }
+        if(commandPhase==6){
+            SubmittedChat chat=new SubmittedChat("/pondergui");mc.displayGuiScreen(chat);chat.submit();
+            interruptedScreen=new GuiScreen(){};mc.displayGuiScreen(interruptedScreen);commandPhase++;return false;
+        }
+        if(commandPhase==7){
+            check.accept(mc.currentScreen==interruptedScreen,"a queued GUI command preserves a newer screen opened before the next tick");
+            mc.displayGuiScreen(null);commandPhase++;
+        }
         switch(phase){
             case 0 -> {
                 language("zh_cn");mc.displayGuiScreen(null);
@@ -187,18 +210,26 @@ public final class GuiTutorialSmoke {
             case 20 -> {
                 mc.displayGuiScreen(furnace);GuiTutorialEvents.start(furnace,lesson);
                 beforeDisconnectScenes=net.createmod.ponder.foundation.PonderIndex.getSceneAccess();
-                Thread network=new Thread(()->new net.createmod.ponder.client.PonderClientEvents().onDisconnect(null),"Ponder disconnect fixture");
+                Thread network=new Thread(()->{
+                    new net.createmod.ponder.client.PonderClientEvents().onDisconnect(null);
+                    disconnectDone=mc.addScheduledTask(()->{});
+                },"Ponder disconnect fixture");
                 network.start();network.join();
                 check.accept(GuiTutorialEvents.liveSession()!=null&&beforeDisconnectScenes==net.createmod.ponder.foundation.PonderIndex.getSceneAccess(),"network disconnect defers GUI cleanup and addon reload until the client thread runs");
                 phase++;
             }
             case 21 -> {
+                if(!disconnectDone.isDone())return false;disconnectDone.get();
                 check.accept(GuiTutorialEvents.liveSession()==null&&beforeDisconnectScenes!=net.createmod.ponder.foundation.PonderIndex.getSceneAccess(),"client task clears live GUI state and rebuilds the scene index after network disconnect");
                 phase++;
             }
             default -> {GuiTutorialEvents.stop();return true;}
         }
         return false;
+    }
+    private static final class SubmittedChat extends GuiChat {
+        private SubmittedChat(String text){super(text);}
+        private void submit()throws java.io.IOException{keyTyped('\r',Keyboard.KEY_RETURN);}
     }
     private com.google.gson.JsonObject animationPack(boolean missing){
         var root=new com.google.gson.JsonParser().parse("{\"format\":1,\"id\":\"smoke:gui_animation\",\"scenes\":[{\"id\":\"smoke:gui_machine\",\"component\":\"minecraft:furnace\",\"title\":\"Machine and GUI animation\",\"structure\":\"ponder:demo/smelting\",\"instructions\":[]}]}").getAsJsonObject();

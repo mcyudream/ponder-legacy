@@ -35,6 +35,7 @@ public final class PonderClientEvents {
         if (event.phase != TickEvent.Phase.END) {
             return;
         }
+        DeferredClientScreen.tick();
         PonderClient.onTick();
         net.createmod.ponder.client.projection.ProjectionService.tick();
         net.createmod.ponder.client.projection.ProjectionPlacementEvents.tick();

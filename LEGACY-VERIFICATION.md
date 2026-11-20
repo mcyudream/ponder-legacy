@@ -1,5 +1,15 @@
 # Ponder Legacy — 安装包验收
 
+## 1.7.2 命令入口修复验收
+
+日期：2026-11-20。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25。生产包 `ponder-legacy-1.7.2.jar`，SHA-256：`6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1`。
+
+341 项单元测试、独立 GUI 专项 72 项检查通过。使用实际聊天框的 Enter 提交流程验证 `/pondergui`、`demo`、`edit` 在后续客户端 tick 保持打开；若期间已打开新界面则取消旧请求。继续验证实机熔炉引导、独立演示、采集编辑、时间轴、小窗口及网络线程断线清理。断线测试等待客户端任务队列的实际完成标记，避免同一帧多个 tick 造成误判。
+
+与 FTB Quests `1202.10.0-modern.21` 联合客户端的 27 项检查通过；独立 Ponder 专服及联合专服均在正式 CR 0.4.0 上使用安装 JAR 启动并检查核心场景／保存流程。旧公开包 Ponder 1.7.1 与 Quests modern.20 在同一套用例中复现命令界面消失和章节名称缺失，作为负向对照保留。
+
+[运行报告、JAR 指纹与截图](docs/verification/release-1.7.2-cleanroom-0.4.0/summary.json)。Linux x86_64 / llvmpipe；章节测试通过 GuiWrapper 注入坐标并保留真实父控件 tick、布局、渲染和点击处理。未扩大到其他 GPU、Windows/macOS 完整游戏或完整用户整合包。
+
 ## 1.7.1 发行验收（完整 GUI 布局与附属名称本地化）
 
 日期：2026-11-10。Minecraft 1.12.2 / Cleanroom **0.4.0 正式版（无 -alpha）** / Java 25。生产包 `ponder-legacy-1.7.1.jar`，SHA-256：`923cb6653eee53c96e4fbd9ac871c897cb151b91b3e0759c40ed4687611c6dd4`。

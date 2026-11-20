@@ -1,0 +1,62 @@
+{
+  "version": "1.7.2",
+  "date": "2026-11-20",
+  "publication": "candidate; final CI and publication recorded separately",
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "java": 25,
+  "platform": "Linux x86_64 / llvmpipe",
+  "production_jar": "ponder-legacy-1.7.2.jar",
+  "jar_sha256": "6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1",
+  "unit_tests": 341,
+  "module_tests": {
+    "ponder": 341
+  },
+  "cases": [
+    {
+      "name": "old-version-reproduction",
+      "expected_result": "FAIL",
+      "actual_result": "FAIL",
+      "checks": 27,
+      "report": "cases/old-version-reproduction/result.json",
+      "runtime": "cases/old-version-reproduction/runtime-summary.json"
+    },
+    {
+      "name": "combined-client",
+      "expected_result": "FUNCTIONAL_PASS",
+      "actual_result": "FUNCTIONAL_PASS",
+      "checks": 27,
+      "report": "cases/combined-client/result.json",
+      "runtime": "cases/combined-client/runtime-summary.json"
+    },
+    {
+      "name": "combined-server",
+      "expected_result": "FUNCTIONAL_PASS",
+      "actual_result": "FUNCTIONAL_PASS",
+      "checks": null,
+      "report": "cases/combined-server/result.json",
+      "runtime": "cases/combined-server/runtime-summary.json"
+    },
+    {
+      "name": "ponder-gui-client",
+      "expected_result": "FUNCTIONAL_PASS",
+      "actual_result": "FUNCTIONAL_PASS",
+      "checks": 72,
+      "report": "cases/ponder-gui-client/result.json",
+      "runtime": "cases/ponder-gui-client/runtime-summary.json"
+    },
+    {
+      "name": "ponder-server",
+      "expected_result": "FUNCTIONAL_PASS",
+      "actual_result": "FUNCTIONAL_PASS",
+      "checks": 1,
+      "report": "cases/ponder-server/result.json",
+      "runtime": "cases/ponder-server/runtime-summary.json"
+    }
+  ],
+  "limits": [
+    "Full user modpack, Windows/macOS game runtime and other GPUs were not tested.",
+    "Only the old-version reproduction is expected to fail.",
+    "Intermediate launcher and harness failures remain in the local workspace; delivery cases reference the completed regression scenarios."
+  ]
+}

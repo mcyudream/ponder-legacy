@@ -1,6 +1,7 @@
 package net.createmod.ponder.client.guitutorial;
 
 import java.util.List;
+import net.createmod.ponder.client.DeferredClientScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.*;
 import net.minecraft.server.MinecraftServer;
@@ -13,12 +14,12 @@ public final class GuiTutorialCommand extends CommandBase {
     @Override public void execute(MinecraftServer server,ICommandSender sender,String[] args)throws CommandException{
         var mc=Minecraft.getMinecraft();
         try{
-            if(args.length==0){mc.displayGuiScreen(new GuiTutorialLibraryScreen(null));return;}
+            if(args.length==0){DeferredClientScreen.open(new GuiTutorialLibraryScreen(null));return;}
             if(args.length==1&&args[0].equals("reload")){GuiTutorials.reload();sender.sendMessage(new TextComponentString(GuiTutorialDrawing.tr("reloaded",GuiTutorials.all().size(),GuiTutorials.errors().size())));return;}
             if(args.length==2&&(args[0].equals("demo")||args[0].equals("edit"))){
                 var lesson=GuiTutorials.resolve(args[1]);
-                if(args[0].equals("edit"))mc.displayGuiScreen(new GuiTutorialEditorScreen(lesson,null));
-                else mc.displayGuiScreen(new GuiDemoScreen(lesson,()->mc.displayGuiScreen(null),false));return;
+                if(args[0].equals("edit"))DeferredClientScreen.open(new GuiTutorialEditorScreen(lesson,null));
+                else DeferredClientScreen.open(new GuiDemoScreen(lesson,()->mc.displayGuiScreen(null),false));return;
             }
             throw new WrongUsageException(getUsage(sender));
         }catch(IllegalArgumentException e){throw new CommandException(e.getMessage());}

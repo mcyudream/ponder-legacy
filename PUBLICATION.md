@@ -1,5 +1,13 @@
 # Ponder Legacy 发布状态
 
+## 发布候选：1.7.2
+
+修复 `/pondergui`、`demo` 和 `edit` 界面被聊天框提交后的关闭操作覆盖的问题。
+
+- 341 项单元测试、正式 Cleanroom 0.4.0 独立 GUI 专项 72 项检查、Ponder／FTB Quests 联合客户端 27 项检查和独立／联合专服检查通过。
+- 生产 SHA-256：`6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1`。
+- 运行报告和截图见 [本版验收](docs/verification/release-1.7.2-cleanroom-0.4.0/summary.json)，说明见 [1.7.2](docs/releases/1.7.2.md)。发行待标签流水线与下载校验完成。
+
 ## 发行版本：1.7.1
 
 - 提供完整 GUI 的分组布局、绘制层级、裁切、动态可见性与共享高亮坐标；修正分数缩放、退出世界重载与底部播放控件留白。
