@@ -1,0 +1,52 @@
+{
+  "repository": "mcyudream/ponder-legacy",
+  "tag": "v1.7.2",
+  "release_url": "https://github.com/mcyudream/ponder-legacy/releases/tag/v1.7.2",
+  "release_id": 452488332,
+  "published_at": "2026-11-20T09:24:35Z",
+  "draft": false,
+  "prerelease": false,
+  "latest": true,
+  "commit": "a7c5bba068c2260de86771e0318bf1c7a6748eba",
+  "source_ci": "https://github.com/mcyudream/ponder-legacy/actions/runs/44706951430",
+  "tag_ci": "https://github.com/mcyudream/ponder-legacy/actions/runs/44710337875",
+  "jobs": [
+    {
+      "name": "build",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/44710337875/job/136200114189"
+    },
+    {
+      "name": "release",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/44710337875/job/136200470227"
+    }
+  ],
+  "assets": {
+    "ponder-legacy-1.7.2.jar": {
+      "sha256": "6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1",
+      "size": 3605632,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.2/ponder-legacy-1.7.2.jar"
+    },
+    "ponder-legacy-1.7.2-api.jar": {
+      "sha256": "7f9b1d9c097808ad81ab14887706be95e4187c940a372252061e3de07444165c",
+      "size": 566230,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.2/ponder-legacy-1.7.2-api.jar"
+    },
+    "ponder-legacy-1.7.2-sources.jar": {
+      "sha256": "2b59a42e46eedfbce38148096d389b13392aa6d24525e4c013d53119bb701bb5",
+      "size": 2463262,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.2/ponder-legacy-1.7.2-sources.jar"
+    },
+    "SHA256SUMS": {
+      "sha256": "41cf568fe54263f8a95e7e1528af86fe2e984ce48197ba8444585cc9b0a124ad",
+      "size": 282,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.2/SHA256SUMS"
+    }
+  },
+  "production_sha256": {
+    "ponder-legacy-1.7.2.jar": "6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1"
+  },
+  "tag_production_matches_runtime_accepted_main_ci": true,
+  "all_release_assets_downloaded_and_verified": true
+}

@@ -1,0 +1,16 @@
+{
+  "repository": "mcyudream/ponder-legacy",
+  "run": 44710337875,
+  "stage": "tag",
+  "commit": "a7c5bba068c2260de86771e0318bf1c7a6748eba",
+  "ci_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/44710337875",
+  "production_sha256": {
+    "ponder-legacy-1.7.2.jar": "6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1"
+  },
+  "checksums": {
+    "ponder-legacy-1.7.2.jar": "6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1",
+    "ponder-legacy-1.7.2-api.jar": "7f9b1d9c097808ad81ab14887706be95e4187c940a372252061e3de07444165c",
+    "ponder-legacy-1.7.2-sources.jar": "2b59a42e46eedfbce38148096d389b13392aa6d24525e4c013d53119bb701bb5"
+  },
+  "production_differences_from_local_acceptance": {}
+}

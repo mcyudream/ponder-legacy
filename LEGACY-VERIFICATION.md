@@ -10,6 +10,8 @@
 
 [运行报告、JAR 指纹与截图](docs/verification/release-1.7.2-cleanroom-0.4.0/summary.json)。Linux x86_64 / llvmpipe；章节测试通过 GuiWrapper 注入坐标并保留真实父控件 tick、布局、渲染和点击处理。未扩大到其他 GPU、Windows/macOS 完整游戏或完整用户整合包。
 
+主分支 CI `44706951430` 与标签 CI `44710337875` 均通过。正式版 4 个资产已全部下载，SHA256SUMS、GitHub 资产摘要和标签 CI 产物校验一致；生产 JAR 与运行验收包完全相同。[发行下载校验](docs/verification/release-1.7.2-cleanroom-0.4.0/published.json)。
+
 ## 1.7.1 发行验收（完整 GUI 布局与附属名称本地化）
 
 日期：2026-11-10。Minecraft 1.12.2 / Cleanroom **0.4.0 正式版（无 -alpha）** / Java 25。生产包 `ponder-legacy-1.7.1.jar`，SHA-256：`923cb6653eee53c96e4fbd9ac871c897cb151b91b3e0759c40ed4687611c6dd4`。
