@@ -10,6 +10,8 @@
 
 [报告、运行指纹、独立捕获 NBT 与截图](docs/verification/release-1.7.3-cleanroom-0.4.0/summary.json)。Linux x86_64 / llvmpipe。旧 NBT 若未捕获火花，须重新框选保存，包含火花所在的空气层。
 
+主分支 CI `45035733016`、标签 CI `45035971360` 均通过。1.7.3 已发布为正式版 Latest；4 个发布资产全部下载，SHA256SUMS、GitHub 资产摘要和标签 CI 产物一致；生产 JAR 与上述运行验收包完全相同。[发行下载校验](docs/verification/release-1.7.3-cleanroom-0.4.0/published.json)。
+
 ## 1.7.2 命令入口修复验收
 
 日期：2026-11-20。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25。生产包 `ponder-legacy-1.7.2.jar`，SHA-256：`6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1`。

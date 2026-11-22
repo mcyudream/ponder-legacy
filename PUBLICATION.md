@@ -1,11 +1,14 @@
 # Ponder Legacy 发布状态
 
-## 1.7.3 发行候选：植魔火花场景修复
+## 发行版本：1.7.3
 
 - 结构框选捕获非玩家实体，保留植魔普通／升级火花和多媒体火花的类型与 NBT；新增 JSON / ZenScript 通用注册实体创建。
 - 验证框选捕获、独立原版 NBT 导入、Java、JSON 和实际 ZenScript 五条路径，以及首次播放、重播和进度回拖。
 - 正式 Cleanroom 0.4.0 / Java 25 的验收与产物指纹见 [1.7.3 验收](docs/verification/release-1.7.3-cleanroom-0.4.0/summary.json)，[升级说明](docs/releases/1.7.3.md)。
-- GitHub 主分支 CI 与发行标签的产物哈希门槛保持启用，发布状态在下载校验后更新。
+- 346 项单元测试、四组正式 Cleanroom 0.4.0 客户端／专服验收共 287 项检查通过，其中包含 70 次逐实体 framebuffer 比较。
+- 生产 SHA-256：`9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273`。
+- [GitHub 正式发行](https://github.com/mcyudream/ponder-legacy/releases/tag/v1.7.3) 已设为 Latest；[主分支 CI](https://github.com/mcyudream/ponder-legacy/actions/runs/45035733016) 和 [标签 CI](https://github.com/mcyudream/ponder-legacy/actions/runs/45035971360) 均通过，发行哈希门槛保持启用。
+- 4 个发布资产全部下载并校验，生产 JAR 与运行验收包逐字节一致，见 [published.json](docs/verification/release-1.7.3-cleanroom-0.4.0/published.json)。
 - 旧结构若未捕获火花，需要重新框选保存，选区须包含火花所在的空气层。
 
 ## 历史发行版本：1.7.2

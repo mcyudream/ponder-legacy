@@ -1,0 +1,56 @@
+{
+  "repository": "mcyudream/ponder-legacy",
+  "tag": "v1.7.3",
+  "stage": "tag",
+  "run": 45035971360,
+  "ci_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45035971360",
+  "commit": "479c56fd6e457eb754b42951cf639afb398a68ab",
+  "production_sha256": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+  "checksums": {
+    "ponder-legacy-1.7.3.jar": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+    "ponder-legacy-1.7.3-api.jar": "f955e84e67ecee8d8f5aadaca0e06ed7754474aae3a45eb60544984f4bc1e9f4",
+    "ponder-legacy-1.7.3-sources.jar": "054dc5db0f1f9247c3d30a03e283f00ec6926327cf03ae221a5f797b098bba63"
+  },
+  "production_matches_runtime_acceptance": true,
+  "jobs": [
+    {
+      "name": "build",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45035971360/job/137249685100"
+    },
+    {
+      "name": "release",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45035971360/job/137250009547"
+    }
+  ],
+  "release_url": "https://github.com/mcyudream/ponder-legacy/releases/tag/v1.7.3",
+  "release_id": 454527307,
+  "published_at": "2026-11-22T15:02:40Z",
+  "draft": false,
+  "prerelease": false,
+  "latest": true,
+  "all_release_assets_downloaded_and_verified": true,
+  "assets": {
+    "ponder-legacy-1.7.3.jar": {
+      "sha256": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+      "size": 3608509,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.3/ponder-legacy-1.7.3.jar"
+    },
+    "ponder-legacy-1.7.3-api.jar": {
+      "sha256": "f955e84e67ecee8d8f5aadaca0e06ed7754474aae3a45eb60544984f4bc1e9f4",
+      "size": 566230,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.3/ponder-legacy-1.7.3-api.jar"
+    },
+    "ponder-legacy-1.7.3-sources.jar": {
+      "sha256": "054dc5db0f1f9247c3d30a03e283f00ec6926327cf03ae221a5f797b098bba63",
+      "size": 2464609,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.3/ponder-legacy-1.7.3-sources.jar"
+    },
+    "SHA256SUMS": {
+      "sha256": "979c7f1a5cd24765e3d738988b8c5c61ecc1488a197b25f72f05a470e4ad0f5f",
+      "size": 282,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.7.3/SHA256SUMS"
+    }
+  }
+}
