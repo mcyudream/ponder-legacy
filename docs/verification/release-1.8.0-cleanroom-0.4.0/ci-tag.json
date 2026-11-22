@@ -1,0 +1,28 @@
+{
+  "repository": "mcyudream/ponder-legacy",
+  "tag": "v1.8.0",
+  "stage": "tag",
+  "run": 45050248234,
+  "ci_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45050248234",
+  "commit": "b728e70322ee546c50fb9084578ae5ff2324f3d0",
+  "checksums": {
+    "ponder-legacy-1.8.0.jar": "8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7",
+    "ponder-legacy-1.8.0-api.jar": "ba204c4f66caf9506a9a002f2d605fe03d44a79ffa571f8c8843e764efbbb182",
+    "ponder-legacy-1.8.0-sources.jar": "7ca1f23ef33773c5619103cc2aa75c58ed50bd10c8638bad0adaeeb6f415fb29"
+  },
+  "production_sha256": "8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7",
+  "production_matches_runtime_acceptance": true,
+  "all_ci_assets_match_local_build": true,
+  "jobs": [
+    {
+      "name": "build",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45050248234/job/137293551300"
+    },
+    {
+      "name": "release",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45050248234/job/137293834086"
+    }
+  ]
+}

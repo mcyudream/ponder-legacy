@@ -1,7 +1,7 @@
 {
   "version": "1.8.0",
   "date": "2026-11-22",
-  "publication": "runtime accepted; awaiting main CI and tag release",
+  "publication": "published stable Latest; all five release assets downloaded and verified",
   "minecraft": "1.12.2",
   "cleanroom": "0.4.0",
   "java": "25.0.5",
@@ -108,5 +108,13 @@
     "Official Cleanroom 0.4.0 installation jars and Java 25; no userdev or 0.4.0-alpha substitutes",
     "Linux llvmpipe was tested; no other GPU, Windows/macOS or complete user modpack validation",
     "Schematic files which already contain entity data need no re-capture; files which omitted entities still need it"
-  ]
+  ],
+  "release_tag": "v1.8.0",
+  "release_url": "https://github.com/mcyudream/ponder-legacy/releases/tag/v1.8.0",
+  "release_commit": "b728e70322ee546c50fb9084578ae5ff2324f3d0",
+  "main_ci_run": 45050032836,
+  "tag_ci_run": 45050248234,
+  "published_at": "2026-11-22T17:36:02Z",
+  "published_asset_count": 5,
+  "download_verification": "published.json"
 }

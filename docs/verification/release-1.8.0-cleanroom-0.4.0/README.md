@@ -25,3 +25,9 @@ alpha.1 旧包在相同 0 刻用例复现预期失败，见 `negative-alpha1/`�
 所有截图来自实际 framebuffer，绘制检查无 OpenGL 错误。运行 classpath 使用正式安装 JAR，未加入 userdev 或开发版 Minecraft。每组报告和运行指纹在 `cases/`；复现 NBT、默认三步 JSON、真实 ZS 在 `fixtures/`，截图在 `screenshots/`。植魔 r1.10-364.4、Baubles 1.12-1.5.2、CraftTweaker 4.1.20.698 按组合安装，均保持可选。
 
 Linux x86_64 / llvmpipe；未扩大到其他平台/GPU 或完整整合包。发布与下载校验状态见 [summary.json](summary.json)。
+
+主分支 CI `45050032836` 和标签 CI `45050248234` 均通过；[1.8.0 正式版](https://github.com/mcyudream/ponder-legacy/releases/tag/v1.8.0) 已设为 Latest。
+三个 JAR 与本地及两次 CI 产物一致，生产 JAR 与上述八组实测包逐字节一致。
+主题示例 ZIP 由发行提交 `b728e70322ee546c50fb9084578ae5ff2324f3d0` 中的 Git 文件生成，ZIP 条目时间戳和权限固定。
+当前 GitHub OAuth 登录不具备修改工作流的权限，因此沿用既有发行流水线，单独上传同一提交生成的主题示例和覆盖四个文件的最终 SHA256SUMS。
+5 个发布资产已全部重新下载，大小、SHA256SUMS 和 GitHub 资产摘要均一致，见 [published.json](published.json)、[主分支 CI](ci-main.json)、[标签 CI](ci-tag.json) 和 [主题示例来源](theme-examples-origin.json)。

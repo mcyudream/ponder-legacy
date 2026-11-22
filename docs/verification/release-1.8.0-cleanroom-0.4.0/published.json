@@ -1,0 +1,74 @@
+{
+  "repository": "mcyudream/ponder-legacy",
+  "tag": "v1.8.0",
+  "stage": "tag",
+  "run": 45050248234,
+  "ci_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45050248234",
+  "commit": "b728e70322ee546c50fb9084578ae5ff2324f3d0",
+  "checksums": {
+    "ponder-legacy-1.8.0.jar": "8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7",
+    "ponder-legacy-1.8.0-api.jar": "ba204c4f66caf9506a9a002f2d605fe03d44a79ffa571f8c8843e764efbbb182",
+    "ponder-legacy-1.8.0-sources.jar": "7ca1f23ef33773c5619103cc2aa75c58ed50bd10c8638bad0adaeeb6f415fb29",
+    "ponder-theme-examples-1.8.0.zip": "4fc8fcd8916559c9a6ae6a3302b0a5bdf68769eecfbeb594e7129fba9ab639db"
+  },
+  "production_sha256": "8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7",
+  "production_matches_runtime_acceptance": true,
+  "all_ci_assets_match_local_build": true,
+  "jobs": [
+    {
+      "name": "build",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45050248234/job/137293551300"
+    },
+    {
+      "name": "release",
+      "conclusion": "success",
+      "html_url": "https://github.com/mcyudream/ponder-legacy/actions/runs/45050248234/job/137293834086"
+    }
+  ],
+  "release_url": "https://github.com/mcyudream/ponder-legacy/releases/tag/v1.8.0",
+  "release_id": 454624550,
+  "published_at": "2026-11-22T17:36:02Z",
+  "draft": false,
+  "prerelease": false,
+  "latest": true,
+  "all_release_assets_downloaded_and_verified": true,
+  "ci_checksums": {
+    "ponder-legacy-1.8.0.jar": "8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7",
+    "ponder-legacy-1.8.0-api.jar": "ba204c4f66caf9506a9a002f2d605fe03d44a79ffa571f8c8843e764efbbb182",
+    "ponder-legacy-1.8.0-sources.jar": "7ca1f23ef33773c5619103cc2aa75c58ed50bd10c8638bad0adaeeb6f415fb29"
+  },
+  "theme_asset_origin": {
+    "commit": "b728e70322ee546c50fb9084578ae5ff2324f3d0",
+    "method": "deterministic ZIP of examples/themes and docs/UI-THEMES.md from the accepted Git tree",
+    "sha256": "4fc8fcd8916559c9a6ae6a3302b0a5bdf68769eecfbeb594e7129fba9ab639db",
+    "reason_for_separate_upload": "Authenticated OAuth App does not have workflow scope; existing release workflow retained"
+  },
+  "assets": {
+    "ponder-legacy-1.8.0.jar": {
+      "sha256": "8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7",
+      "size": 3660260,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.8.0/ponder-legacy-1.8.0.jar"
+    },
+    "ponder-legacy-1.8.0-api.jar": {
+      "sha256": "ba204c4f66caf9506a9a002f2d605fe03d44a79ffa571f8c8843e764efbbb182",
+      "size": 581722,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.8.0/ponder-legacy-1.8.0-api.jar"
+    },
+    "ponder-legacy-1.8.0-sources.jar": {
+      "sha256": "7ca1f23ef33773c5619103cc2aa75c58ed50bd10c8638bad0adaeeb6f415fb29",
+      "size": 2488450,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.8.0/ponder-legacy-1.8.0-sources.jar"
+    },
+    "ponder-theme-examples-1.8.0.zip": {
+      "sha256": "4fc8fcd8916559c9a6ae6a3302b0a5bdf68769eecfbeb594e7129fba9ab639db",
+      "size": 12150,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.8.0/ponder-theme-examples-1.8.0.zip"
+    },
+    "SHA256SUMS": {
+      "sha256": "33d9367e18a769f32fe5762c57d7b30e333951a894d9cba4855934fff87bb271",
+      "size": 380,
+      "url": "https://github.com/mcyudream/ponder-legacy/releases/download/v1.8.0/SHA256SUMS"
+    }
+  }
+}

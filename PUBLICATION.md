@@ -1,12 +1,13 @@
 # Ponder Legacy 发布状态
 
-## 正式发行候选：1.8.0
+## 发行版本：1.8.0
 
 - 新增经典 / 现代主题及 JSON、ZenScript、资源包控制，支持新建、继承和局部覆盖；现代主题按官方高版本源码校准。
 - 修复捕获 / 导入的火花在时间轴 0 刻提前显示；结构实体随所属选区显示、隐藏和移动，回拖与重播恢复初始状态。
 - 361 项单元测试、正式 Cleanroom 0.4.0 / Java 25 的 1316 项运行检查通过，见 [1.8.0 验收](docs/verification/release-1.8.0-cleanroom-0.4.0/README.md) 和 [升级说明](docs/releases/1.8.0.md)。
 - 生产 SHA-256：`8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7`。
-- 运行验收完成；待主分支 CI 与实测包逐字节核对后创建正式标签。发行哈希门槛保持启用。
+- [GitHub 正式发行](https://github.com/mcyudream/ponder-legacy/releases/tag/v1.8.0) 已设为 Latest；[主分支 CI](https://github.com/mcyudream/ponder-legacy/actions/runs/45050032836) 和 [标签 CI](https://github.com/mcyudream/ponder-legacy/actions/runs/45050248234) 均通过，发行哈希门槛保持启用。
+- 5 个发布资产全部下载并校验，三个 JAR 与本地及两次 CI 产物一致，生产 JAR 与运行验收包逐字节一致，见 [published.json](docs/verification/release-1.8.0-cleanroom-0.4.0/published.json)。主题示例 ZIP 由同一标签的 Git 文件生成并单独上传；校验清单同时覆盖三个 JAR 和主题示例。
 
 ## 本地开发候选：1.8.0-alpha.2
 

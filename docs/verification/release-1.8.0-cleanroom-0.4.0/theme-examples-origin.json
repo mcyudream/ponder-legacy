@@ -1,0 +1,14 @@
+{
+  "commit": "b728e70322ee546c50fb9084578ae5ff2324f3d0",
+  "theme_asset": "ponder-theme-examples-1.8.0.zip",
+  "sha256": "4fc8fcd8916559c9a6ae6a3302b0a5bdf68769eecfbeb594e7129fba9ab639db",
+  "source_files": [
+    "examples/themes/README.md",
+    "examples/themes/config/ponder/themes.json",
+    "examples/themes/resourcepacks/PonderThemeExample/assets/example/themes/sand.json",
+    "examples/themes/resourcepacks/PonderThemeExample/assets/ponder/themes.json",
+    "examples/themes/resourcepacks/PonderThemeExample/pack.mcmeta",
+    "examples/themes/scripts/ponder/ui_themes.zs",
+    "docs/UI-THEMES.md"
+  ]
+}

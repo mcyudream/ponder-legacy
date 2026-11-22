@@ -8,7 +8,9 @@
 
 98 次可见实体 framebuffer 比较通过，最少 43 个变化像素；42 次隐藏比较均为 0 像素差，7 次移动比较通过。八组运行环境中的生产 JAR 与上述指纹一致；运行 classpath 使用正式安装 JAR。
 
-[报告、指纹、截图、结构和旧包对照](docs/verification/release-1.8.0-cleanroom-0.4.0/README.md)。Linux x86_64 / llvmpipe。运行验收完成，等待主分支 CI 与标签发行校验。
+[报告、指纹、截图、结构和旧包对照](docs/verification/release-1.8.0-cleanroom-0.4.0/README.md)。Linux x86_64 / llvmpipe。
+
+主分支 CI `45050032836`、标签 CI `45050248234` 均通过，1.8.0 已发布为正式版 Latest。5 个发行资产全部下载并校验，三个 JAR 与本地和两次 CI 产物一致，生产 JAR 与上述运行验收包完全相同。主题示例 ZIP 由同一标签的 Git 文件生成并单独上传；最终 SHA256SUMS 覆盖三个 JAR 和主题示例。[发行下载校验](docs/verification/release-1.8.0-cleanroom-0.4.0/published.json)。
 
 ## 本地开发候选：1.8.0-alpha.2 结构实体时间轴
 
