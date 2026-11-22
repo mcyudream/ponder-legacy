@@ -108,6 +108,11 @@ public final class ScriptInstructionValidator {
         } else if ("cycle_property".equals(op)) {
             requirePosition(data);
             requireString(data, "property", MAX_TEXT, false);
+        } else if ("create_entity".equals(op)) {
+            define(handles, requireHandle(data), ScriptSceneBuilder.HandleType.ENTITY);
+            requireVector(data);
+            requireResource(data, "entity");
+            requireNbtLimit(requireCompound(data, "nbt"), "Entity NBT");
         } else if ("create_item".equals(op)) {
             define(handles, requireHandle(data), ScriptSceneBuilder.HandleType.ITEM);
             requireVector(data);

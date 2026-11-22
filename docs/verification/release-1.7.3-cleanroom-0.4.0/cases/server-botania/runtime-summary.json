@@ -1,0 +1,13 @@
+{
+  "cleanroom": "0.4.0",
+  "side": "server",
+  "userdev": false,
+  "installer_sha256": "882435d851a51e14b802e0a9384e4a05cfbb3890fca435c40c494af75e5a166f",
+  "jars": {
+    "ponder-legacy-1.7.3.jar": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+    "Botania r1.10-364.4.jar": "8962beb2c583720a83858f58bd6afc891185b50d868c712549a96b191339b52a",
+    "Baubles-1.12-1.5.2.jar": "b32010b2f2778aa1188585e7ead91ad46d4cb2c715f9c778a61848ba7fe51f8d",
+    "ponder-server-harness-srg.jar": "c0d254277dd3719bab6469a584b2da0087eb8dbc42e952c32b88a71813c5e75a"
+  },
+  "java": 25
+}

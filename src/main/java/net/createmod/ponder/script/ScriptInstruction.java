@@ -17,7 +17,7 @@ public final class ScriptInstruction {
             "restore_blocks", "show_independent", "show_independent_immediate", "hide_independent",
             "make_independent", "show_section_merge", "glue_block", "move_section", "rotate_section",
             "center_section", "stabilize_section", "set_block", "set_blocks", "destroy_block", "break_progress",
-            "cycle_property", "toggle_redstone", "create_item", "create_minecart", "move_minecart",
+            "cycle_property", "toggle_redstone", "create_entity", "create_item", "create_minecart", "move_minecart",
             "rotate_minecart", "create_parrot", "change_parrot_pose", "move_parrot", "rotate_parrot", "tile_nbt",
             "show_text", "show_controls", "show_line", "show_outline", "indicate_redstone", "indicate_success",
             "redstone_particles", "particles", "particles_within_block", "move_poi", "hide_minecart",

@@ -1,5 +1,7 @@
 # Ponder Legacy
 
+**1.7.3 场景实体修复**：框选结构现在保留选区内的非玩家实体，包括植魔火花与多媒体火花；JSON / ZenScript 新增 `createEntity` 通用实体创建入口。旧结构若已丢失火花数据，需要重新捕获；框选范围须包含火花所在的空间层。
+
 **1.7.2 命令入口修复**：修复聊天框输入 `/pondergui`、`/pondergui demo` 和 `/pondergui edit` 后界面立即消失的问题。界面在聊天提交完成后的客户端 tick 打开；若期间已切换世界或打开其他界面，则取消过期请求。
 
 **1.7.1 GUI 布局修复**：复杂 GUI 演示可使用统一的 `GuiDemoLayout` 分组、图层与裁切。
@@ -16,7 +18,7 @@
 
 ## 当前状态
 
-当前开发版本为 **`1.7.2`**，修复 GUI 教程命令入口。支持 **时间轴 GUI 动画片段**：在机器演示的指定环节，于侧边空白区展示 GUI，支持控件高亮、演示物品、文字讲解、截取帧与定格，并跟随场景暂停、跳转及重播。保留机器界面长按 **W** 的实机引导、只读操作检测、独立演示与游戏内 GUI 采集编辑器。动画编辑器、Markdown、JSON 与 Java API 共用定义，见 [GUI 教程手册](docs/GUI-TUTORIALS.md)。现有双展示、媒体插入、世界投影和可选 Revo UI 适配继续保留。CraftTweaker、MMCE、FTB Quests、Media API 等外置联动均为可选。最低运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**；已发布版本与开发版的验收状态分别记录在 [发布状态](PUBLICATION.md) 与 [验收记录](LEGACY-VERIFICATION.md)。
+当前版本为 **`1.7.3`**，补全结构实体捕获与通用实体脚本创建。支持 **时间轴 GUI 动画片段**：在机器演示的指定环节，于侧边空白区展示 GUI，支持控件高亮、演示物品、文字讲解、截取帧与定格，并跟随场景暂停、跳转及重播。保留机器界面长按 **W** 的实机引导、只读操作检测、独立演示与游戏内 GUI 采集编辑器。动画编辑器、Markdown、JSON 与 Java API 共用定义，见 [GUI 教程手册](docs/GUI-TUTORIALS.md)。现有双展示、媒体插入、世界投影和可选 Revo UI 适配继续保留。CraftTweaker、MMCE、FTB Quests、Media API 等外置联动均为可选。最低运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**；已发布版本与开发版的验收状态分别记录在 [发布状态](PUBLICATION.md) 与 [验收记录](LEGACY-VERIFICATION.md)。
 
 安装包从 [GitHub Releases](https://github.com/mcyudream/ponder-legacy/releases) 获取，选择无分类后缀的 `ponder-legacy-*.jar`。从 `1.4.1` 起，仅使用 ZenScript 时需要独立安装 CraftTweaker；`1.4.0` 仍要求安装。发行状态见 [PUBLICATION.md](PUBLICATION.md)。
 
@@ -68,7 +70,7 @@
 
 ## 尚未实现与兼容边界
 
-- 结构框选捕获方块、状态和方块实体 NBT，不自动捕获实体或掉落物。
+- 结构框选捕获方块、状态、方块实体 NBT 和选区内可序列化的非玩家实体；选区须包含火花等实体所在的空间。
 - 远程结构捕获需要服务器安装相同版本并授予相应权限；编辑器文件保存在客户端。
 - 不承诺与现代官方 Ponder 的全部二进制 API 互换。
 
@@ -144,7 +146,7 @@ Mod ID 保持 `ponder-legacy`；资源空间为 `ponder`。客户端与安装了
 ## 编辑器操作
 
 1. 进入创造模式世界，按 **F8** 开启框选工具：左键角 A，右键角 B。画面会显示区域边框。
-2. 按 **F7** 打开编辑器，点击「保存结构」，填写结构 ID（如 `mypack:machine`）。选区方块、状态和方块实体 NBT 会保存到本地。
+2. 按 **F7** 打开编辑器，点击「保存结构」，填写结构 ID（如 `mypack:machine`）。选区方块、状态、方块实体和非玩家实体 NBT 会保存到本地。
 3. 在预览中开启「选择区域」，左、右键选取场景局部。点击「快捷动画」，填写位移、旋转和持续 tick。
 4. 拖动时间轴预览；步骤可以拖动排序、修改参数、复制、删除。`Ctrl+Z/Y` 撤销/重做，`Ctrl+S` 保存并重载。
 5. 点击「打开」可编辑已有的 JSON pack。按住预览右键或中键旋转，滚轮缩放。
@@ -191,7 +193,7 @@ Mod ID 保持 `ponder-legacy`；资源空间为 `ponder`。客户端与安装了
 
 ## 范围
 
-这是可本地维护的 Alpha 分支。框选目前捕获方块和方块实体，不自动捕获生物或掉落物；实体可以通过动作指令创建。
+框选捕获方块、方块实体及选区内的非玩家实体。JSON / ZenScript 可通过 `world.create_entity` / `scene.world.createEntity` 创建原版或已安装 Mod 的注册实体，见 [实体脚本示例](docs/JSON-PACKS.md#entities)。
 远程服务器的选区捕获需要服务器安装相同版本的 Ponder，并具有创造或 OP 权限；编辑器保存到客户端本地，整合包发布时需分发 JSON 与 NBT。
 
 MMCE 软适配的使用方式、实测版本和限制见 [MMCE 接入手册](docs/MMCE.md)。本分支不声明兼容旧 Forge/Java 8 或现代官方 Ponder 的全部二进制 API。

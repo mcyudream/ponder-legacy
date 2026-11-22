@@ -226,6 +226,7 @@ public final class ScriptSceneBuilder {
 
     enum HandleType {
         SECTION("section"),
+        ENTITY("entity"),
         ITEM("item"),
         MINECART("minecart"),
         PARROT("parrot"),

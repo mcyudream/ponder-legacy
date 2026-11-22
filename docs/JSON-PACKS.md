@@ -63,7 +63,7 @@ Selections are JSON objects:
 { "type": "structure_group", "name": "mmce:controller" }
 ```
 
-Tile NBT and custom codec payloads are SNBT compound strings. They must use a
+Entity NBT, tile NBT and custom codec payloads are SNBT compound strings. They must use a
 compound envelope, for example:
 
 ```json
@@ -75,6 +75,42 @@ compound envelope, for example:
   "redraw": true
 }
 ```
+
+## Entities
+
+Since 1.7.3, `world.create_entity` creates a registered vanilla or mod entity using
+scene-local coordinates. `nbt` is a required SNBT compound string; use `"{}"` for
+the entity's defaults. The explicit `entity`, `x`, `y` and `z` fields take
+precedence over the payload's ID and position.
+
+```json
+{
+  "op": "world.create_entity",
+  "handle": "pool_spark",
+  "entity": "botania:spark",
+  "x": 2.5,
+  "y": 2.5,
+  "z": 2.5,
+  "nbt": "{upgrade:1}"
+}
+```
+
+For Botania r1.10-364.4, the normal spark ID is `botania:spark`; `upgrade` is
+`0` (normal), `1` (dispersive), `2` (dominant), `3` (recessive), or `4` (isolated).
+Corporea sparks use `botania:corporea_spark`, with `{master:1b}` for a master spark.
+Botania remains optional; only scenes using its entities require it.
+
+The equivalent ZenScript calls are:
+
+```zenscript
+scene.world.createEntity("pool_spark", "botania:spark", 2.5, 2.5, 2.5);
+scene.world.createEntity("upgraded_spark", "botania:spark", 4.5, 2.5, 2.5, {upgrade: 1});
+scene.world.createEntity("corporea_master", "botania:corporea_spark", 6.5, 2.5, 2.5, {master: true});
+```
+
+Vanilla structure NBT imports and editor captures retain these entities and their
+upgrade/master data. Include the air layer containing the sparks in the selection.
+Previously captured files with an empty `entities` list must be captured again.
 
 ## Offline tool
 

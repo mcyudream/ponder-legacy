@@ -34,6 +34,7 @@
     "world.break_progress": ["x", "y", "z"],
     "world.cycle_property": ["x", "y", "z", "property"],
     "world.toggle_redstone": ["selection"],
+    "world.create_entity": ["handle", "entity", "x", "y", "z", "nbt"],
     "world.create_item": ["handle", "x", "y", "z", "mx", "my", "mz", "item", "count", "meta"],
     "world.move_item": ["handle", "x", "y", "z", "duration"],
     "world.set_item_visible": ["handle", "visible"],

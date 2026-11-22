@@ -1,0 +1,11 @@
+{
+  "cleanroom": "0.4.0",
+  "side": "client",
+  "userdev": false,
+  "installer_sha256": "882435d851a51e14b802e0a9384e4a05cfbb3890fca435c40c494af75e5a166f",
+  "jars": {
+    "ponder-legacy-1.7.3.jar": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+    "ponder-editor-harness-srg.jar": "5a3e548d5ea1870845b22a036c0ac9e4277e97ea66d4ffe83ed6c8bfc9494bdf"
+  },
+  "java": 25
+}

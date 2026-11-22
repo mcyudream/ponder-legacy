@@ -1,6 +1,7 @@
 package net.createmod.ponder.foundation;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
@@ -29,6 +30,19 @@ public class PonderWorldSnapshotTest {
         assertTrue(first.getEntityId() > 0); assertTrue(second.getEntityId() > 0);
         assertNotEquals(first.getEntityId(), second.getEntityId());
         assertSame(first, world.getEntityByID(first.getEntityId()));
+        assertSame(second, world.getEntityByID(second.getEntityId()));
+    }
+
+    @Test
+    public void reassignsPositiveIdCollisionsWithoutDiscardingDifferentEntities() {
+        PonderLevel world = new PonderLevel(BlockPos.ORIGIN, null);
+        EntityItem first = new EntityItem(world, 0, 1, 0, new ItemStack(Items.STICK));
+        EntityItem second = new EntityItem(world, 1, 1, 0, new ItemStack(Items.STICK));
+        first.setEntityId(42); second.setEntityId(42);
+        assertTrue(world.spawnEntity(first)); assertTrue(world.spawnEntity(second));
+        assertNotEquals(first.getEntityId(), second.getEntityId());
+        assertFalse(world.spawnEntity(first));
+        assertEquals(2, world.getEntities().size());
         assertSame(second, world.getEntityByID(second.getEntityId()));
     }
 

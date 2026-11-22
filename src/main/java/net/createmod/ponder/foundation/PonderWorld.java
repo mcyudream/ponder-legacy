@@ -11,6 +11,8 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import com.google.common.base.Predicate;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,6 +28,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.GameType;
@@ -233,11 +236,44 @@ public class PonderWorld extends World {
     }
 
     @Override
+    public <T extends Entity> List<T> getEntitiesWithinAABB(Class<? extends T> type, AxisAlignedBB bounds,
+                                                          @Nullable Predicate<? super T> predicate) {
+        List<T> result = new ArrayList<T>();
+        // Virtual entities live in loadedEntityList, not vanilla's per-chunk entity lists.
+        for (Entity entity : loadedEntityList) {
+            if (!entity.isDead && type.isInstance(entity) && entity.getEntityBoundingBox().intersects(bounds)) {
+                T match = type.cast(entity);
+                if (predicate == null || predicate.apply(match)) result.add(match);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<Entity> getEntitiesInAABBexcluding(@Nullable Entity excluded, AxisAlignedBB bounds,
+                                                  @Nullable Predicate<? super Entity> predicate) {
+        List<Entity> result = new ArrayList<Entity>();
+        for (Entity entity : loadedEntityList) {
+            if (entity != excluded && !entity.isDead && entity.getEntityBoundingBox().intersects(bounds)
+                && (predicate == null || predicate.apply(entity))) result.add(entity);
+        }
+        return result;
+    }
+
+    @Override
     public boolean spawnEntity(Entity entity) {
-        if (entity == null || loadedEntityList.contains(entity)) {
+        if (entity == null) {
             return false;
         }
+        // Entity.equals compares numeric IDs. A new entity with a colliding ID still needs
+        // to reach the ID reassignment below; only the same instance is a duplicate spawn.
+        for (Entity loaded : loadedEntityList) if (loaded == entity) return false;
         entity.setWorld(this);
+        entity.prevPosX = entity.lastTickPosX = entity.posX;
+        entity.prevPosY = entity.lastTickPosY = entity.posY;
+        entity.prevPosZ = entity.lastTickPosZ = entity.posZ;
+        entity.prevRotationYaw = entity.rotationYaw;
+        entity.prevRotationPitch = entity.rotationPitch;
         int requestedId = entity.getEntityId();
         if (requestedId <= 0 || getEntityByID(requestedId) != null) {
             while (getEntityByID(nextEntityId) != null) nextEntityId++;

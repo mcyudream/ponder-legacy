@@ -224,7 +224,7 @@ function Read-OperationContract {
 
 $IntegerFields = @("size", "ticks", "duration", "count", "meta", "cycles")
 $BooleanFields = @("enabled", "particles", "replace", "redraw", "near", "keyframe", "big", "visible")
-$ResourceFields = @("item", "codec")
+$ResourceFields = @("item", "codec", "entity")
 $StringFields = @("handle", "direction", "side", "state", "property", "type", "pose",
     "text", "key", "slot", "pointing", "action")
 

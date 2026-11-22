@@ -23,6 +23,8 @@ import net.createmod.ponder.foundation.instruction.AnimateEntityInstruction;
 import net.createmod.ponder.foundation.instruction.EntityElementInstruction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
@@ -145,6 +147,25 @@ final class ScriptSceneProgram {
             scene.world().cycleBlockProperty(pos, found);
         } else if ("toggle_redstone".equals(op)) {
             scene.world().toggleRedstonePower(selection(data, util));
+        } else if ("create_entity".equals(op)) {
+            String handle = data.getString("handle");
+            requireUnusedHandle(handle, sections, minecarts, parrots, items);
+            ResourceLocation entityId = new ResourceLocation(data.getString("entity"));
+            if (!EntityList.isRegistered(entityId))
+                throw new IllegalArgumentException("Unknown entity " + entityId);
+            final NBTTagCompound nbt = data.getCompoundTag("nbt").copy();
+            nbt.setString("id", entityId.toString());
+            final Vec3d location = vector(data);
+            items.put(handle, scene.world().createEntity(world -> {
+                Entity entity = EntityList.createEntityByIDFromName(entityId, world);
+                if (entity == null) throw new IllegalArgumentException("Cannot create entity " + entityId);
+                // Start from defaults so optional NBT does not zero fields such as health and scale.
+                NBTTagCompound merged = entity.writeToNBT(new NBTTagCompound());
+                merged.merge(nbt);
+                entity.readFromNBT(merged);
+                entity.setPosition(location.x, location.y, location.z);
+                return entity;
+            }));
         } else if ("create_item".equals(op)) {
             String handle = data.getString("handle");
             requireUnusedHandle(handle, sections, minecarts, parrots, items);

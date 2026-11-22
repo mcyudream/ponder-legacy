@@ -54,7 +54,7 @@ public final class PonderJsonLoader {
         "id", "icon", "title", "description", "indexed", "components");
     private static final Set<String> VECTOR_OPERATIONS = fields(
         "move_section", "rotate_section", "center_section", "stabilize_section",
-        "create_item", "move_item", "create_minecart", "move_minecart",
+        "create_entity", "create_item", "move_item", "create_minecart", "move_minecart",
         "create_parrot", "move_parrot", "rotate_parrot", "show_text",
         "show_shared_text", "show_controls", "show_scroll_input",
         "show_filter_slot_input", "particles", "particles_within_block", "move_poi");
@@ -398,6 +398,7 @@ public final class PonderJsonLoader {
         op(result, "world.break_progress", "break_progress", "x", "y", "z");
         op(result, "world.cycle_property", "cycle_property", "x", "y", "z", "property");
         op(result, "world.toggle_redstone", "toggle_redstone", "selection");
+        op(result, "world.create_entity", "create_entity", "handle", "entity", "x", "y", "z", "nbt");
         op(result, "world.create_item", "create_item",
             "handle", "x", "y", "z", "mx", "my", "mz", "item", "count", "meta");
         op(result, "world.move_item", "move_item", "handle", "x", "y", "z", "duration");

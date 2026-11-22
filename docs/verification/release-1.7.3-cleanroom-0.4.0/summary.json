@@ -1,0 +1,49 @@
+{
+  "version": "1.7.3",
+  "date": "2026-11-22",
+  "publication": "candidate; CI and published asset verification are recorded separately",
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "java": 25,
+  "platform": "Linux x86_64 / llvmpipe",
+  "production_jar": "ponder-legacy-1.7.3.jar",
+  "jar_sha256": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+  "cases": [
+    {
+      "name": "client-botania",
+      "result": "FUNCTIONAL_PASS",
+      "checks": 254,
+      "report": "cases/client-botania/report.json",
+      "runtime": "cases/client-botania/runtime-summary.json"
+    },
+    {
+      "name": "client-no-botania",
+      "result": "FUNCTIONAL_PASS",
+      "checks": 11,
+      "report": "cases/client-no-botania/report.json",
+      "runtime": "cases/client-no-botania/runtime-summary.json"
+    },
+    {
+      "name": "server-botania",
+      "result": "FUNCTIONAL_PASS",
+      "checks": 11,
+      "report": "cases/server-botania/report.json",
+      "runtime": "cases/server-botania/runtime-summary.json"
+    },
+    {
+      "name": "server-no-botania",
+      "result": "FUNCTIONAL_PASS",
+      "checks": 11,
+      "report": "cases/server-no-botania/report.json",
+      "runtime": "cases/server-no-botania/runtime-summary.json"
+    }
+  ],
+  "framebuffer_comparisons": 70,
+  "minimum_changed_pixels": 34,
+  "unit_tests": 346,
+  "limits": [
+    "Runtime acceptance covers Linux x86_64 / llvmpipe on official Cleanroom 0.4.0 and Java 25.",
+    "Botania r1.10-364.4, Baubles 1.12-1.5.2 and CraftTweaker 4.1.20.698 were used for the spark paths.",
+    "Existing NBT with an empty entities list must be captured again, including the air layer containing the spark."
+  ]
+}

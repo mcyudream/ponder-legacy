@@ -1,5 +1,15 @@
 # Ponder Legacy — 安装包验收
 
+## 1.7.3 植魔火花场景修复验收
+
+日期：2026-11-22。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。生产包 `ponder-legacy-1.7.3.jar`，SHA-256：`9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273`。
+
+346 项单元测试通过。安装 Botania r1.10-364.4、Baubles 1.12-1.5.2 和 CraftTweaker 4.1.20.698 的客户端通过 254 项检查：服务端选区捕获、独立原版 Template NBT 导入、Java factory、JSON 和实际 ZenScript 五种路径均保留七种火花及升级／主火花 NBT，并支持重播和进度回拖。逐个隐藏实体比较实际 PonderUI framebuffer，70 次比较通过，最少变化 34 像素；没有实体更新／渲染异常或 OpenGL 错误。
+
+未安装 Botania / CraftTweaker 的客户端通过 11 项检查，包括可选 IData 重载剥离、原版实体创建、重播和实际绘制。安装 Botania 与未安装 Botania 的两组专用服务器各通过 11 项检查。运行 classpath 使用正式安装文件，未放入 userdev 或开发版 Minecraft。
+
+[报告、运行指纹、独立捕获 NBT 与截图](docs/verification/release-1.7.3-cleanroom-0.4.0/summary.json)。Linux x86_64 / llvmpipe。旧 NBT 若未捕获火花，须重新框选保存，包含火花所在的空气层。
+
 ## 1.7.2 命令入口修复验收
 
 日期：2026-11-20。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25。生产包 `ponder-legacy-1.7.2.jar`，SHA-256：`6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1`。

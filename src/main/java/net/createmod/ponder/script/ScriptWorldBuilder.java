@@ -224,6 +224,44 @@ public final class ScriptWorldBuilder {
     }
 
     @ZenMethod
+    public void createEntity(String handle, String entityId, double x, double y, double z) {
+        createEntityData(handle, entityId, x, y, z, new NBTTagCompound());
+    }
+
+    @ZenMethod
+    public void createEntity(String handle, String entityId, ScriptVector position) {
+        ScriptVector required = ScriptVector.require(position, "Entity position");
+        createEntity(handle, entityId, required.x, required.y, required.z);
+    }
+
+    @ZenMethod
+    @Optional.Method(modid = "crafttweaker")
+    public void createEntity(String handle, String entityId, double x, double y, double z, IData value) {
+        if (value == null) throw new IllegalArgumentException("Entity NBT data is required");
+        NBTBase converted = NBTConverter.from(value);
+        if (!(converted instanceof NBTTagCompound))
+            throw new IllegalArgumentException("Entity NBT must be a data map");
+        createEntityData(handle, entityId, x, y, z, (NBTTagCompound) converted);
+    }
+
+    @ZenMethod
+    @Optional.Method(modid = "crafttweaker")
+    public void createEntity(String handle, String entityId, ScriptVector position, IData value) {
+        ScriptVector required = ScriptVector.require(position, "Entity position");
+        createEntity(handle, entityId, required.x, required.y, required.z, value);
+    }
+
+    private void createEntityData(String handle, String entityId, double x, double y, double z,
+                                  NBTTagCompound nbt) {
+        NBTTagCompound data = vector(x, y, z);
+        data.setString("handle", handle);
+        data.setString("entity", ScriptSceneRegistry.parseId(entityId, "entity id").toString());
+        data.setTag("nbt", nbt.copy());
+        scene.defineHandle(handle, ScriptSceneBuilder.HandleType.ENTITY);
+        scene.add("create_entity", data);
+    }
+
+    @ZenMethod
     public void createItemEntity(String handle, double x, double y, double z, double motionX, double motionY,
                                  double motionZ, String itemId, int count, int meta) {
         scene.defineHandle(handle, ScriptSceneBuilder.HandleType.ITEM);
