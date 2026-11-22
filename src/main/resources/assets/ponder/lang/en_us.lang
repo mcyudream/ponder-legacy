@@ -512,3 +512,14 @@ ponder.gui.furnace.output=Output slot
 ponder.gui.furnace.output_text=When smelting finishes, an iron ingot appears in the right output slot. Leave room for products to keep the furnace running.
 ponder.gui.furnace.collect=Collect the output
 ponder.gui.furnace.collect_text=Take the ingot from the output slot. When the slot is empty, this lesson is complete.
+
+# Client UI themes
+ponder.theme.title=UI themes
+ponder.theme.hint=Choose a theme. Changes apply immediately and are saved locally.
+ponder.theme.automatic=Use pack default
+ponder.theme.pondering=Pondering about...
+ponder.theme.classic.name=Classic
+ponder.theme.classic.description=The familiar Ponder Legacy interface.
+ponder.theme.modern.name=Modern Ponder
+ponder.theme.modern.description=Floating controls and lilac borders inspired by Ponder 1.21.1.
+ponder.theme.reloaded=Loaded %s UI theme(s), %s error(s).

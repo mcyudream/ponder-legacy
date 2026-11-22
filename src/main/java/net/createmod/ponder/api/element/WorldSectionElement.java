@@ -18,6 +18,14 @@ public interface WorldSectionElement extends AnimatedSceneElement {
     void resetSelectedBlock();
     void queueRedraw();
     boolean isEmpty();
+    /** Membership in schematic coordinates, including cells selected before a section is moved. */
+    default boolean contains(BlockPos pos) { return false; }
+
+    /** Draws a captured entity with the same transform as its supporting section. */
+    default void renderAttachedEntity(EntityElement entity, PonderWorld world, float partialTicks) {
+        entity.renderLast(world, partialTicks);
+    }
+
     void setEmpty();
     void setAnimatedRotation(Vec3d eulerAngles, boolean force);
     Vec3d getAnimatedRotation();

@@ -1,0 +1,20 @@
+{
+  "cleanroom": "0.4.0",
+  "side": "server",
+  "exit": 0,
+  "loader_version_seen": true,
+  "server_ready": true,
+  "timed_out": false,
+  "gameplay_report": {
+    "minecraft": "1.12.2",
+    "cleanroom": "0.4.0",
+    "checks": [
+      "Theme data parses and registers on a dedicated server without loading client rendering",
+      "Theme ZenScript startup declarations are safe on a physical dedicated server",
+      "GUI animation data compiles and seeks without client resources or GUI classes"
+    ],
+    "scene": "ponder_server_harness:server_runtime",
+    "result": "PASS"
+  },
+  "result": "FUNCTIONAL_PASS"
+}

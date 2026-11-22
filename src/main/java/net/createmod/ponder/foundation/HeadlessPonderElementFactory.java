@@ -85,6 +85,7 @@ final class HeadlessPonderElementFactory implements PonderElementFactory {
         @Override public void resetSelectedBlock() { selected = null; }
         @Override public void queueRedraw() { redraw = true; }
         @Override public boolean isEmpty() { return selection.isEmpty(); }
+        @Override public boolean contains(BlockPos pos) { return selection.test(pos); }
         @Override public void setEmpty() { selection = SelectionImpl.empty(); selected = null; redraw = true; }
         @Override public void setAnimatedRotation(Vec3d angles, boolean force) { rotation = angles == null ? Vec3d.ZERO : angles; }
         @Override public Vec3d getAnimatedRotation() { return rotation; }

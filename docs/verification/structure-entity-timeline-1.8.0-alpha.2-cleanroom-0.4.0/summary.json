@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-22",
+  "status": "LOCAL_DEVELOPMENT_CANDIDATE",
+  "version": "1.8.0-alpha.2",
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "java": "25.0.5",
+  "jar": "ponder-legacy-1.8.0-alpha.2.jar",
+  "sha256": "5a1edab76fa38075b886610dc480113e399bb8030a9f30010cf8e3bff0710422",
+  "unitTests": {
+    "tests": 361,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "workspaceUnitTests": {
+    "tests": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "runtimeChecks": 1315,
+  "scenarios": [
+    {
+      "id": "botania-ct",
+      "label": "植魔 + Baubles + CraftTweaker，捕获/导入/Java/JSON/实际 ZS + 时间轴",
+      "side": "client",
+      "result": "PASS",
+      "checks": 383,
+      "runtime": "botania-ct/runtime.json",
+      "report": "botania-ct/report.json"
+    },
+    {
+      "id": "botania-noct",
+      "label": "植魔 + Baubles，无 CraftTweaker",
+      "side": "client",
+      "result": "PASS",
+      "checks": 333,
+      "runtime": "botania-noct/runtime.json",
+      "report": "botania-noct/report.json"
+    },
+    {
+      "id": "optional-absent",
+      "label": "无植魔/CraftTweaker，原版实体与编辑器时间轴",
+      "side": "client",
+      "result": "PASS",
+      "checks": 23,
+      "runtime": "optional-absent/runtime.json",
+      "report": "optional-absent/report.json"
+    },
+    {
+      "id": "themes",
+      "label": "实际 ZS 主题、布局、资源重载及小窗口",
+      "side": "client",
+      "result": "PASS",
+      "checks": 232,
+      "runtime": "themes/runtime.json",
+      "report": "themes/report.json"
+    },
+    {
+      "id": "core",
+      "label": "完整播放器、编辑器、指南、媒体与投影回归",
+      "side": "client",
+      "result": "PASS",
+      "checks": 252,
+      "runtime": "core/runtime.json",
+      "report": "core/report.json"
+    },
+    {
+      "id": "gui",
+      "label": "原生 GUI 引导、演示和采集编辑",
+      "side": "client",
+      "result": "PASS",
+      "checks": 72,
+      "runtime": "gui/runtime.json",
+      "report": "gui/report.json"
+    },
+    {
+      "id": "server-absent",
+      "label": "无可选 Mod 专服",
+      "side": "server",
+      "result": "PASS",
+      "checks": 15,
+      "runtime": "server-absent/runtime.json",
+      "report": "server-absent/report.json"
+    },
+    {
+      "id": "server-botania-ct",
+      "label": "植魔/Baubles/CraftTweaker 专服",
+      "side": "server",
+      "result": "PASS",
+      "checks": 5,
+      "runtime": "server-botania-ct/runtime.json",
+      "report": "server-botania-ct/report.json"
+    }
+  ],
+  "regressionReproduction": {
+    "jar": "ponder-legacy-1.8.0-alpha.1.jar",
+    "sha256": "9084ebe0f4dc1f7b76662ef1c7eb5346860988cbb91cc185e9ef514a4fb8bbec",
+    "expectedResult": "FAIL",
+    "failure": "Captured sparks are visible at editor tick zero in the default show / idle / finish scene",
+    "report": "negative-alpha1/report.json"
+  },
+  "framebufferEvidence": {
+    "visibleEntityComparisons": 98,
+    "minimumVisibleChangedPixels": 51,
+    "hiddenEntityComparisons": 42,
+    "allHiddenComparisonsHaveZeroChangedPixels": true,
+    "independentlyMovedNativeSparkComparisons": 7
+  },
+  "sourceBase": "41da0f7a607370981deb22ed995c754e4eb0049d",
+  "includesUncommittedThemeAndTimelineChanges": true,
+  "platform": "Linux x86_64 / llvmpipe (LLVM 21.1.8, 256 bits)",
+  "limits": [
+    "Local candidate; no GitHub release or CI claim",
+    "No Windows/macOS or other GPU runtime validation",
+    "Existing captured/imported NBT must contain the entities; no re-capture is needed for files that already do"
+  ]
+}

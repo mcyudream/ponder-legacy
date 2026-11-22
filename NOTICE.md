@@ -9,6 +9,12 @@ Catnip implementation, API, translations, visual assets, scripts and tests.
 - Original copyright: Copyright (c) 2022 The Create Team
 - MIT license: `LICENSE`
 
+The optional Modern Ponder UI theme adapts the visual composition and border
+palette from Creators-of-Create/Ponder's `mc1.21.1/dev` branch at revision
+`89819291b726708d119b118dea01667eae0b64c9` (MIT). The existing upstream widget
+atlas is reused for matching modern navigation icons. The 1.12 renderer and
+theme loading, configuration, JSON and ZenScript APIs are implemented in this fork.
+
 The authoring workflow takes inspiration from Ponderer (MIT):
 https://github.com/Nobodiiiii/Ponderer . Its modern Minecraft implementation is
 not a runtime dependency of this fork.

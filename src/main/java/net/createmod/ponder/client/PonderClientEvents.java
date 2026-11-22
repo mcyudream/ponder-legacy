@@ -36,6 +36,7 @@ public final class PonderClientEvents {
             return;
         }
         DeferredClientScreen.tick();
+        net.createmod.ponder.client.theme.PonderThemeBackdrop.tick();
         PonderClient.onTick();
         net.createmod.ponder.client.projection.ProjectionService.tick();
         net.createmod.ponder.client.projection.ProjectionPlacementEvents.tick();
@@ -56,6 +57,17 @@ public final class PonderClientEvents {
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent event) {
         PonderTooltipHandler.onTooltip(event);
+    }
+
+    @SubscribeEvent
+    public void onThemeHud(net.minecraftforge.client.event.RenderGameOverlayEvent.Pre event) {
+        if (event.getType() == net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType.ALL
+            && net.createmod.ponder.client.theme.PonderThemeBackdrop.active()) event.setCanceled(true);
+    }
+
+    @SubscribeEvent
+    public void onThemeHand(net.minecraftforge.client.event.RenderHandEvent event) {
+        if (net.createmod.ponder.client.theme.PonderThemeBackdrop.active()) event.setCanceled(true);
     }
 
     @SubscribeEvent

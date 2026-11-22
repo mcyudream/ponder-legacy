@@ -1,5 +1,7 @@
 package net.createmod.ponder.foundation.ui;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import net.minecraft.client.gui.Gui;
 
 /** Scrolls complete rows so rendered entries and their hit boxes always stay inside the pane. */
@@ -48,7 +50,7 @@ final class PonderScrollPane {
 
     void draw() {
         if (!canScroll()) return;
-        Gui.drawRect(right - 7, top, right - 3, bottom, 0xff232c35);
-        Gui.drawRect(right - 8, thumbTop(), right - 2, thumbTop() + thumbHeight(), dragging ? 0xffb8e3df : 0xff78949f);
+        Gui.drawRect(right - 7, top, right - 3, bottom, PonderThemes.color(0xff232c35));
+        Gui.drawRect(right - 8, thumbTop(), right - 2, thumbTop() + thumbHeight(), dragging ? PonderThemes.color(0xffb8e3df) : PonderThemes.color(0xff78949f));
     }
 }

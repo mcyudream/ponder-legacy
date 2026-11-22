@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "id": "spark_smoke:timeline_pack",
+  "scenes": [
+    {
+      "id": "spark_smoke:timeline",
+      "component": "minecraft:paper",
+      "title": "Captured sparks follow the timeline",
+      "structure": "spark_smoke:timeline",
+      "tags": [],
+      "instructions": [
+        {
+          "op": "world.show_section",
+          "selection": {
+            "type": "everywhere"
+          },
+          "direction": "down"
+        },
+        {
+          "op": "scene.idle",
+          "ticks": 20
+        },
+        {
+          "op": "scene.finish"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 package net.createmod.ponder.foundation.ui;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.util.List;
 
 import net.createmod.catnip.gui.ScreenOpener;
@@ -35,7 +37,7 @@ public class PonderTagScreen extends PonderCatalogScreen {
             String line = description.get(i);
             if (i == shownLines - 1 && description.size() > shownLines)
                 line = fontRenderer.trimStringToWidth(line, Math.min(440, width - 40) - 12) + "...";
-            fontRenderer.drawString(line, (width - fontRenderer.getStringWidth(line)) / 2, 42 + i * 10, 0xffaeb8c2);
+            fontRenderer.drawString(line, (width - fontRenderer.getStringWidth(line)) / 2, 42 + i * 10, PonderThemes.color(0xffaeb8c2));
         }
     }
 

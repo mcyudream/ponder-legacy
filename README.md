@@ -1,5 +1,10 @@
 # Ponder Legacy
 
+**1.8.0：界面主题与实体时间轴修复**。新增可切换的经典 / 现代 Ponder 主题，
+支持 JSON、ZenScript 和资源包新建、继承及修改主题，见 [主题手册](docs/UI-THEMES.md)。
+修复捕获的火花在时间轴 0 刻提前出现：实体跟随所属选区显示、隐藏及移动，倒拖和重播恢复初始隐藏状态。
+主题可通过 `/pondertheme` 切换；主题示例随正式版提供。[升级说明](docs/releases/1.8.0.md)。
+
 **1.7.3 场景实体修复**：框选结构现在保留选区内的非玩家实体，包括植魔火花与多媒体火花；JSON / ZenScript 新增 `createEntity` 通用实体创建入口。旧结构若已丢失火花数据，需要重新捕获；框选范围须包含火花所在的空间层。
 
 **1.7.2 命令入口修复**：修复聊天框输入 `/pondergui`、`/pondergui demo` 和 `/pondergui edit` 后界面立即消失的问题。界面在聊天提交完成后的客户端 tick 打开；若期间已切换世界或打开其他界面，则取消过期请求。
@@ -18,7 +23,7 @@
 
 ## 当前状态
 
-当前版本为 **`1.7.3`**，补全结构实体捕获与通用实体脚本创建。支持 **时间轴 GUI 动画片段**：在机器演示的指定环节，于侧边空白区展示 GUI，支持控件高亮、演示物品、文字讲解、截取帧与定格，并跟随场景暂停、跳转及重播。保留机器界面长按 **W** 的实机引导、只读操作检测、独立演示与游戏内 GUI 采集编辑器。动画编辑器、Markdown、JSON 与 Java API 共用定义，见 [GUI 教程手册](docs/GUI-TUTORIALS.md)。现有双展示、媒体插入、世界投影和可选 Revo UI 适配继续保留。CraftTweaker、MMCE、FTB Quests、Media API 等外置联动均为可选。最低运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**；已发布版本与开发版的验收状态分别记录在 [发布状态](PUBLICATION.md) 与 [验收记录](LEGACY-VERIFICATION.md)。
+当前版本为 **`1.8.0`**，提供可配置主题，并修复结构实体的时间轴显示。支持 **时间轴 GUI 动画片段**：在机器演示的指定环节，于侧边空白区展示 GUI，支持控件高亮、演示物品、文字讲解、截取帧与定格，并跟随场景暂停、跳转及重播。保留机器界面长按 **W** 的实机引导、只读操作检测、独立演示与游戏内 GUI 采集编辑器。动画编辑器、Markdown、JSON 与 Java API 共用定义，见 [GUI 教程手册](docs/GUI-TUTORIALS.md)。现有双展示、媒体插入、世界投影和可选 Revo UI 适配继续保留。CraftTweaker、MMCE、FTB Quests、Media API 等外置联动均为可选。最低运行基线为 **Cleanroom 0.4.0 正式版（无 `-alpha`）**；已发布版本与开发版的验收状态分别记录在 [发布状态](PUBLICATION.md) 与 [验收记录](LEGACY-VERIFICATION.md)。
 
 安装包从 [GitHub Releases](https://github.com/mcyudream/ponder-legacy/releases) 获取，选择无分类后缀的 `ponder-legacy-*.jar`。从 `1.4.1` 起，仅使用 ZenScript 时需要独立安装 CraftTweaker；`1.4.0` 仍要求安装。发行状态见 [PUBLICATION.md](PUBLICATION.md)。
 

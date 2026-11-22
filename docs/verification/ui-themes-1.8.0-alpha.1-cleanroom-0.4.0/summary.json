@@ -1,0 +1,93 @@
+{
+  "status": "LOCAL_DEVELOPMENT_CANDIDATE",
+  "date": "2026-11-22",
+  "version": "1.8.0-alpha.1",
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "java": "25.0.5",
+  "productionJar": "ponder-legacy-1.8.0-alpha.1.jar",
+  "sha256": "9084ebe0f4dc1f7b76662ef1c7eb5346860988cbb91cc185e9ef514a4fb8bbec",
+  "sourceBase": "41da0f7a607370981deb22ed995c754e4eb0049d",
+  "sourceHasUncommittedThemeChanges": true,
+  "upstreamVisualReference": {
+    "repository": "Creators-of-Create/Ponder",
+    "branch": "mc1.21.1/dev",
+    "commit": "89819291b726708d119b118dea01667eae0b64c9"
+  },
+  "releaseCheckoutUnitTests": {
+    "tests": 356,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "workspaceUnitTests": {
+    "tests": 357,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "runtimeChecks": 800,
+  "scenarios": [
+    {
+      "id": "modern-ct",
+      "side": "client",
+      "label": "现代主题 / CraftTweaker / 中文",
+      "result": "PASS",
+      "checks": 232,
+      "runtime": "modern-ct/runtime.json",
+      "report": "modern-ct/report.json"
+    },
+    {
+      "id": "modern-noct",
+      "side": "client",
+      "label": "现代主题 / 无 CraftTweaker / 英文",
+      "result": "PASS",
+      "checks": 229,
+      "runtime": "modern-noct/runtime.json",
+      "report": "modern-noct/report.json"
+    },
+    {
+      "id": "regression",
+      "side": "client",
+      "label": "完整经典播放器、指南、编辑器、投影回归",
+      "result": "PASS",
+      "checks": 252,
+      "runtime": "regression/runtime.json",
+      "report": "regression/report.json"
+    },
+    {
+      "id": "gui",
+      "side": "client",
+      "label": "原生 GUI 引导、演示与采集编辑回归",
+      "result": "PASS",
+      "checks": 72,
+      "runtime": "gui/runtime.json",
+      "report": "gui/report.json"
+    },
+    {
+      "id": "server-absent",
+      "side": "server",
+      "label": "专服 / 无 CraftTweaker",
+      "result": "PASS",
+      "checks": 12,
+      "runtime": "server-absent/runtime.json",
+      "report": "server-absent/report.json"
+    },
+    {
+      "id": "server-ct",
+      "side": "server",
+      "label": "专服 / 实际主题 ZenScript",
+      "result": "PASS",
+      "checks": 3,
+      "runtime": "server-ct/runtime.json",
+      "report": "server-ct/report.json"
+    }
+  ],
+  "platform": "Linux x86_64 / llvmpipe (LLVM 21.1.8, 256 bits)",
+  "limits": [
+    "Local candidate, no GitHub release or CI claim",
+    "Runtime validation uses official Cleanroom 0.4.0 installation jars, never 0.4.0-alpha or userdev",
+    "No Windows, macOS or other GPU validation",
+    "Visual alignment covers the UI; scene projection retains the existing 1.12 renderer"
+  ]
+}

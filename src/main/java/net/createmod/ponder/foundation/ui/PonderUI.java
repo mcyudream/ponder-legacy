@@ -16,6 +16,10 @@ import net.createmod.catnip.render.GlStateGuard;
 import net.createmod.ponder.api.element.PonderOverlayElement;
 import net.createmod.ponder.api.subject.PonderSubjectResolvers;
 import net.createmod.ponder.api.subject.ResolvedPonderSubject;
+import net.createmod.ponder.api.theme.PonderTheme.Color;
+import net.createmod.ponder.client.theme.PonderThemes;
+import net.createmod.ponder.client.theme.PonderThemeRenderer;
+import net.createmod.catnip.gui.element.GuiGameElement;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.createmod.ponder.foundation.PonderScene;
 import net.createmod.ponder.foundation.PonderTag;
@@ -163,7 +167,44 @@ public class PonderUI extends AbstractPonderScreen {
                 }));
             sceneMenu.layout(width, height, sceneMenuButton);
         }
+        addThemeButton(15, (sceneMenuButton == null ? width - 54 : sceneMenuButton.x) - 28, 7);
+        if (PonderThemes.modern()) layoutModern();
     }
+
+    private void layoutModern() {
+        // Upstream 1.21.1: 20-pixel logical controls, eight-pixel spacing and a 31-pixel margin.
+        int controlsY = height - 51;
+        for (GuiButton button : buttonList) {
+            if (button instanceof PonderButton) { button.width = 20; button.height = 20; }
+            switch (button.id) {
+                case 1 -> { button.x = 31; button.y = controlsY; }
+                case 2 -> { button.x = width / 2 - 38; button.y = controlsY; ((PonderButton) button).withShortcut(mc.gameSettings.keyBindLeft.getKeyCode()); }
+                case 3 -> { button.x = width / 2 + 76; button.y = controlsY; ((PonderButton) button).withShortcut(mc.gameSettings.keyBindBack.getKeyCode()); }
+                case 4 -> { button.x = width - 51; button.y = controlsY; }
+                case 5 -> { button.x = width / 2 + 18; button.y = controlsY; ((PonderButton) button).withShortcut(mc.gameSettings.keyBindRight.getKeyCode()); }
+                case 8 -> { button.x = width / 2 - 96; button.y = controlsY; ((PonderButton) button).withShortcut(mc.gameSettings.keyBindDrop.getKeyCode()); }
+                case 12 -> { button.x = width - 51; button.y = 100; }
+                case 13 -> { button.x = width - 51; button.y = 130; }
+                case 6 -> { button.x = width / 2 - 10; button.y = controlsY; ((PonderButton) button).withShortcut(mc.gameSettings.keyBindInventory.getKeyCode()); }
+                case 10 -> { button.x = 31; button.y = 81; }
+                case 11 -> { button.x = 31; button.y = 111; }
+                case 14 -> { button.x = 31; button.y = 141; }
+                case 15 -> { button.x = width - 51; button.y = 31; }
+                case 9 -> {
+                    button.width = fontRenderer.getStringWidth(button.displayString) + 35;
+                    button.x = width - 31 - button.width; button.y = 65;
+                }
+                case 7 -> {
+                    button.x = width / 2 - 110; button.y = height - 27;
+                    button.width = 220; button.height = 1;
+                }
+            }
+        }
+        if (sceneMenu != null) sceneMenu.layout(width, height, sceneMenuButton);
+    }
+
+    private int stageTop() { return PonderThemes.modern() ? 72 : 34; }
+    private int stageBottom() { return height - (PonderThemes.modern() ? 76 : 38); }
 
     @Override
     public void updateScreen() {
@@ -182,7 +223,9 @@ public class PonderUI extends AbstractPonderScreen {
         }
         PonderScene scene = getActiveScene();
         if (!identifyMode && !scene.isPaused()) lastPartialTicks = partialTicks;
-        guiLayout = guiAnimations.prepare(scene, new net.createmod.ponder.api.gui.GuiTutorial.Rect(0,34,width,Math.max(1,height-72)));
+        int sideMargin = PonderThemes.modern() && !scene.getActiveGuiAnimations().isEmpty() ? 66 : 0;
+        guiLayout = guiAnimations.prepare(scene, new net.createmod.ponder.api.gui.GuiTutorial.Rect(sideMargin,
+            stageTop(), width - sideMargin * 2, Math.max(1, stageBottom() - stageTop())));
         float scenePartialTicks = identifyMode || scene.isPaused() ? frozenPartialTicks : partialTicks;
         clearSceneDepth();
         beforeScenePassForTesting();
@@ -194,12 +237,28 @@ public class PonderUI extends AbstractPonderScreen {
                     overlay.render(scene, mouseX, mouseY, scenePartialTicks);
             guiAnimations.render(scene);
         }
-        Gui.drawRect(0, 0, width, 34, 0xdd171b20);
-        Gui.drawRect(0, height - 38, width, height, 0xff171b20);
+        if (PonderThemes.modern()) { renderModernTitle(scene); return; }
+        Gui.drawRect(0, 0, width, 34, PonderThemes.color(0xdd171b20));
+        Gui.drawRect(0, height - 38, width, height, PonderThemes.color(Color.FOOTER));
         int titleStart=buttonList.stream().anyMatch(button->button.id==14)?94:68;
-        int titleWidth = (sceneMenuButton == null ? width - 56 : sceneMenuButton.x) - titleStart - 4;
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(scene.getTitle(), Math.max(0, titleWidth)), titleStart, 13, 0xffeef2f5);
-        if (sceneMenu == null) fontRenderer.drawString("1 / 1", width - fontRenderer.getStringWidth("1 / 1") - 12, 13, 0xffaeb8c2);
+        int titleWidth = buttonList.stream().filter(b -> b.id == 15).findFirst().orElseThrow().x - titleStart - 4;
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(scene.getTitle(), Math.max(0, titleWidth)), titleStart, 13, PonderThemes.color(Color.TEXT));
+        if (sceneMenu == null) fontRenderer.drawString("1 / 1", width - fontRenderer.getStringWidth("1 / 1") - 12, 13, PonderThemes.color(Color.MUTED));
+    }
+
+    private void renderModernTitle(PonderScene scene) {
+        int textWidth = Math.max(20, Math.min(180, width - 134));
+        List<String> title = fontRenderer.listFormattedStringToWidth(scene.getTitle(), textWidth);
+        int lines = Math.min(3, title.size());
+        int streakWidth = 70 + Math.min(textWidth, fontRenderer.getStringWidth(scene.getTitle()));
+        PonderThemeRenderer.streak(55, 19, streakWidth, 26 + lines * 9);
+        PonderThemeRenderer.modernBox(21, 21, 30, 30, PonderThemes.color(Color.TITLE_BACKGROUND),
+            PonderThemes.color(Color.TITLE_BORDER), PonderThemes.color(Color.TITLE_BORDER_BOTTOM));
+        GuiGameElement.of(getSubject()).scale(2).render(36, 36);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(I18n.format("ponder.theme.pondering"), textWidth),
+            59, 25, PonderThemes.color(Color.MUTED));
+        for (int line = 0; line < lines; line++)
+            fontRenderer.drawString(title.get(line), 59, 39 + line * 9, PonderThemes.color(Color.TEXT));
     }
 
     private static void clearSceneDepth() {
@@ -219,7 +278,8 @@ public class PonderUI extends AbstractPonderScreen {
     }
 
     private void renderScene(PonderScene scene, int mouseX, int mouseY, float partialTicks) {
-        var viewport = guiLayout.panels().isEmpty() ? new net.createmod.ponder.api.gui.GuiTutorial.Rect(0,0,width,height) : guiLayout.world();
+        var viewport = guiLayout.panels().isEmpty() && !PonderThemes.modern()
+            ? new net.createmod.ponder.api.gui.GuiTutorial.Rect(0,0,width,height) : guiLayout.world();
         BlockPos min = scene.getWorld().getBoundsMin();
         BlockPos max = scene.getWorld().getBoundsMax();
         Vec3d center = new Vec3d((min.getX() + max.getX() + 1) / 2d,
@@ -227,6 +287,7 @@ public class PonderUI extends AbstractPonderScreen {
         double span = Math.max(2, Math.max(max.getX() - min.getX() + 1,
             Math.max(max.getY() - min.getY() + 1, max.getZ() - min.getZ() + 1)));
         double distance = span * 2.35 * zoom / scene.getScale() / Math.min(1,viewport.width()/(double)Math.max(1,viewport.height()));
+        if (PonderThemes.modern()) distance *= .75;
         float viewPitch = pitch + scene.getCameraPitch();
         float viewYaw = yaw + scene.getCameraYaw();
         Vec3d cameraOffset = rotateX(new Vec3d(0, -scene.getYOffset(), distance), -viewPitch);
@@ -274,7 +335,7 @@ public class PonderUI extends AbstractPonderScreen {
         identifiedStack = ItemStack.EMPTY;
         identifiedBlock = null;
         if (!identifyMode) return;
-        if (mouseY <= 34 || mouseY >= height - 38 || guiAnimations.contains(mouseX,mouseY) || sceneMenu != null && sceneMenu.isOpen() && sceneMenu.contains(mouseX, mouseY)) {
+        if (mouseY <= stageTop() || mouseY >= stageBottom() || guiAnimations.contains(mouseX,mouseY) || sceneMenu != null && sceneMenu.isOpen() && sceneMenu.contains(mouseX, mouseY)) {
             scene.deselect();
             return;
         }
@@ -298,12 +359,19 @@ public class PonderUI extends AbstractPonderScreen {
             if (!(button instanceof PonderButton)) continue;
             PonderButton ponderButton = (PonderButton) button;
             if (ponderButton.isHoveredButton() && ponderButton.getTooltipKey() != null) {
+                if (PonderThemes.modern() && button.y == height - 51) {
+                    String label = I18n.format(ponderButton.getTooltipKey());
+                    int x = Math.max(4, Math.min(width - 4 - fontRenderer.getStringWidth(label),
+                        button.x + button.width / 2 - fontRenderer.getStringWidth(label) / 2));
+                    fontRenderer.drawString(label, x, height - 16, PonderThemes.color(Color.MUTED));
+                    return;
+                }
                 drawHoveringText(Arrays.asList(I18n.format(ponderButton.getTooltipKey())),
                     mouseX, mouseY, fontRenderer);
                 return;
             }
         }
-        if (!identifyMode || mouseY <= 34 || mouseY >= height - 38 || guiAnimations.contains(mouseX,mouseY)) return;
+        if (!identifyMode || mouseY <= stageTop() || mouseY >= stageBottom() || guiAnimations.contains(mouseX,mouseY)) return;
         if (!identifiedStack.isEmpty()) {
             renderToolTip(identifiedStack, mouseX, mouseY);
             return;
@@ -345,8 +413,9 @@ public class PonderUI extends AbstractPonderScreen {
             return;
         }
         super.mouseClicked(mouseX, mouseY, button);
+        if (mc.currentScreen != this || buttonList.stream().anyMatch(b -> b instanceof PonderButton p && p.containsPointer(mouseX, mouseY))) return;
         if (guiAnimations.contains(mouseX,mouseY)) return;
-        if (button == 0 && !identifyMode && mouseY > 34 && mouseY < height - 38) {
+        if (button == 0 && !identifyMode && mouseY > stageTop() && mouseY < stageBottom()) {
             dragging = true;
             lastMouseX = mouseX;
             lastMouseY = mouseY;
@@ -422,7 +491,13 @@ public class PonderUI extends AbstractPonderScreen {
             else net.createmod.ponder.client.editor.EditorWorkspace.openScene(getActiveScene().getId());
             return;
         }
-        if (keyCode == IDENTIFY_KEY) {
+        if (PonderThemes.modern()) {
+            if (keyCode == mc.gameSettings.keyBindInventory.getKeyCode()) { mc.displayGuiScreen(returnScreen); return; }
+            if (keyCode == mc.gameSettings.keyBindLeft.getKeyCode()) { previousScene(); return; }
+            if (keyCode == mc.gameSettings.keyBindRight.getKeyCode()) { nextScene(); return; }
+            if (keyCode == mc.gameSettings.keyBindBack.getKeyCode()) { replay(); return; }
+        }
+        if (keyCode == IDENTIFY_KEY || PonderThemes.modern() && keyCode == mc.gameSettings.keyBindDrop.getKeyCode()) {
             toggleIdentify();
             return;
         }

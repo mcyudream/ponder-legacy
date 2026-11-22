@@ -62,6 +62,7 @@ public final class CleanroomEditorSmoke {
     private net.createmod.ponder.client.projection.ProjectionPlacementSmoke placementSmoke;
     private net.createmod.ponder.client.guitutorial.GuiTutorialSmoke guiTutorialSmoke;
     private BotaniaSparkSmoke botaniaSparkSmoke;
+    private net.createmod.ponder.foundation.ui.PonderThemeSmoke themeSmoke;
     private int phase, ticks, waitUntil, exitAt = Integer.MAX_VALUE;
     private String screenshot;
     private CompletableFuture<Void> worldReady;
@@ -92,6 +93,12 @@ public final class CleanroomEditorSmoke {
         if (exitAt != Integer.MAX_VALUE || ticks < waitUntil || screenshot != null) return;
         try {
             if (ticks > 2400) throw new IllegalStateException("Smoke timeout at phase " + phase);
+            if (phase >= 2 && Boolean.getBoolean("ponder.dev.themesOnly")) {
+                if (worldReady != null && !worldReady.isDone()) return;
+                if (themeSmoke == null) themeSmoke = new net.createmod.ponder.foundation.ui.PonderThemeSmoke(mc, this::require, this::requestScreenshot);
+                if (themeSmoke.advance()) { report("PASS", null); exitAt = ticks + 10; }
+                return;
+            }
             if (phase >= 2 && Boolean.getBoolean("ponder.dev.botaniaSparksOnly")) {
                 if (worldReady != null && !worldReady.isDone()) return;
                 if (botaniaSparkSmoke == null) botaniaSparkSmoke = new BotaniaSparkSmoke(mc, this::require, this::requestScreenshot);
@@ -305,6 +312,7 @@ public final class CleanroomEditorSmoke {
             if (placementSmoke != null) placementSmoke.verifyFrame(screenshot);
             if (guiTutorialSmoke != null) guiTutorialSmoke.verifyFrame(screenshot);
             if (botaniaSparkSmoke != null) botaniaSparkSmoke.verifyFrame(screenshot);
+            if (themeSmoke != null) themeSmoke.verifyFrame(screenshot);
             require(GL11.glGetError() == GL11.GL_NO_ERROR, "render " + screenshot + " has no OpenGL errors");
         } catch (Throwable failure) {
             report("FAIL", failure); exitAt = ticks + 10;

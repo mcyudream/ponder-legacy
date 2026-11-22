@@ -1,5 +1,7 @@
 package net.createmod.ponder.client.editor;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -126,24 +128,24 @@ public final class EditorScreen extends GuiScreen {
     }
 
     @Override public void drawScreen(int mx, int my, float partial) {
-        drawRect(0, 0, width, height, BACKGROUND);
-        fontRenderer.drawString("PONDER / " + tr("editor"), 10, 11, ACCENT);
+        drawRect(0, 0, width, height, PonderThemes.color(BACKGROUND));
+        fontRenderer.drawString("PONDER / " + tr("editor"), 10, 11, PonderThemes.color(ACCENT));
         String title = document.scene().get("title").getAsString() + (document.isDirty() || path == null ? " *" : "");
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(title, Math.max(20, width - 165)), 159, 11, TEXT);
-        drawRect(8, mainTop, leftWidth + 8, mainBottom, PANEL);
-        fontRenderer.drawString(tr("steps") + " / " + document.steps().size(), 14, mainTop + 6, MUTED);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(title, Math.max(20, width - 165)), 159, 11, PonderThemes.color(TEXT));
+        drawRect(8, mainTop, leftWidth + 8, mainBottom, PonderThemes.color(PANEL));
+        fontRenderer.drawString(tr("steps") + " / " + document.steps().size(), 14, mainTop + 6, PonderThemes.color(MUTED));
         JsonArray steps = document.steps();
         for (int i = scroll; i < Math.min(steps.size(), scroll + rows()); i++) {
             int y = mainTop + 21 + (i - scroll) * 20;
             JsonObject step = steps.get(i).getAsJsonObject();
-            if (i == selected) drawRect(9, y - 2, leftWidth + 7, y + 17, 0xff2e4c43);
-            fontRenderer.drawString(String.format(Locale.ROOT, "%03d", document.stepStartTick(i)), 14, y + 3, i == selected ? ACCENT : MUTED);
+            if (i == selected) drawRect(9, y - 2, leftWidth + 7, y + 17, PonderThemes.color(0xff2e4c43));
+            fontRenderer.drawString(String.format(Locale.ROOT, "%03d", document.stepStartTick(i)), 14, y + 3, i == selected ? PonderThemes.color(ACCENT) : PonderThemes.color(MUTED));
             String op = step.get("op").getAsString();
             String label = tr("op." + op);
             if (label.startsWith("ponder.editor.")) label = op.substring(op.indexOf('.') + 1);
-            fontRenderer.drawString(fontRenderer.trimStringToWidth(label, leftWidth - 38), 41, y + 3, TEXT);
+            fontRenderer.drawString(fontRenderer.trimStringToWidth(label, leftWidth - 38), 41, y + 3, PonderThemes.color(TEXT));
         }
-        drawRect(viewX, mainTop, width - 8, mainBottom, 0xff18212b);
+        drawRect(viewX, mainTop, width - 8, mainBottom, PonderThemes.color(0xff18212b));
         if (preview.scene() != null) {
             try { preview.render(viewX, mainTop, viewWidth, Math.max(8, mainBottom - mainTop),
                 width, height, mx, my, partial, selection()); }
@@ -151,41 +153,41 @@ public final class EditorScreen extends GuiScreen {
         }
         GlStateManager.disableDepth(); GlStateManager.disableLighting();
         var worldArea=preview.worldArea();int overlayX=worldArea==null?viewX:worldArea.x(),overlayWidth=worldArea==null?viewWidth:worldArea.width();
-        fontRenderer.drawString(tr("preview"), overlayX + 8, mainTop + 7, MUTED);
+        fontRenderer.drawString(tr("preview"), overlayX + 8, mainTop + 7, PonderThemes.color(MUTED));
         String hint = selecting ? tr("pick_hint") : tr("orbit_hint");
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(hint, Math.max(1,overlayWidth - 14)), overlayX + 7, mainBottom - 15, MUTED);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(hint, Math.max(1,overlayWidth - 14)), overlayX + 7, mainBottom - 15, PonderThemes.color(MUTED));
         if (selection() != null)
-            fontRenderer.drawString(fontRenderer.trimStringToWidth(selection().toString(), Math.max(1,overlayWidth - 14)), overlayX + 7, mainBottom - 28, ACCENT);
+            fontRenderer.drawString(fontRenderer.trimStringToWidth(selection().toString(), Math.max(1,overlayWidth - 14)), overlayX + 7, mainBottom - 28, PonderThemes.color(ACCENT));
         drawTimeline();
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(status, width - 20), 10, height - 26, error ? 0xffff9c9c : MUTED);
-        fontRenderer.drawString(tr("shortcuts"), 10, height - 13, 0xff667c92);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(status, width - 20), 10, height - 26, error ? PonderThemes.color(0xffff9c9c) : PonderThemes.color(MUTED));
+        fontRenderer.drawString(tr("shortcuts"), 10, height - 13, PonderThemes.color(0xff667c92));
         super.drawScreen(mx, my, partial);
         GlStateManager.color(1, 1, 1, 1);
     }
 
     private void drawTimeline() {
         int x = 12, y = height - 53, w = width - 24;
-        drawRect(x, y, x + w, y + 24, PANEL);
+        drawRect(x, y, x + w, y + 24, PonderThemes.color(PANEL));
         int total = preview.total();
         for (int t = 0; t <= 10; t++) {
             int tickX = x + t * w / 10;
-            drawRect(tickX, y + 15, tickX + 1, y + 24, LINE);
+            drawRect(tickX, y + 15, tickX + 1, y + 24, PonderThemes.color(LINE));
         }
         JsonArray steps = document.steps();
         for (int i = 0; i < steps.size(); i++) {
             int start = document.stepStartTick(i);
             int marker = x + (int) Math.min(w - 1, (long) start * w / Math.max(1, total));
-            drawRect(marker, y + 13, marker + 2, y + 22, i == selected ? ACCENT : 0xff6b91ad);
+            drawRect(marker, y + 13, marker + 2, y + 22, i == selected ? PonderThemes.color(ACCENT) : PonderThemes.color(0xff6b91ad));
             JsonObject step = steps.get(i).getAsJsonObject();
             if (i == selected && step.has("duration")) {
                 int end = x + (int) Math.min(w, ((long) start + step.get("duration").getAsInt()) * w / Math.max(1, total));
-                drawRect(marker, y + 10, end, y + 13, ACCENT);
+                drawRect(marker, y + 10, end, y + 13, PonderThemes.color(ACCENT));
             }
         }
         int playhead = x + (int) ((long) preview.tick() * w / Math.max(1, total));
-        drawRect(playhead, y, playhead + 2, y + 24, 0xfff3d597);
+        drawRect(playhead, y, playhead + 2, y + 24, PonderThemes.color(0xfff3d597));
         String clock = tr("timeline") + "  " + preview.tick() + " / " + total + " t  (" + String.format(Locale.ROOT, "%.2f", preview.tick() / 20d) + " s)";
-        fontRenderer.drawString(clock, x + 5, y + 2, TEXT);
+        fontRenderer.drawString(clock, x + 5, y + 2, PonderThemes.color(TEXT));
     }
 
     private void addAction() {

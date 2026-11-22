@@ -6,6 +6,7 @@ import net.createmod.ponder.api.gui.GuiTutorial;
 import net.createmod.ponder.api.gui.GuiDemoLayout;
 import net.createmod.ponder.api.gui.GuiTutorial.*;
 import net.createmod.ponder.gui.GuiTutorialSession;
+import net.createmod.ponder.client.theme.PonderThemes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.*;
@@ -26,8 +27,8 @@ public final class GuiTutorialDrawing {
         var font=Minecraft.getMinecraft().fontRenderer;List<String> lines=font.listFormattedStringToWidth(text(text),Math.max(16,width));
         boolean footer=lines.size()>Math.max(1,height/12)&&height>=24;
         int count=Math.max(1,(height-(footer?10:0))/12),start=Math.max(0,Math.min(scroll,Math.max(0,lines.size()-count)));
-        for(int i=start;i<Math.min(lines.size(),start+count);i++)font.drawString(lines.get(i),x,y+(i-start)*12,0xffd7e3e8);
-        if(footer)font.drawString((start+1)+"–"+Math.min(lines.size(),start+count)+" / "+lines.size(),x,y+height-9,0xff819ba8);
+        for(int i=start;i<Math.min(lines.size(),start+count);i++)font.drawString(lines.get(i),x,y+(i-start)*12,PonderThemes.color(0xffd7e3e8));
+        if(footer)font.drawString((start+1)+"–"+Math.min(lines.size(),start+count)+" / "+lines.size(),x,y+height-9,PonderThemes.color(0xff819ba8));
         return Math.max(0,lines.size()-count);
     }
     public static Rect scaled(Rect rect,int x,int y,float scale){
@@ -79,7 +80,7 @@ public final class GuiTutorialDrawing {
             GlStateManager.popMatrix();
             Rect target=custom?layout.target(session.step().target()):t.targets().get(session.step().target()).bounds();
             if(target==null||target.width()==0||target.height()==0)return;
-            Rect mark=scaled(target,x,y,scale);box(mark,ACCENT);
+            Rect mark=scaled(target,x,y,scale);box(mark,PonderThemes.color(ACCENT));
             String previousKey=t.steps().get(Math.max(0,session.stepIndex()-1)).target();
             Rect previous=custom?layout.target(previousKey):t.targets().get(previousKey).bounds();Rect from=scaled(previous==null?target:previous,x,y,scale);
             float travel=Math.min(1,session.tick()/20f);travel=travel*travel*(3-2*travel);

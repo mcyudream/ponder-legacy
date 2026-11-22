@@ -1,0 +1,12 @@
+{
+  "parent": "ponder:modern",
+  "name": "Sand",
+  "description": "A resource-pack theme with warm accents.",
+  "colors": {
+    "accent": "#FFE0AA",
+    "border": "#70FFE0AA",
+    "border_bottom": "#30FFE0AA",
+    "progress_fill": "#E8C890",
+    "keyframe": "#FFE0AA"
+  }
+}

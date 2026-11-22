@@ -1,5 +1,7 @@
 package net.createmod.ponder.client.editor;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,17 +50,17 @@ final class EditorListScreen<T> extends GuiScreen {
         scroll = Math.max(0, Math.min(scroll, filtered.size() - rows()));
     }
     @Override public void drawScreen(int mx, int my, float pt) {
-        drawRect(0, 0, width, height, BACKGROUND);
-        fontRenderer.drawString(title, 12, 14, TEXT); search.drawTextBox();
+        drawRect(0, 0, width, height, PonderThemes.color(BACKGROUND));
+        fontRenderer.drawString(title, 12, 14, PonderThemes.color(TEXT)); search.drawTextBox();
         for (int i = scroll; i < Math.min(filtered.size(), scroll + rows()); i++) {
             int y = 61 + (i - scroll) * 29;
             Entry<T> entry = filtered.get(i);
-            drawRect(12, y, width - 12, y + 27, my >= y && my < y + 27 ? 0xff304638 : PANEL);
-            fontRenderer.drawString(fontRenderer.trimStringToWidth(entry.label, width - 42), 20, y + 4, TEXT);
-            fontRenderer.drawString(fontRenderer.trimStringToWidth(entry.detail, width - 42), 20, y + 15, MUTED);
+            drawRect(12, y, width - 12, y + 27, my >= y && my < y + 27 ? PonderThemes.color(0xff304638) : PonderThemes.color(PANEL));
+            fontRenderer.drawString(fontRenderer.trimStringToWidth(entry.label, width - 42), 20, y + 4, PonderThemes.color(TEXT));
+            fontRenderer.drawString(fontRenderer.trimStringToWidth(entry.detail, width - 42), 20, y + 15, PonderThemes.color(MUTED));
         }
         fontRenderer.drawString(fontRenderer.trimStringToWidth(error.isEmpty() ? tr("search_hint") : error, width - 110),
-            12, height - 23, error.isEmpty() ? MUTED : 0xffff9c9c);
+            12, height - 23, error.isEmpty() ? PonderThemes.color(MUTED) : PonderThemes.color(0xffff9c9c));
         super.drawScreen(mx, my, pt);
     }
     @Override protected void mouseClicked(int mx, int my, int button) throws IOException {

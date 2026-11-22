@@ -1,5 +1,7 @@
 package net.createmod.ponder.client.guide;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.*;
 import java.util.*;
 import java.awt.image.BufferedImage;
@@ -79,6 +81,7 @@ public final class GuideScreen extends AbstractPonderScreen {
             .withCallback(() -> {var scene=projectionScene();if(scene!=null)net.createmod.ponder.client.projection.ProjectionService.project(scene,this);}));
         addButton(new PonderButton(7,width-34,height-29,22,20,PonderButton.Icon.MATERIALS).enabled(hasScene).withTooltip("ponder.projection.pin_tip")
             .withCallback(() -> {var scene=projectionScene();if(scene!=null)net.createmod.ponder.client.projection.ProjectionService.pin(scene,this);}));
+        addThemeButton(30,width-58,7);
         rebuild();
     }
     private net.createmod.ponder.foundation.PonderScene projectionScene() {
@@ -143,17 +146,17 @@ public final class GuideScreen extends AbstractPonderScreen {
     }
     @Override protected void renderWindow(int mx,int my,float partial) {
         hoveredItem=ItemStack.EMPTY;hoveredWidget=null;hoveredVideo=null;hoveredVideoBlock=null;link="";
-        Gui.drawRect(0,34,side,height-38,0xff191f26);Gui.drawRect(side,34,side+1,height-38,0xff35434e);
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(currentTutorial().title(),Math.max(10,width-140)),96,13,0xffeef2f5);
+        Gui.drawRect(0,34,side,height-38,PonderThemes.color(0xff191f26));Gui.drawRect(side,34,side+1,height-38,PonderThemes.color(0xff35434e));
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(currentTutorial().title(),Math.max(10,width-162)),96,13,PonderThemes.color(0xffeef2f5));
         search.drawTextBox();
-        if(search.getText().isEmpty()&&!search.isFocused())fontRenderer.drawString(I18n.format("ponder.guide.search"),12,47,0xff7c8b99);
+        if(search.getText().isEmpty()&&!search.isFocused())fontRenderer.drawString(I18n.format("ponder.guide.search"),12,47,PonderThemes.color(0xff7c8b99));
         try(GlStateGuard ignored=GlStateGuard.capture()) {
             scissor(0,66,side,height-106);
             for(int i=0;i<navigation.size();i++) {
                 Nav nav=navigation.get(i);int y=68+i*18-navScroll;if(y+18<66||y>height-40)continue;
                 boolean hover=mx>=0&&mx<side&&my>=Math.max(66,y)&&my<Math.min(y+18,height-40);
-                if(!nav.category()&&(hover||nav.page()==pageIndex&&nav.block()<0))Gui.drawRect(4,y,side-4,y+17,hover?0xff374955:0xff273c46);
-                fontRenderer.drawString(fontRenderer.trimStringToWidth(nav.title(),side-16),8,y+4,nav.category()?0xff96bab8:0xffd3dfe6);
+                if(!nav.category()&&(hover||nav.page()==pageIndex&&nav.block()<0))Gui.drawRect(4,y,side-4,y+17,hover?PonderThemes.color(0xff374955):PonderThemes.color(0xff273c46));
+                fontRenderer.drawString(fontRenderer.trimStringToWidth(nav.title(),side-16),8,y+4,nav.category()?PonderThemes.color(0xff96bab8):PonderThemes.color(0xffd3dfe6));
             }
         }
         try(GlStateGuard ignored=GlStateGuard.capture()) {
@@ -174,15 +177,15 @@ public final class GuideScreen extends AbstractPonderScreen {
         if(documentHeight>viewHeight()) {
             int track=viewHeight(),thumb=Math.max(18,track*track/documentHeight);
             int y=44+(track-thumb)*scroll/Math.max(1,documentHeight-track);
-            Gui.drawRect(width-9,44,width-5,height-44,0xff26323c);Gui.drawRect(width-9,y,width-5,y+thumb,0xff8fbdb9);
+            Gui.drawRect(width-9,44,width-5,height-44,PonderThemes.color(0xff26323c));Gui.drawRect(width-9,y,width-5,y+thumb,PonderThemes.color(0xff8fbdb9));
         }
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(error.isEmpty()?I18n.format("ponder.guide.controls"):error,Math.max(20,width-side-82)),side+12,height-22,error.isEmpty()?0xff9dabb8:0xfff0a69e);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(error.isEmpty()?I18n.format("ponder.guide.controls"):error,Math.max(20,width-side-82)),side+12,height-22,error.isEmpty()?PonderThemes.color(0xff9dabb8):PonderThemes.color(0xfff0a69e));
     }
     private void renderBlock(Placed placed,int x,int y,int mx,int my,float partial) {
         Block b=placed.block();boolean hover=mx>=x&&mx<x+contentWidth&&my>=Math.max(40,y)&&my<Math.min(y+placed.height(),height-44);
         switch(b.kind()) {
             case SCENE -> {
-                Gui.drawRect(x,y,x+contentWidth,y+placed.height(),0xff1c2932);
+                Gui.drawRect(x,y,x+contentWidth,y+placed.height(),PonderThemes.color(0xff1c2932));
                 try {
                     SceneWidget widget=widgets.get(b.snapshot());
                     if(widget==null) {
@@ -192,25 +195,25 @@ public final class GuideScreen extends AbstractPonderScreen {
                     }
                     ItemStack item=widget.render(x,y,contentWidth,placed.height(),width,height,40,height-44,mx,my,partial);
                     if(hover){hoveredWidget=widget;hoveredItem=item;}
-                }catch(RuntimeException failure){fontRenderer.drawSplitString(I18n.format("ponder.guide.scene_error",failure.getMessage()),x+8,y+8,contentWidth-16,0xffe49c93);}
-                PonderButton.drawIcon(PonderButton.Icon.REPLAY,x+contentWidth-12,y+12,13,0xff8aa6b4);
+                }catch(RuntimeException failure){fontRenderer.drawSplitString(I18n.format("ponder.guide.scene_error",failure.getMessage()),x+8,y+8,contentWidth-16,PonderThemes.color(0xffe49c93));}
+                PonderButton.drawIcon(PonderButton.Icon.REPLAY,x+contentWidth-12,y+12,13,PonderThemes.color(0xff8aa6b4));
             }
             case ITEMS -> {
                 int n=0;for(String id:b.text().split("[ ,]+")) {
                     ItemStack item=stack(id);int ix=x+6+n++*24;drawItem(item,ix,y+4,mx,my);
                     if(!item.isEmpty()&&mx>=ix&&mx<ix+16&&my>=y&&my<y+24){hoveredItem=item;link="item:"+id;}
                 }
-                if(b.text().indexOf(' ')<0){ItemStack item=stack(b.text());if(!item.isEmpty())fontRenderer.drawString(item.getDisplayName(),x+30,y+9,0xffb8d8df);}
+                if(b.text().indexOf(' ')<0){ItemStack item=stack(b.text());if(!item.isEmpty())fontRenderer.drawString(item.getDisplayName(),x+30,y+9,PonderThemes.color(0xffb8d8df));}
             }
             case RECIPE -> renderRecipe(b,x,y,mx,my);
             case IMAGE -> {
                 int mediaWidth=mediaWidth(b);
                 String status=images.draw(b.target(),x+(contentWidth-mediaWidth)/2,y,mediaWidth,placed.height());
-                if(!status.isEmpty())fontRenderer.drawSplitString(status+(b.text().isBlank()?"":" · "+b.text()),x+6,y+6,contentWidth-12,0xffb7c9d5);
+                if(!status.isEmpty())fontRenderer.drawSplitString(status+(b.text().isBlank()?"":" · "+b.text()),x+6,y+6,contentWidth-12,PonderThemes.color(0xffb7c9d5));
             }
             case VIDEO -> {
                 int mediaWidth=mediaWidth(b);x+=(contentWidth-mediaWidth)/2;
-                Gui.drawRect(x,y,x+mediaWidth,y+placed.height(),0xff1c2932);
+                Gui.drawRect(x,y,x+mediaWidth,y+placed.height(),PonderThemes.color(0xff1c2932));
                 var video=videos.computeIfAbsent(b,key->new net.createmod.ponder.compat.media.MediaVideo(key.target()));
                 int vh=placed.height()-26,texture=video.texture();
                 if(texture>0){
@@ -218,50 +221,50 @@ public final class GuideScreen extends AbstractPonderScreen {
                     float scale=Math.min(mediaWidth/(float)vw,vh/(float)height);int iw=Math.max(1,(int)(vw*scale)),ih=Math.max(1,(int)(height*scale));
                     GlStateManager.bindTexture(texture);GlStateManager.color(1,1,1,1);Gui.drawModalRectWithCustomSizedTexture(x+(mediaWidth-iw)/2,y+(vh-ih)/2,0,0,iw,ih,iw,ih);
                 }else if(b.media()!=null&&!b.media().poster().isBlank())images.draw(b.media().poster(),x,y,mediaWidth,vh);
-                if(texture<=0)fontRenderer.drawSplitString(video.status(),x+6,y+8,mediaWidth-12,0xffd5dfe5);
-                int cy=y+vh;Gui.drawRect(x,cy,x+mediaWidth,y+placed.height(),0xff293c49);
-                PonderButton.drawIcon(video.playing()?PonderButton.Icon.PAUSE:PonderButton.Icon.PLAY,x+13,cy+12,16,0xffb5e8da);
-                PonderButton.drawIcon(PonderButton.Icon.REPLAY,x+34,cy+12,16,0xffb5e8da);
-                String label=texture<=0||b.text().isBlank()?video.status():b.text();fontRenderer.drawString(fontRenderer.trimStringToWidth(label,Math.max(10,mediaWidth-52)),x+47,cy+4,0xffc3d6dd);
-                if(video.seekable()&&video.duration()>0){Gui.drawRect(x+47,cy+17,x+mediaWidth-5,cy+21,0xff455d6b);int fill=(int)((mediaWidth-52)*Math.min(1,video.position()/(double)video.duration()));Gui.drawRect(x+47,cy+17,x+47+fill,cy+21,0xff9fd6d2);}
+                if(texture<=0)fontRenderer.drawSplitString(video.status(),x+6,y+8,mediaWidth-12,PonderThemes.color(0xffd5dfe5));
+                int cy=y+vh;Gui.drawRect(x,cy,x+mediaWidth,y+placed.height(),PonderThemes.color(0xff293c49));
+                PonderButton.drawIcon(video.playing()?PonderButton.Icon.PAUSE:PonderButton.Icon.PLAY,x+13,cy+12,16,PonderThemes.color(0xffb5e8da));
+                PonderButton.drawIcon(PonderButton.Icon.REPLAY,x+34,cy+12,16,PonderThemes.color(0xffb5e8da));
+                String label=texture<=0||b.text().isBlank()?video.status():b.text();fontRenderer.drawString(fontRenderer.trimStringToWidth(label,Math.max(10,mediaWidth-52)),x+47,cy+4,PonderThemes.color(0xffc3d6dd));
+                if(video.seekable()&&video.duration()>0){Gui.drawRect(x+47,cy+17,x+mediaWidth-5,cy+21,PonderThemes.color(0xff455d6b));int fill=(int)((mediaWidth-52)*Math.min(1,video.position()/(double)video.duration()));Gui.drawRect(x+47,cy+17,x+47+fill,cy+21,PonderThemes.color(0xff9fd6d2));}
                 if(hover&&mx>=x&&mx<x+mediaWidth){hoveredVideo=video;hoveredVideoBlock=placed;hoveredVideoX=x;hoveredVideoY=y;hoveredVideoWidth=mediaWidth;}
             }
             case QUEST_LINK, GUI_TUTORIAL -> {
-                Gui.drawRect(x,y,x+contentWidth,y+24,hover?0xff375564:0xff273d49);
-                PonderButton.drawIcon(PonderButton.Icon.RIGHT,x+12,y+12,14,0xffa9ddd4);
-                fontRenderer.drawString(fontRenderer.trimStringToWidth(b.kind()==Kind.GUI_TUTORIAL?net.createmod.ponder.client.guitutorial.GuiTutorialDrawing.text(b.text()):b.text(),contentWidth-32),x+26,y+8,0xffa9ddd4);
+                Gui.drawRect(x,y,x+contentWidth,y+24,hover?PonderThemes.color(0xff375564):PonderThemes.color(0xff273d49));
+                PonderButton.drawIcon(PonderButton.Icon.RIGHT,x+12,y+12,14,PonderThemes.color(0xffa9ddd4));
+                fontRenderer.drawString(fontRenderer.trimStringToWidth(b.kind()==Kind.GUI_TUTORIAL?net.createmod.ponder.client.guitutorial.GuiTutorialDrawing.text(b.text()):b.text(),contentWidth-32),x+26,y+8,PonderThemes.color(0xffa9ddd4));
                 if(hover)link=b.kind()==Kind.GUI_TUTORIAL?"gui:"+b.target():b.target();
             }
-            case RULE -> Gui.drawRect(x,y+3,x+contentWidth,y+4,0xff3c4c57);
+            case RULE -> Gui.drawRect(x,y+3,x+contentWidth,y+4,PonderThemes.color(0xff3c4c57));
             case TABLE -> {
                 int rowY=y,index=0;
                 for(String row:placed.lines()) {
                     String[] cells=row.split("\t",-1);int cw=contentWidth/cells.length,max=1;
                     List<List<String>> wrapped=new ArrayList<>();for(String cell:cells){var lines=fontRenderer.listFormattedStringToWidth(cell,Math.max(16,cw-8));wrapped.add(lines);max=Math.max(max,lines.size());}
-                    int rh=max*11+8;Gui.drawRect(x,rowY,x+contentWidth,rowY+rh,index++%2==0?0xff27343e:0xff1e2931);
-                    for(int c=0;c<cells.length;c++){int ly=rowY+4;for(String line:wrapped.get(c)){fontRenderer.drawString(line,x+c*cw+4,ly,0xffd5dfe5);ly+=11;}Gui.drawRect(x+c*cw,rowY,x+c*cw+1,rowY+rh,0xff3c4c57);}
+                    int rh=max*11+8;Gui.drawRect(x,rowY,x+contentWidth,rowY+rh,index++%2==0?PonderThemes.color(0xff27343e):PonderThemes.color(0xff1e2931));
+                    for(int c=0;c<cells.length;c++){int ly=rowY+4;for(String line:wrapped.get(c)){fontRenderer.drawString(line,x+c*cw+4,ly,PonderThemes.color(0xffd5dfe5));ly+=11;}Gui.drawRect(x+c*cw,rowY,x+c*cw+1,rowY+rh,PonderThemes.color(0xff3c4c57));}
                     rowY+=rh;
                 }
             }
             default -> {
-                if(b.kind()==Kind.CODE)Gui.drawRect(x,y,x+contentWidth,y+placed.height(),0xff202b34);
+                if(b.kind()==Kind.CODE)Gui.drawRect(x,y,x+contentWidth,y+placed.height(),PonderThemes.color(0xff202b34));
                 int ly=y+(b.kind()==Kind.CODE?5:0);
-                for(String line:placed.lines()){fontRenderer.drawString(line,x+(b.kind()==Kind.CODE?6:0),ly,b.kind()==Kind.HEADING?0xffa9ddd4:0xffd6dee5);ly+=b.kind()==Kind.HEADING?13:11;}
+                for(String line:placed.lines()){fontRenderer.drawString(line,x+(b.kind()==Kind.CODE?6:0),ly,b.kind()==Kind.HEADING?PonderThemes.color(0xffa9ddd4):PonderThemes.color(0xffd6dee5));ly+=b.kind()==Kind.HEADING?13:11;}
                 if(hover&&!b.target().isEmpty())link=b.target();
             }
         }
     }
     private void renderRecipe(Block block,int x,int y,int mx,int my) {
-        Gui.drawRect(x,y,x+contentWidth,y+78,0xff202c35);
+        Gui.drawRect(x,y,x+contentWidth,y+78,PonderThemes.color(0xff202c35));
         boolean byOutput=block.target().startsWith("output:");ResourceLocation id=new ResourceLocation(block.target().substring(block.target().indexOf(':')+1));
         List<IRecipe> recipes=new ArrayList<>();
         if(byOutput)for(IRecipe recipe:CraftingManager.REGISTRY) {if(!recipe.getRecipeOutput().isEmpty()&&id.equals(recipe.getRecipeOutput().getItem().getRegistryName()))recipes.add(recipe);}
         else {IRecipe recipe=CraftingManager.REGISTRY.getObject(id);if(recipe!=null)recipes.add(recipe);}
         if(recipes.isEmpty()) {
             if(byOutput)for(var smelt:FurnaceRecipes.instance().getSmeltingList().entrySet())if(id.equals(smelt.getValue().getItem().getRegistryName())) {
-                drawItem(smelt.getKey(),x+18,y+25,mx,my);fontRenderer.drawString("→",x+50,y+30,0xffa9ddd4);drawItem(smelt.getValue(),x+78,y+25,mx,my);return;
+                drawItem(smelt.getKey(),x+18,y+25,mx,my);fontRenderer.drawString("→",x+50,y+30,PonderThemes.color(0xffa9ddd4));drawItem(smelt.getValue(),x+78,y+25,mx,my);return;
             }
-            fontRenderer.drawSplitString(block.text().isBlank()?I18n.format("ponder.guide.no_recipe"):block.text(),x+8,y+12,contentWidth-16,0xffaab9c4);return;
+            fontRenderer.drawSplitString(block.text().isBlank()?I18n.format("ponder.guide.no_recipe"):block.text(),x+8,y+12,contentWidth-16,PonderThemes.color(0xffaab9c4));return;
         }
         IRecipe recipe=recipes.get((int)((System.currentTimeMillis()/4000)%recipes.size()));
         int columns = recipe instanceof ShapedRecipes shaped ? shaped.getRecipeWidth() : recipe instanceof net.minecraftforge.oredict.ShapedOreRecipe ore ? ore.getWidth() : 3;
@@ -270,11 +273,11 @@ public final class GuideScreen extends AbstractPonderScreen {
             if(i>=9)break;ItemStack[] matches=ingredient.getMatchingStacks();ItemStack item=matches.length==0?ItemStack.EMPTY:matches[(int)((System.currentTimeMillis()/1200)%matches.length)];
             drawItem(item,x+12+(i%columns)*19,y+10+(i/columns)*19,mx,my);i++;
         }
-        fontRenderer.drawString("→",x+77,y+34,0xffa9ddd4);drawItem(recipe.getRecipeOutput(),x+99,y+30,mx,my);
-        if(contentWidth>180)fontRenderer.drawSplitString(recipe.getRecipeOutput().getDisplayName(),x+126,y+24,contentWidth-136,0xffd6e2e5);
+        fontRenderer.drawString("→",x+77,y+34,PonderThemes.color(0xffa9ddd4));drawItem(recipe.getRecipeOutput(),x+99,y+30,mx,my);
+        if(contentWidth>180)fontRenderer.drawSplitString(recipe.getRecipeOutput().getDisplayName(),x+126,y+24,contentWidth-136,PonderThemes.color(0xffd6e2e5));
     }
     private void drawItem(ItemStack item,int x,int y,int mx,int my) {
-        Gui.drawRect(x-1,y-1,x+17,y+17,0xff364651);
+        Gui.drawRect(x-1,y-1,x+17,y+17,PonderThemes.color(0xff364651));
         if(item.isEmpty())return;
         try(GlStateGuard ignored=GlStateGuard.capture()){RenderHelper.enableGUIStandardItemLighting();mc.getRenderItem().renderItemAndEffectIntoGUI(item,x,y);mc.getRenderItem().renderItemOverlayIntoGUI(fontRenderer,item,x,y,null);}
         if(mx>=x&&mx<x+16&&my>=Math.max(40,y)&&my<Math.min(y+16,height-44)){hoveredItem=item;link="item:"+item.getItem().getRegistryName();}

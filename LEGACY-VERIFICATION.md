@@ -1,5 +1,31 @@
 # Ponder Legacy — 安装包验收
 
+## 1.8.0 主题与结构实体时间轴验收
+
+日期：2026-11-22。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。生产包 `ponder-legacy-1.8.0.jar`，SHA-256：`8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7`。
+
+361 项单元测试通过。实际植魔 / CT 客户端 383 项、植魔无 CT 333 项、无可选 Mod 23 项、主题 232 项、完整回归 252 项、原生 GUI 72 项及两组专服 15 / 6 项，共 1316 项运行检查通过。覆盖七种原生火花的五条创建 / 导入路径、默认三步编辑器与播放器时间轴，以及主题 JSON / ZS / 资源包、现代布局、小窗口和背景模糊。
+
+98 次可见实体 framebuffer 比较通过，最少 43 个变化像素；42 次隐藏比较均为 0 像素差，7 次移动比较通过。八组运行环境中的生产 JAR 与上述指纹一致；运行 classpath 使用正式安装 JAR。
+
+[报告、指纹、截图、结构和旧包对照](docs/verification/release-1.8.0-cleanroom-0.4.0/README.md)。Linux x86_64 / llvmpipe。运行验收完成，等待主分支 CI 与标签发行校验。
+
+## 本地开发候选：1.8.0-alpha.2 结构实体时间轴
+
+日期：2026-11-22。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。安装包 `ponder-legacy-1.8.0-alpha.2.jar`，SHA-256：`5a1edab76fa38075b886610dc480113e399bb8030a9f30010cf8e3bff0710422`。
+
+361 项单元测试通过，本工作区对应 362 项。实际植魔/CT 客户端 383 项、植魔无 CT 333 项、无可选 Mod 23 项、主题 232 项、完整回归 252 项、原生 GUI 72 项及两组专服 15/5 项，共 1315 项运行检查通过。七种原生火花在默认三步编辑器场景和播放器验证 0 刻、延迟显示、隐藏、移动、关键帧恢复和重播；98 次可见 framebuffer 比较、42 次隐藏状态 0 像素差比较和 7 次移动比较通过。alpha.1 在同一 0 刻用例中复现预期失败。
+
+[报告、指纹、截图、结构和旧包对照](docs/verification/structure-entity-timeline-1.8.0-alpha.2-cleanroom-0.4.0/README.md)。Linux x86_64 / llvmpipe。本地开发候选，未发布。
+
+## 本地开发候选：1.8.0-alpha.1 界面主题
+
+日期：2026-11-22。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。安装包 `ponder-legacy-1.8.0-alpha.1.jar`，SHA-256：`9084ebe0f4dc1f7b76662ef1c7eb5346860988cbb91cc185e9ef514a4fb8bbec`。
+
+356 项单元测试通过；保留现有可选集成的工作区通过 357 项。实际 CraftTweaker / 无 CraftTweaker 两组主题客户端分别通过 232 / 229 项检查，完整回归 252 项、原生 GUI 专项 72 项、两组专服 12 / 3 项，合计 800 项运行检查。涵盖 JSON / ZenScript / 资源包、继承覆盖、主题切换保持场景、现代控件几何和点击、最小 320×240 逻辑界面、背景模糊及回退、HUD 恢复、原生机器 GUI 与侧栏留白。
+
+[报告、指纹、截图与验收方法说明](docs/verification/ui-themes-1.8.0-alpha.1-cleanroom-0.4.0/README.md)。Linux x86_64 / llvmpipe；外观参照官方 1.21.1 固定源码版本，场景相机沿用本实现。此包为本地开发候选，未发布。
+
 ## 1.7.3 植魔火花场景修复验收
 
 日期：2026-11-22。Minecraft 1.12.2 / **Cleanroom 0.4.0 正式版（无 -alpha）** / Java 25.0.5。生产包 `ponder-legacy-1.7.3.jar`，SHA-256：`9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273`。

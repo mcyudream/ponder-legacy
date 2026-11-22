@@ -1,5 +1,7 @@
 package net.createmod.ponder.client.guide;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.*;
 import java.util.*;
 import org.lwjgl.input.*;
@@ -97,36 +99,36 @@ public final class MarkdownEditor extends AbstractPonderScreen {
         String prefix=document.text().substring(document.lineStart(document.cursor()),document.cursor());int px=fontRenderer.getStringWidth(prefix);horizontal=Math.max(0,Math.max(horizontal,px-editorWidth+70));if(px<horizontal)horizontal=px;
     }
     @Override protected void renderWindow(int mx,int my,float partial){
-        Gui.drawRect(8,contentTop-1,editorWidth,height-49,0xff18212a);
+        Gui.drawRect(8,contentTop-1,editorWidth,height-49,PonderThemes.color(0xff18212a));
         String[] lines=document.text().split("\n",-1);int lineStart=0;
         try(GlStateGuard ignored=GlStateGuard.capture()){
             scissor(8,contentTop,editorWidth-8,Math.max(0,height-contentTop-50));
             for(int n=0;n<lines.length;n++){
                 String line=lines[n];int y=contentTop+3+(n-topLine)*12;
                 if(n>=topLine&&n<topLine+visibleLines()+1){
-                    fontRenderer.drawString(Integer.toString(n+1),11,y,0xff667d8d);
+                    fontRenderer.drawString(Integer.toString(n+1),11,y,PonderThemes.color(0xff667d8d));
                     int a=Math.max(lineStart,Math.min(document.cursor(),document.anchor()));
                     int b=Math.min(lineStart+line.length(),Math.max(document.cursor(),document.anchor()));
-                    if(a<b){int ax=42+fontRenderer.getStringWidth(line.substring(0,a-lineStart))-horizontal,bx=42+fontRenderer.getStringWidth(line.substring(0,b-lineStart))-horizontal;Gui.drawRect(ax,y-1,bx,y+10,0xff365c70);}
-                    fontRenderer.drawString(line,42-horizontal,y,line.startsWith("#")?0xffa9ddd4:line.startsWith("```")?0xffe2ca8b:0xffd6e0e8);
-                    if(document.cursor()>=lineStart&&document.cursor()<=lineStart+line.length()&&(ticks/10)%2==0){int cx=42+fontRenderer.getStringWidth(line.substring(0,document.cursor()-lineStart))-horizontal;Gui.drawRect(cx,y-1,cx+1,y+10,0xffe3faf2);}
+                    if(a<b){int ax=42+fontRenderer.getStringWidth(line.substring(0,a-lineStart))-horizontal,bx=42+fontRenderer.getStringWidth(line.substring(0,b-lineStart))-horizontal;Gui.drawRect(ax,y-1,bx,y+10,PonderThemes.color(0xff365c70));}
+                    fontRenderer.drawString(line,42-horizontal,y,line.startsWith("#")?PonderThemes.color(0xffa9ddd4):line.startsWith("```")?PonderThemes.color(0xffe2ca8b):PonderThemes.color(0xffd6e0e8));
+                    if(document.cursor()>=lineStart&&document.cursor()<=lineStart+line.length()&&(ticks/10)%2==0){int cx=42+fontRenderer.getStringWidth(line.substring(0,document.cursor()-lineStart))-horizontal;Gui.drawRect(cx,y-1,cx+1,y+10,PonderThemes.color(0xffe3faf2));}
                 }
                 lineStart+=line.length()+1;
             }
         }
         if(editorWidth<width-16){
             int x=editorWidth+10,w=width-x-8;
-            fontRenderer.drawString(I18n.format("ponder.guide.preview")+(document.dirty()?" *":""),x,contentTop+2,0xffa9ddd4);
-            if(compiled!=null)fontRenderer.drawSplitString(compiled.title(),x,contentTop+18,w,0xffd6e0e8);
-            if(preview!=null){int y=contentTop+42,h=Math.min(150,Math.max(36,height-y-86));Gui.drawRect(x,y,x+w,y+h,0xff1c2932);preview.render(x,y,w,h,width,height,y,y+h,mx,my,partial);
+            fontRenderer.drawString(I18n.format("ponder.guide.preview")+(document.dirty()?" *":""),x,contentTop+2,PonderThemes.color(0xffa9ddd4));
+            if(compiled!=null)fontRenderer.drawSplitString(compiled.title(),x,contentTop+18,w,PonderThemes.color(0xffd6e0e8));
+            if(preview!=null){int y=contentTop+42,h=Math.min(150,Math.max(36,height-y-86));Gui.drawRect(x,y,x+w,y+h,PonderThemes.color(0xff1c2932));preview.render(x,y,w,h,width,height,y,y+h,mx,my,partial);
                 int total=Math.max(1,preview.scene.getTotalTicks());
-                Gui.drawRect(x,y+6+h,x+w,y+12+h,0xff3a4f5c);Gui.drawRect(x,y+6+h,x+w*previewTick/total,y+12+h,0xff9fd6d2);
-                PonderButton.drawIcon(playing?PonderButton.Icon.PAUSE:PonderButton.Icon.PLAY,x+8,y+25+h,14,0xffcadbdc);
-                fontRenderer.drawString(previewTick+" / "+total,x+22,y+20+h,0xffcadbdc);
+                Gui.drawRect(x,y+6+h,x+w,y+12+h,PonderThemes.color(0xff3a4f5c));Gui.drawRect(x,y+6+h,x+w*previewTick/total,y+12+h,PonderThemes.color(0xff9fd6d2));
+                PonderButton.drawIcon(playing?PonderButton.Icon.PAUSE:PonderButton.Icon.PLAY,x+8,y+25+h,14,PonderThemes.color(0xffcadbdc));
+                fontRenderer.drawString(previewTick+" / "+total,x+22,y+20+h,PonderThemes.color(0xffcadbdc));
             }
         }
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(status,Math.max(10,width-20)),10,height-38,0xffb5c8d1);
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(I18n.format("ponder.guide.editor_keys")+(document.dirty()?" *":""),width-20),10,height-21,0xff8fabb9);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(status,Math.max(10,width-20)),10,height-38,PonderThemes.color(0xffb5c8d1));
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(I18n.format("ponder.guide.editor_keys")+(document.dirty()?" *":""),width-20),10,height-21,PonderThemes.color(0xff8fabb9));
     }
     private void scissor(int x,int y,int w,int h){GL11.glEnable(GL11.GL_SCISSOR_TEST);GL11.glScissor(x*mc.displayWidth/width,mc.displayHeight-(y+h)*mc.displayHeight/height,w*mc.displayWidth/width,h*mc.displayHeight/height);}
     private int position(int mx,int my){

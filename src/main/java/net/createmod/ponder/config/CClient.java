@@ -7,6 +7,8 @@ public final class CClient extends ConfigBase {
     public enum TutorialPresentation { ANIMATION, GUIDE }
     public final ConfigEnum<TutorialPresentation> preferredPresentation = e(TutorialPresentation.ANIMATION,
         "preferredPresentation", "Default tutorial presentation: ANIMATION or GUIDE.");
+    public final ConfigString uiTheme = s("auto", "uiTheme",
+        "UI theme ID, or auto for the pack's JSON/ZenScript default (otherwise ponder:classic).");
     public final ConfigBool comfyReading = b(false, "comfyReading",
         "Slow down a Ponder scene while text is visible.");
     public final ConfigBool editingMode = b(false, "editingMode",
@@ -42,6 +44,7 @@ public final class CClient extends ConfigBase {
 
     private void synchronizeFacade() {
         PonderConfig.client().setComfyReading(comfyReading.get());
+        PonderConfig.client().setTheme(uiTheme.get());
         PonderConfig.client().setEditingMode(editingMode.get());
         PonderConfig.client().setIndicatorScale(indicatorScale.getF());
         PonderConfig.client().setPlacementIndicator(

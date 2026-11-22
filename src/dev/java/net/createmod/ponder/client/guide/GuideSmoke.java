@@ -27,6 +27,8 @@ public final class GuideSmoke {
     private final net.minecraft.util.math.BlockPos anchor=new net.minecraft.util.math.BlockPos(-3,70,-5);
     private net.createmod.ponder.compat.media.MediaVideo video;
     private int mediaWait;
+    private java.awt.image.BufferedImage projectionFrame;
+    private net.minecraft.tileentity.TileEntity projectionChest;
     public GuideSmoke(Minecraft mc,BiConsumer<Boolean,String> check,Consumer<String> screenshot){this.mc=mc;this.check=check;this.screenshot=screenshot;}
     public boolean advance()throws Exception{
         if(wait-->0)return false;
@@ -81,11 +83,17 @@ public final class GuideSmoke {
             }
             case 9:screenshot.accept("projection-world-materials.png");break;
             case 10:
+                projectionChest=projection.ghost.getWorld().getTileEntity(new net.minecraft.util.math.BlockPos(0,1,0));
+                check.accept(projectionChest instanceof net.minecraft.tileentity.TileEntityChest,"projection fixture has a native chest tile renderer");
+                projectionChest.invalidate();
+                screenshot.accept("projection-world-without-chest.png");phase=30;break;
+            case 30:
+                projectionChest.validate();
                 mc.player.inventory.mainInventory.set(0,new net.minecraft.item.ItemStack(net.minecraft.init.Blocks.STONE,2));projection.refresh();
                 check.accept(projection.rows.stream().filter(r->r.target().item().toString().equals("minecraft:stone")).findFirst().orElseThrow().missing()==0,"material goal refreshes when inventory changes");
                 mc.world.setBlockState(anchor,net.minecraft.init.Blocks.STONE.getDefaultState(),2);projection.refresh();
                 check.accept(projection.complete==1&&projection.rows.stream().filter(r->r.target().item().toString().equals("minecraft:stone")).findFirst().orElseThrow().target().count()==1,"already built blocks reduce remaining material goals");
-                mc.displayGuiScreen(new net.minecraft.client.gui.inventory.GuiInventory(mc.player));wait=5;break;
+                mc.displayGuiScreen(new net.minecraft.client.gui.inventory.GuiInventory(mc.player));wait=5;phase=11;break;
             case 11:{
                 screenshot.accept("projection-inventory-materials.png");
                 var overlay=net.createmod.ponder.client.projection.ProjectionOverlay.INSTANCE;var bounds=overlay.bounds();
@@ -154,14 +162,19 @@ public final class GuideSmoke {
         return false;
     }
     public void verifyFrame(String name) {
-        if(!name.equals("projection-world-materials.png"))return;
+        if(!name.equals("projection-world-materials.png")&&!name.equals("projection-world-without-chest.png"))return;
         var image=net.minecraft.util.ScreenShotHelper.createScreenshot(mc.displayWidth,mc.displayHeight,mc.getFramebuffer());
-        int colored=0;
+        if(name.equals("projection-world-materials.png")){projectionFrame=image;return;}
+        check.accept(projectionFrame!=null,"projection reference frame was captured before disabling the chest");
+        int changed=0;
         for(int y=image.getHeight()/5;y<image.getHeight()*4/5;y++)for(int x=image.getWidth()/5;x<image.getWidth()*4/5;x++){
-            int rgb=image.getRGB(x,y),r=(rgb>>16)&255,g=(rgb>>8)&255,b=rgb&255;
-            if(r>g*1.25&&g>b*1.1&&r>45&&g>25)colored++;
+            int before=projectionFrame.getRGB(x,y),after=image.getRGB(x,y);
+            int delta=Math.max(Math.abs((before>>16&255)-(after>>16&255)),
+                Math.max(Math.abs((before>>8&255)-(after>>8&255)),Math.abs((before&255)-(after&255))));
+            if(delta>20)changed++;
         }
-        check.accept(colored>30,"framebuffer contains the projected chest model in the world");
+        check.accept(changed>100,"paired framebuffers contain the native projected chest model ("+changed+" changed pixels)");
+        projectionFrame=null;
     }
     private static void key(GuiScreen screen,int key)throws Exception{
         Method method=net.minecraftforge.fml.relauncher.ReflectionHelper.findMethod(screen.getClass(),"keyTyped","func_73869_a",char.class,int.class);method.setAccessible(true);method.invoke(screen,'\0',key);

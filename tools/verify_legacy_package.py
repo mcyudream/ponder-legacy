@@ -38,6 +38,12 @@ with ZipFile(jars[0]) as archive:
     assert 'net/createmod/ponder/client/guide/MediaFileBrowserScreen.class' in classes, 'Game-native media browser missing'
     assert 'net/createmod/ponder/client/projection/ProjectionLayoutScreen.class' in classes, 'Material layout editor missing'
     assert 'net/createmod/ponder/client/projection/ProjectionPlacementEvents.class' in classes, 'World placement controls missing'
+    assert 'net/createmod/ponder/foundation/element/StructureEntityElement.class' in classes, 'Captured entity timeline support missing'
+    assert 'net/createmod/ponder/api/theme/PonderTheme.class' in classes, 'Theme API missing'
+    assert 'net/createmod/ponder/client/theme/PonderThemeCommand.class' in classes, 'Theme selection command missing'
+    assert 'net/createmod/ponder/script/ScriptTheme.class' in classes, 'Optional ZenScript theme API missing'
+    for theme in ('classic', 'modern'):
+        assert json.loads(archive.read(f'assets/ponder/themes/{theme}.json')), 'Theme resource missing: ' + theme
     assert not any(name.startswith(('com/feed_the_beast/', 'dev/yudream/mediaapi/')) for name in classes), 'Optional media dependency bundled'
     assert not any(':ftbquests' in dep for dep in metadata['dependencies']), 'Lazy FTB Quests bridge must not constrain reverse load ordering'
     assert 'after:media_api@[1.0.2,2.0.0)' in metadata['dependencies'], 'Media API must remain optional'

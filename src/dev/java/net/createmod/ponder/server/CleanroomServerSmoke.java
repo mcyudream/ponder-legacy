@@ -60,10 +60,50 @@ public final class CleanroomServerSmoke {
             com.google.gson.JsonArray checks = new com.google.gson.JsonArray();
             for (String check : net.createmod.ponder.verification.optional.CraftTweakerChecks.verify()) checks.add(check);
             report.add("checks", checks);
+            var themeJson = new JsonObject();
+            themeJson.addProperty("layout", "modern");
+            net.createmod.ponder.api.theme.PonderThemeOverrides.register(
+                new ResourceLocation("server_smoke:theme"), themeJson, false);
+            var themes = new net.createmod.ponder.api.theme.PonderThemeLoader(
+                net.createmod.ponder.api.theme.PonderThemeOverrides.snapshot(),
+                java.util.Map.of(net.createmod.ponder.api.theme.PonderTheme.CLASSIC,
+                    net.createmod.ponder.api.theme.PonderTheme.classic())).load();
+            if (!themes.themes().containsKey(new ResourceLocation("server_smoke:theme")))
+                throw new IllegalStateException("Side-neutral theme registry failed");
+            checks.add("Theme data parses and registers on a dedicated server without loading client rendering");
+            if (Boolean.getBoolean("ponder.dev.themeZen")) {
+                if (!net.createmod.ponder.api.theme.PonderThemeOverrides.snapshot()
+                    .containsKey(new ResourceLocation("theme_smoke:fresh")))
+                    throw new IllegalStateException("Theme ZenScript did not execute on the dedicated server");
+                checks.add("Theme ZenScript startup declarations are safe on a physical dedicated server");
+            }
             PonderScene scene = PonderIndex.getSceneAccess().compile(new ResourceLocation("minecraft:crafting_table")).get(0);
             scene.begin();scene.seek(4);
             if(scene.getActiveGuiAnimations().size()!=1||scene.isPaused())throw new IllegalStateException("Headless GUI clip failed");
             checks.add("GUI animation data compiles and seeks without client resources or GUI classes");
+            var level = new net.createmod.ponder.api.level.PonderLevel(net.minecraft.util.math.BlockPos.ORIGIN, null);
+            var support = new net.minecraft.util.math.BlockPos(1, 1, 1);
+            level.setBlockState(support, net.minecraft.init.Blocks.STONE.getDefaultState(), 0);
+            var stand = new net.minecraft.entity.item.EntityArmorStand(level, 1.5, 2.5, 1.5);
+            stand.setNoGravity(true); level.spawnEntity(stand); level.backup();
+            var captured = new PonderScene(level, new net.createmod.ponder.foundation.registration.PonderLocalization(),
+                "server_smoke", new ResourceLocation("minecraft:paper"), java.util.List.of(), java.util.List.of());
+            var steps = captured.builder();
+            steps.idle(10);
+            steps.world().showSection(net.createmod.ponder.foundation.SelectionImpl.of(support), net.minecraft.util.EnumFacing.DOWN);
+            steps.idle(20);
+            steps.world().hideSection(net.createmod.ponder.foundation.SelectionImpl.of(support), net.minecraft.util.EnumFacing.DOWN);
+            steps.idle(20);
+            captured.begin();
+            assertCapturedVisible(captured, false);
+            checks.add("Captured structure entities are hidden at tick zero on a physical dedicated server");
+            captured.seek(25); assertCapturedVisible(captured, true);
+            captured.seek(45); assertCapturedVisible(captured, false);
+            checks.add("Captured entity visibility follows section show and hide without client classes");
+            captured.seek(25); assertCapturedVisible(captured, true);
+            captured.seek(0); assertCapturedVisible(captured, false);
+            captured.restart(); assertCapturedVisible(captured, false);
+            checks.add("Captured entity replay and backward seeking restore the hidden initial state");
             scene.seek(scene.getTotalTicks());
             if(!scene.getActiveGuiAnimations().isEmpty())throw new IllegalStateException("Headless GUI clip did not end");
             scene.restart();
@@ -76,6 +116,12 @@ public final class CleanroomServerSmoke {
         }
         Files.writeString(Path.of("ponder-server-smoke.json"), new GsonBuilder().setPrettyPrinting().create().toJson(report));
         finished = true;
+    }
+
+    private static void assertCapturedVisible(PonderScene scene, boolean visible) {
+        var elements = scene.getElements().stream().filter(net.createmod.ponder.api.element.EntityElement.class::isInstance).toList();
+        if (elements.size() != 1 || elements.get(0).isVisible() != visible || scene.getWorld().getEntities().size() != 1)
+            throw new IllegalStateException("Captured entity visibility mismatch at tick " + scene.getCurrentTick());
     }
 
     @SubscribeEvent public void tick(TickEvent.ServerTickEvent event) {

@@ -1,5 +1,7 @@
 package net.createmod.ponder.foundation.ui;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.util.function.BiConsumer;
 
 import net.createmod.catnip.gui.widget.AbstractSimiWidget;
@@ -19,9 +21,9 @@ public final class ChapterLabel extends AbstractSimiWidget {
             .withCallback(() -> onClick.accept(x, y));
     }
     @Override public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
-        if (!visible) return; Gui.drawRect(x, y + 2, x + width, y + height - 2, 0xaa171b20);
+        if (!visible) return; Gui.drawRect(x, y + 2, x + width, y + height - 2, PonderThemes.color(0xaa171b20));
         button.drawButton(mc, mouseX, mouseY, partialTicks);
-        mc.fontRenderer.drawString(chapter.getTitle(), x + 44, y + 15, 0xffd9e1e8);
+        mc.fontRenderer.drawString(chapter.getTitle(), x + 44, y + 15, PonderThemes.color(0xffd9e1e8));
     }
     @Override public boolean mousePressed(Minecraft mc, int mouseX, int mouseY) { return button.mousePressed(mc, mouseX, mouseY); }
 }

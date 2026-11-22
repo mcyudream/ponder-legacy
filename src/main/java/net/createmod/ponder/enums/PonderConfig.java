@@ -20,7 +20,10 @@ public final class PonderConfig {
         private volatile boolean editingMode;
         private volatile PlacementIndicatorSetting placementIndicator = PlacementIndicatorSetting.TEXTURE;
         private volatile float indicatorScale = 1;
+        private volatile String theme = "auto";
 
+        public String getTheme() { return theme; }
+        public void setTheme(String value) { theme = value == null ? "auto" : value; }
         public boolean isComfyReading() { return comfyReading; }
         public void setComfyReading(boolean value) { comfyReading = value; }
         public boolean isEditingMode() { return editingMode; }

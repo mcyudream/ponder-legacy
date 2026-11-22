@@ -1,5 +1,7 @@
 package net.createmod.ponder.client.guitutorial;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.util.IdentityHashMap;
 import java.util.Map;
 import net.createmod.catnip.render.GlStateGuard;
@@ -58,24 +60,24 @@ public final class GuiAnimationRenderer {
         Minecraft mc=Minecraft.getMinecraft();var font=mc.fontRenderer;var clip=panel.animation();Playback p=playback(clip);
         try(GlStateGuard ignored=GlStateGuard.capture()){
             GlStateManager.disableDepth();GlStateManager.disableLighting();
-            Gui.drawRect(b.x(),b.y(),b.x()+b.width(),b.y()+b.height(),0xe51a252f);
-            Gui.drawRect(b.x(),b.y(),b.x()+2,b.y()+b.height(),GuiTutorialDrawing.ACCENT);
+            Gui.drawRect(b.x(),b.y(),b.x()+b.width(),b.y()+b.height(),PonderThemes.color(0xe51a252f));
+            Gui.drawRect(b.x(),b.y(),b.x()+2,b.y()+b.height(),PonderThemes.color(GuiTutorialDrawing.ACCENT));
             if(p.session==null){
-                font.drawString(GuiTutorialDrawing.tr("animation_missing"),b.x()+8,b.y()+8,0xffedbb8f);
+                font.drawString(GuiTutorialDrawing.tr("animation_missing"),b.x()+8,b.y()+8,PonderThemes.color(0xffedbb8f));
                 GuiTutorialDrawing.body(clip.tutorial()+"\n"+p.error,b.x()+8,b.y()+24,b.width()-16,b.height()-30,p.scroll);return;
             }
             var session=p.session;session.seekAbsolute(clip.tutorialTick(scene,session.lastTick()));
             if(p.lastStep!=session.stepIndex()){p.scroll=0;p.lastStep=session.stepIndex();}
             String title=GuiTutorialDrawing.text(session.tutorial().title());
-            font.drawString(font.trimStringToWidth(title,b.width()-16),b.x()+8,b.y()+7,GuiTutorialDrawing.ACCENT);
+            font.drawString(font.trimStringToWidth(title,b.width()-16),b.x()+8,b.y()+7,PonderThemes.color(GuiTutorialDrawing.ACCENT));
             String step=(session.stepIndex()+1)+"/"+session.tutorial().steps().size()+"  "+GuiTutorialDrawing.text(session.step().title());
-            font.drawString(font.trimStringToWidth(step,b.width()-16),b.x()+8,b.y()+20,0xffe6edf1);
+            font.drawString(font.trimStringToWidth(step,b.width()-16),b.x()+8,b.y()+20,PonderThemes.color(0xffe6edf1));
             int description=Math.min(66,Math.max(28,b.height()/4));
             float scale=Math.max(.01f,Math.min(clip.scale(),Math.min((b.width()-22)/(float)session.tutorial().width(),(b.height()-description-42)/(float)session.tutorial().height())));
             int modelX=b.x()+(b.width()-Math.round(session.tutorial().width()*scale))/2,modelY=b.y()+35;
             GuiTutorialDrawing.demo(session,modelX,modelY,scale);
             int textY=b.y()+b.height()-description;
-            Gui.drawRect(b.x()+8,textY-5,b.x()+b.width()-8,textY-4,0xff36505b);
+            Gui.drawRect(b.x()+8,textY-5,b.x()+b.width()-8,textY-4,PonderThemes.color(0xff36505b));
             int max=GuiTutorialDrawing.body(session.step().text(),b.x()+8,textY,b.width()-16,description-6,p.scroll);
             p.scroll=Math.min(p.scroll,max);
             if(clip.target()!=null){
@@ -85,7 +87,10 @@ public final class GuiAnimationRenderer {
         }
     }
     private static void line(float x1,float y1,float x2,float y2){
-        GlStateManager.disableTexture2D();GlStateManager.color(.62f,.87f,.83f,1);GL11.glLineWidth(1);
+        GlStateManager.disableTexture2D();int c=PonderThemes.color(GuiTutorialDrawing.ACCENT);
+        if(c==GuiTutorialDrawing.ACCENT)GlStateManager.color(.62f,.87f,.83f,1);
+        else GlStateManager.color((c>>16&255)/255f,(c>>8&255)/255f,(c&255)/255f,1);
+        GL11.glLineWidth(1);
         GL11.glBegin(GL11.GL_LINES);GL11.glVertex2f(x1,y1);GL11.glVertex2f(x2,y2);GL11.glEnd();GlStateManager.enableTexture2D();
     }
 }

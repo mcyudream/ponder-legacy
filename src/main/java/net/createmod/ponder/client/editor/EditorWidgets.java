@@ -4,6 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.renderer.GlStateManager;
+import net.createmod.ponder.client.theme.PonderThemes;
+import net.createmod.ponder.client.theme.PonderThemeRenderer;
+import net.createmod.ponder.api.theme.PonderTheme.Color;
 
 final class EditorWidgets {
     static final int BACKGROUND = 0xff111821, PANEL = 0xff1a2431, LINE = 0xff304255;
@@ -21,10 +24,16 @@ final class EditorWidgets {
             if (!visible) return;
             hovered = mouseX >= x && mouseY >= y && mouseX < x + width && mouseY < y + height;
             GlStateManager.disableLighting(); GlStateManager.disableDepth();
-            drawRect(x, y, x + width, y + height, enabled && hovered ? 0xff355648 : PANEL);
-            drawRect(x, y + height - 1, x + width, y + height, enabled ? LINE : 0xff27313d);
+            if (PonderThemes.modern()) PonderThemeRenderer.box(x, y, width, height,
+                PonderThemes.color(enabled && hovered ? Color.BUTTON_HOVER : Color.BUTTON),
+                PonderThemes.color(!enabled ? Color.BORDER_DISABLED : hovered ? Color.BORDER_HOVER : Color.BORDER),
+                PonderThemes.color(!enabled ? Color.BORDER_DISABLED_BOTTOM : hovered ? Color.BORDER_HOVER_BOTTOM : Color.BORDER_BOTTOM));
+            else {
+                drawRect(x, y, x + width, y + height, PonderThemes.color(enabled && hovered ? 0xff355648 : PANEL));
+                drawRect(x, y + height - 1, x + width, y + height, PonderThemes.color(enabled ? LINE : 0xff27313d));
+            }
             drawCenteredString(mc.fontRenderer, mc.fontRenderer.trimStringToWidth(displayString, Math.max(1, width - 6)), x + width / 2, y + 6,
-                enabled ? (hovered ? ACCENT : TEXT) : 0xff5c6a79);
+                PonderThemes.color(enabled ? (hovered ? ACCENT : TEXT) : 0xff5c6a79));
             GlStateManager.color(1, 1, 1, 1);
         }
     }

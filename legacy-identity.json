@@ -14,16 +14,16 @@
   "original_authors": "The Create Team (original Ponder), MCMGGF (1.12.2 base)",
   "original_repository": "https://github.com/MCMGGF/ponder-for-1.12.2",
   "verification_document": "LEGACY-VERIFICATION.md",
-  "verified_jar_sha256": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+  "verified_jar_sha256": "8e1b765416a93df0b0513fb45a5fc941eceb7523c3d0f787208dd31f4a9299c7",
   "verified_cleanroom_versions": [
     "0.4.0"
   ],
   "previous_verification": {
-    "release_tag": "v1.7.2",
-    "verified_jar_sha256": "6c2c6ddc9b267750dc498852885f7dabae2e20bfb4f4d5c3ffa2661734f082c1",
-    "verification_directory": "docs/verification/release-1.7.2-cleanroom-0.4.0"
+    "release_tag": "v1.7.3",
+    "verified_jar_sha256": "9cef926fd3f34593900e766033c1e9cbb75b6b74835c8970e2880487c88a8273",
+    "verification_directory": "docs/verification/release-1.7.3-cleanroom-0.4.0"
   },
-  "release_tag": "v1.7.3",
-  "verification_directory": "docs/verification/release-1.7.3-cleanroom-0.4.0",
-  "verified_main_source_sha256": "3a6c8982e24de74ac9eb98c097f1f8b5786b1199230e7b87297ce05c5f9b9069"
+  "release_tag": "v1.8.0",
+  "verification_directory": "docs/verification/release-1.8.0-cleanroom-0.4.0",
+  "verified_main_source_sha256": "74f20e2d88b1af3f96e4714fe3c0c7058b0a847851b2b4c65a1131ba66622869"
 }

@@ -1,5 +1,7 @@
 package net.createmod.ponder.client.guitutorial;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.IOException;
 import net.createmod.ponder.api.gui.GuiTutorial;
 import net.createmod.ponder.api.gui.GuiTutorial.Rect;
@@ -34,15 +36,15 @@ public final class GuiDemoScreen extends AbstractPonderScreen {
     }
     @Override public void updateScreen(){session.advanceDemo();for(var button:buttonList)if(button.id==3&&button instanceof PonderButton p)p.withIcon(session.playing()?PonderButton.Icon.PAUSE:PonderButton.Icon.PLAY).withTooltip(session.playing()?"ponder.gui.pause":"ponder.ui.play");}
     @Override protected void renderWindow(int mx,int my,float partial){
-        GuiTutorial t=session.tutorial();fontRenderer.drawString(fontRenderer.trimStringToWidth(GuiTutorialDrawing.text(t.title()),width-60),10,11,0xffe0f2ef);
+        GuiTutorial t=session.tutorial();fontRenderer.drawString(fontRenderer.trimStringToWidth(GuiTutorialDrawing.text(t.title()),width-60),10,11,PonderThemes.color(0xffe0f2ef));
         GuiTutorialDrawing.demo(session,x,y,scale);
-        Gui.drawRect(panelX-6,40,width-6,height-44,0xff1c2a33);
-        fontRenderer.drawString(GuiTutorialDrawing.tr("demo"),panelX,47,0xff9fded4);
-        fontRenderer.drawString((session.stepIndex()+1)+" / "+t.steps().size(),panelX,62,0xff819ba8);
+        Gui.drawRect(panelX-6,40,width-6,height-44,PonderThemes.color(0xff1c2a33));
+        fontRenderer.drawString(GuiTutorialDrawing.tr("demo"),panelX,47,PonderThemes.color(0xff9fded4));
+        fontRenderer.drawString((session.stepIndex()+1)+" / "+t.steps().size(),panelX,62,PonderThemes.color(0xff819ba8));
         GuiTutorialDrawing.body(GuiTutorialDrawing.text(session.step().title())+"\n\n"+GuiTutorialDrawing.text(session.step().text()),panelX,81,panelWidth-6,Math.max(36,height-145),scroll);
         int left=116,right=Math.max(left+10,width-(embedded?12:84)),top=height-24;
-        Gui.drawRect(left,top,right,top+9,0xff3b4e5a);Gui.drawRect(left,top,left+(right-left)*session.tick()/session.step().duration(),top+9,0xff9fded4);
-        fontRenderer.drawString(GuiTutorialDrawing.tr("demo_hint"),8,height-46,0xff849aa5);
+        Gui.drawRect(left,top,right,top+9,PonderThemes.color(0xff3b4e5a));Gui.drawRect(left,top,left+(right-left)*session.tick()/session.step().duration(),top+9,PonderThemes.color(0xff9fded4));
+        fontRenderer.drawString(GuiTutorialDrawing.tr("demo_hint"),8,height-46,PonderThemes.color(0xff849aa5));
     }
     @Override protected void renderWindowForeground(int mx,int my,float partial){
         for(var b:buttonList)if(b instanceof PonderButton p&&p.isHoveredButton()&&p.getTooltipKey()!=null)drawHoveringText(net.minecraft.client.resources.I18n.format(p.getTooltipKey()),mx,my);

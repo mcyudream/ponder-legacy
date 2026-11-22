@@ -1,0 +1,9 @@
+{
+  "cleanroom": "0.4.0",
+  "side": "server",
+  "exit": 0,
+  "loader_version_seen": true,
+  "server_ready": true,
+  "timed_out": false,
+  "result": "FUNCTIONAL_PASS"
+}

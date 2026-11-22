@@ -1,0 +1,31 @@
+{
+  "default": "example:midnight",
+  "themes": {
+    "example:midnight": {
+      "parent": "ponder:modern",
+      "name": "Midnight",
+      "description": "A modern layout with a blue accent.",
+      "colors": {
+        "accent": "#88BBFF",
+        "border": "#7088BBFF",
+        "border_bottom": "#3088BBFF",
+        "progress_fill": "#88BBFF"
+      }
+    },
+    "example:custom": {
+      "name": "My theme",
+      "description": "Created with the classic layout and its fallback palette.",
+      "layout": "classic",
+      "colors": {
+        "background_top": "#17231E",
+        "background_bottom": "#101714",
+        "accent": "#88DDBB"
+      }
+    },
+    "ponder:classic": {
+      "colors": {
+        "accent": "#99CCBB"
+      }
+    }
+  }
+}

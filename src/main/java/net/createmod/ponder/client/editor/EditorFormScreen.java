@@ -1,5 +1,7 @@
 package net.createmod.ponder.client.editor;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,21 +102,21 @@ final class EditorFormScreen extends GuiScreen {
     }
 
     @Override public void drawScreen(int mx, int my, float partial) {
-        drawRect(0, 0, width, height, BACKGROUND);
+        drawRect(0, 0, width, height, PonderThemes.color(BACKGROUND));
         int left = Math.max(12, (width - 500) / 2);
-        fontRenderer.drawString(tr("edit") + " / " + title, left, 15, TEXT);
-        fontRenderer.drawString(tr("form_hint"), left, 31, MUTED);
+        fontRenderer.drawString(tr("edit") + " / " + title, left, 15, PonderThemes.color(TEXT));
+        fontRenderer.drawString(tr("form_hint"), left, 31, PonderThemes.color(MUTED));
         for (int i = page * perPage; i < Math.min(fields.size(), (page + 1) * perPage); i++) {
             Field field = fields.get(i);
             String key = tr("param." + field.key);
             if (key.startsWith("ponder.editor.")) key = field.key;
             fontRenderer.drawString(fontRenderer.trimStringToWidth(key, Math.min(115, width / 3 - 5)),
-                left, 56 + (i % perPage) * 29, MUTED);
+                left, 56 + (i % perPage) * 29, PonderThemes.color(MUTED));
             if (field.widget != null) field.widget.drawTextBox();
         }
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(error, width - left * 2), left, height - 52, 0xffff9c9c);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(error, width - left * 2), left, height - 52, PonderThemes.color(0xffff9c9c));
         if (fields.size() > perPage)
-            drawCenteredString(fontRenderer, (page + 1) + "/" + ((fields.size() - 1) / perPage + 1), width / 2, height - 28, MUTED);
+            drawCenteredString(fontRenderer, (page + 1) + "/" + ((fields.size() - 1) / perPage + 1), width / 2, height - 28, PonderThemes.color(MUTED));
         super.drawScreen(mx, my, partial); GlStateManager.color(1, 1, 1, 1);
     }
 

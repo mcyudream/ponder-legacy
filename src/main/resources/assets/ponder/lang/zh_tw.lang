@@ -97,3 +97,14 @@ ponder.gui.furnace.output=输出槽
 ponder.gui.furnace.output_text=冶煉完成後，鐵錠出現在右側輸出槽。為成品留出空間，避免熔爐停止工作。
 ponder.gui.furnace.collect=取出成品
 ponder.gui.furnace.collect_text=從輸出槽取走鐵錠。輸出槽清空後，本教學完成。
+
+# Client UI themes
+ponder.theme.title=介面主題
+ponder.theme.hint=選擇主題後立即生效，並儲存到本機。
+ponder.theme.automatic=使用整合包預設主題
+ponder.theme.pondering=正在思索……
+ponder.theme.classic.name=經典
+ponder.theme.classic.description=保留熟悉的 Ponder Legacy 介面。
+ponder.theme.modern.name=現代 Ponder
+ponder.theme.modern.description=參考 Ponder 1.21.1 的懸浮控制項與淡紫漸層邊框。
+ponder.theme.reloaded=已載入 %s 個介面主題，%s 項錯誤。

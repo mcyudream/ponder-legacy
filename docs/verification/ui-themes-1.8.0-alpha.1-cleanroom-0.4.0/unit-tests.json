@@ -1,0 +1,14 @@
+{
+  "releaseCheckout": {
+    "tests": 356,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "workspace": {
+    "tests": 357,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

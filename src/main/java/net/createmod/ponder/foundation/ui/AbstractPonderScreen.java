@@ -1,13 +1,20 @@
 package net.createmod.ponder.foundation.ui;
 
 import net.createmod.catnip.gui.NavigatableSimiScreen;
-import net.minecraft.client.gui.Gui;
+import net.createmod.ponder.client.theme.PonderThemeRenderer;
+import net.createmod.ponder.client.theme.PonderThemes;
+import net.createmod.ponder.client.theme.PonderThemeScreen;
 
 public abstract class AbstractPonderScreen extends NavigatableSimiScreen {
+    private long themeRevision = PonderThemes.revision();
+    protected void addThemeButton(int id, int x, int y) {
+        addButton(new PonderButton(id, x, y, 22, 20, PonderButton.Icon.THEME)
+            .withTooltip("ponder.theme.title").withCallback(() -> mc.displayGuiScreen(new PonderThemeScreen(this))));
+    }
+
     @Override
     protected void renderWindowBackground(int mouseX,int mouseY,float partialTicks) {
-        Gui.drawRect(0,0,width,height,0xff101215);
-        Gui.drawRect(0,0,width,34,0xff171b20);
-        Gui.drawRect(0,height-38,width,height,0xff171b20);
+        if (themeRevision != PonderThemes.revision()) { themeRevision = PonderThemes.revision(); initGui(); }
+        PonderThemeRenderer.background(width, height);
     }
 }

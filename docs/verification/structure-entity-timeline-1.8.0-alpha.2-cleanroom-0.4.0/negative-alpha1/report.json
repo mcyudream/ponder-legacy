@@ -1,0 +1,23 @@
+{
+  "result": "FAIL",
+  "phase": 2,
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "java": "25.0.5",
+  "checks": [
+    "normal FML discovery",
+    "Cleanroom loaded",
+    "normal startup registers no bundled example scenes",
+    "default example themes are absent",
+    "old unmodified examples are retired before script discovery and stay absent",
+    "actual Botania r1.10-364.4 is installed",
+    "server editor capture retains all seven real sparks",
+    "independent vanilla structure NBT contains seven sparks",
+    "editor reproduces the default three-step show / wait / finish scene at tick zero",
+    "captured sparks remain loaded without being removed: editor tick zero"
+  ],
+  "ponderSource": "jar:file:/home/yudream/code/mods/.dev/ae2-addons-verification/ponder-entity-visibility-negative-alpha1/client/mods/ponder-legacy-1.8.0-alpha.1.jar!/net/createmod/ponder/PonderMod.class",
+  "renderer": "llvmpipe (LLVM 21.1.8, 256 bits)",
+  "ponderSha256": "9084ebe0f4dc1f7b76662ef1c7eb5346860988cbb91cc185e9ef514a4fb8bbec",
+  "failure": "java.lang.IllegalStateException: captured spark visibility matches the section: editor tick zero (0/7)\n\tat net.createmod.ponder.client.editor.CleanroomEditorSmoke.require(CleanroomEditorSmoke.java:324)\n\tat net.createmod.ponder.client.editor.BotaniaSparkSmoke.visible(BotaniaSparkSmoke.java:298)\n\tat net.createmod.ponder.client.editor.BotaniaSparkSmoke.timeline(BotaniaSparkSmoke.java:209)\n\tat net.createmod.ponder.client.editor.BotaniaSparkSmoke.advance(BotaniaSparkSmoke.java:182)\n\tat net.createmod.ponder.client.editor.CleanroomEditorSmoke.tick(CleanroomEditorSmoke.java:105)\n\tat net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:79)\n\tat net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:204)\n\tat net.minecraftforge.fml.common.FMLCommonHandler.onPostClientTick(FMLCommonHandler.java:360)\n\tat net.minecraft.client.Minecraft.func_71407_l(Minecraft.java:1932)\n\tat net.minecraft.client.Minecraft.func_71411_J(Minecraft.java:1088)\n\tat net.minecraft.client.Minecraft.func_99999_d(Minecraft.java:399)\n\tat net.minecraft.client.main.Main.main(SourceFile:123)\n\tat top.outlands.foundation.LaunchHandler.launch(LaunchHandler.java:125)\n\tat top.outlands.foundation.boot.Foundation.main(Foundation.java:42)\n"
+}

@@ -1,0 +1,14 @@
+{
+  "minecraft": "1.12.2",
+  "cleanroom": "0.4.0",
+  "checks": [
+    "Theme data parses and registers on a dedicated server without loading client rendering",
+    "Theme ZenScript startup declarations are safe on a physical dedicated server",
+    "GUI animation data compiles and seeks without client resources or GUI classes",
+    "Captured structure entities are hidden at tick zero on a physical dedicated server",
+    "Captured entity visibility follows section show and hide without client classes",
+    "Captured entity replay and backward seeking restore the hidden initial state"
+  ],
+  "scene": "ponder_server_harness:server_runtime",
+  "result": "PASS"
+}

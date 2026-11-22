@@ -112,6 +112,14 @@ Vanilla structure NBT imports and editor captures retain these entities and thei
 upgrade/master data. Include the air layer containing the sparks in the selection.
 Previously captured files with an empty `entities` list must be captured again.
 
+Since `1.8.0`, captured/imported entities start hidden at tick zero and
+follow the visibility and movement of their schematic section. An entity in air
+immediately above a block follows that supporting block; otherwise it follows
+its own cell. `world.show_section` with `everywhere` also includes floating entity
+cells. Seeking back to zero and replaying restore the hidden state. Explicit
+`world.create_entity` instructions still create visible entities when executed,
+independently of the schematic sections.
+
 ## Offline tool
 
 Validate a pack without starting Minecraft:

@@ -1,0 +1,13 @@
+import mods.ponder.SceneRegistry;
+import mods.ponder.Selection;
+val scene = SceneRegistry.create("minecraft:paper", "spark_smoke:zen", "ZenScript sparks", "ponder:demo/basics");
+scene.world.createEntity("spark0", "botania:spark", 1.5, 2.5, 2.5, {upgrade: 0});
+scene.world.createEntity("spark1", "botania:spark", 3.5, 2.5, 2.5, {upgrade: 1});
+scene.world.createEntity("spark2", "botania:spark", 5.5, 2.5, 2.5, {upgrade: 2});
+scene.world.createEntity("spark3", "botania:spark", 7.5, 2.5, 2.5, {upgrade: 3});
+scene.world.createEntity("spark4", "botania:spark", 9.5, 2.5, 2.5, {upgrade: 4});
+scene.world.createEntity("spark5", "botania:corporea_spark", 11.5, 2.5, 2.5, {master: false});
+scene.world.createEntity("spark6", "botania:corporea_spark", 13.5, 2.5, 2.5, {master: true});
+scene.idle(100);
+scene.markAsFinished();
+scene.register();

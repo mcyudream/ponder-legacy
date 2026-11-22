@@ -34,6 +34,7 @@ import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.createmod.ponder.compat.conduit.ConduitRenderCompat;
 import net.createmod.ponder.compat.ic2.Ic2CableSupport;
 import net.createmod.ponder.foundation.instruction.PonderInstruction;
+import net.createmod.ponder.foundation.element.StructureEntityElement;
 import net.createmod.ponder.foundation.registration.PonderLocalization;
 import net.createmod.catnip.data.Pair;
 import net.createmod.catnip.platform.CatnipServices;
@@ -122,6 +123,12 @@ public final class PonderScene {
     public SceneBuildingUtil getSceneBuildingUtil() {
         BlockPos min = world == null ? BlockPos.ORIGIN : world.getBoundsMin();
         BlockPos max = world == null ? BlockPos.ORIGIN : world.getBoundsMax();
+        if (world != null)
+            for (Entity entity : world.getEntities()) {
+                BlockPos anchor = StructureEntityElement.anchor(world, entity);
+                min = new BlockPos(Math.min(min.getX(), anchor.getX()), Math.min(min.getY(), anchor.getY()), Math.min(min.getZ(), anchor.getZ()));
+                max = new BlockPos(Math.max(max.getX(), anchor.getX()), Math.max(max.getY(), anchor.getY()), Math.max(max.getZ(), anchor.getZ()));
+            }
         return new PonderSceneBuildingUtil(min, max);
     }
 
@@ -189,7 +196,7 @@ public final class PonderScene {
         elements.add(baseWorldSection);
         if (world != null) {
             for (Entity entity : world.getEntities()) {
-                EntityElement initialEntity = PonderElementFactories.get().createEntity(entity);
+                EntityElement initialEntity = new StructureEntityElement(this, entity);
                 initialEntity.setVisible(true);
                 elements.add(initialEntity);
             }

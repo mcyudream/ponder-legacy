@@ -1,5 +1,7 @@
 package net.createmod.ponder.foundation.ui;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -110,23 +112,23 @@ public class PonderIndexScreen extends PonderCatalogScreen {
         search.drawTextBox();
         if (search.getText().isEmpty() && !search.isFocused())
             fontRenderer.drawString(fontRenderer.trimStringToWidth(I18n.format("ponder.ui.catalog.search"), search.width - 8),
-                search.x + 4, search.y + 5, 0xff7c8a95);
+                search.x + 4, search.y + 5, PonderThemes.color(0xff7c8a95));
         Category active = categories.stream().filter(category -> category.key.equals(selected)).findFirst().orElse(categories.get(0));
         String heading = active.title + "  (" + entries.size() + ")";
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(heading, grid.right - grid.left - 4), grid.left, 66, 0xffc9d6dc);
-        Gui.drawRect(categoriesPane.left - 2, categoriesPane.top - 2, categoriesPane.right, categoriesPane.bottom, 0xff161b21);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(heading, grid.right - grid.left - 4), grid.left, 66, PonderThemes.color(0xffc9d6dc));
+        Gui.drawRect(categoriesPane.left - 2, categoriesPane.top - 2, categoriesPane.right, categoriesPane.bottom, PonderThemes.color(0xff161b21));
         int end = Math.min(categories.size(), categoriesPane.firstRow() + categoriesPane.pageRows());
         for (int i = categoriesPane.firstRow(); i < end; i++) {
             Category category = categories.get(i);
             int y = categoriesPane.top + (i - categoriesPane.firstRow()) * 22;
             boolean activeRow = selected.equals(category.key);
             if (activeRow || categoryAt(mouseX, mouseY) == i)
-                Gui.drawRect(categoriesPane.left, y, categoriesPane.right - 12, y + 20, activeRow ? 0xff31525a : 0xff29343e);
+                Gui.drawRect(categoriesPane.left, y, categoriesPane.right - 12, y + 20, activeRow ? PonderThemes.color(0xff31525a) : PonderThemes.color(0xff29343e));
             String count = Integer.toString(category.count);
             int countX = categoriesPane.right - 17 - fontRenderer.getStringWidth(count);
             fontRenderer.drawString(fontRenderer.trimStringToWidth(category.title, Math.max(0, countX - categoriesPane.left - 10)),
-                categoriesPane.left + 4, y + 6, activeRow ? 0xffc9efeb : 0xffb5c2cd);
-            fontRenderer.drawString(count, countX, y + 6, 0xff82939e);
+                categoriesPane.left + 4, y + 6, activeRow ? PonderThemes.color(0xffc9efeb) : PonderThemes.color(0xffb5c2cd));
+            fontRenderer.drawString(count, countX, y + 6, PonderThemes.color(0xff82939e));
         }
         categoriesPane.draw();
     }

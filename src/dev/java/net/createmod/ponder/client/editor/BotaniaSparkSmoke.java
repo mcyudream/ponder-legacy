@@ -14,6 +14,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import net.createmod.ponder.api.editor.CuboidSelection;
 import net.createmod.ponder.api.editor.ScenePackIO;
+import net.createmod.ponder.api.editor.SceneDocument;
 import net.createmod.ponder.api.element.EntityElement;
 import net.createmod.ponder.api.level.PonderLevel;
 import net.createmod.ponder.editor.StructureCapture;
@@ -39,6 +40,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 /** Real Botania entities, server capture, vanilla NBT import and client framebuffer checks. */
 public final class BotaniaSparkSmoke {
@@ -51,13 +53,18 @@ public final class BotaniaSparkSmoke {
     private PonderUI viewer;
     private int phase;
     private boolean optionalOnly;
+    private PonderStructure capturedStructure;
+    private EditorScreen editor;
+    private EditorPreview preview;
+    private final java.util.Map<Integer, Vec3d> shownCenters = new java.util.HashMap<>();
+    private int vanillaStep;
 
     public BotaniaSparkSmoke(Minecraft mc, BiConsumer<Boolean, String> check, Consumer<String> screenshot) {
         this.mc = mc; this.check = check; this.screenshot = screenshot;
     }
 
     public boolean advance() throws Exception {
-        if (optionalOnly) return true;
+        if (optionalOnly) return vanillaTimeline();
         if (phase == 0) {
             if (!Loader.isModLoaded("botania")) {
                 check.accept(!Loader.isModLoaded("crafttweaker"), "client starts without Botania or CraftTweaker");
@@ -122,6 +129,11 @@ public final class BotaniaSparkSmoke {
             Files.write(fixtures.resolve("captured.nbt"), bytes[0]);
             Files.write(fixtures.resolve("vanilla-import.nbt"), bytes[1]);
             PonderStructure capture = load(bytes[0], "capture");
+            capturedStructure = capture;
+            Path editorStructure = Path.of(PonderStructureLoader.expectedExternalPath(new ResourceLocation("spark_smoke:timeline")));
+            Files.createDirectories(editorStructure.getParent());
+            Files.write(editorStructure, bytes[0]);
+            PonderStructureLoader.invalidateCaches();
             PonderStructure imported = load(bytes[1], "import");
             check.accept(capture.getEntities().size() == 7, "server editor capture retains all seven real sparks");
             check.accept(imported.getEntities().size() == 7, "independent vanilla structure NBT contains seven sparks");
@@ -167,7 +179,8 @@ public final class BotaniaSparkSmoke {
             return false;
         }
         int step = phase++ - 2;
-        if (step >= scenes.size() * 2) return true;
+        if (Boolean.getBoolean("ponder.dev.sparkTimelineOnly")) step += scenes.size() * 2;
+        if (step >= scenes.size() * 2) return timeline(step - scenes.size() * 2);
         PonderScene scene = scenes.get(step / 2);
         if (step % 2 == 0) {
             scene.begin(); scene.seek(40); scene.setPaused(true);
@@ -183,6 +196,143 @@ public final class BotaniaSparkSmoke {
             screenshot.accept("botania-sparks-" + (step / 2) + "-replay.png");
         }
         return false;
+    }
+
+    private boolean vanillaTimeline() throws Exception {
+        switch (vanillaStep++) {
+            case 0 -> {
+                var world = new PonderLevel(BlockPos.ORIGIN, mc.world);
+                world.setBlockState(BlockPos.ORIGIN, Blocks.STONE.getDefaultState(), 0);
+                var stand = new net.minecraft.entity.item.EntityArmorStand(world, .5, 1.25, .5);
+                stand.setNoGravity(true); world.spawnEntity(stand);
+                var id = new ResourceLocation("spark_smoke:vanilla_timeline");
+                Path file = Path.of(PonderStructureLoader.expectedExternalPath(id));
+                Files.createDirectories(file.getParent());
+                Files.write(file, StructureCapture.capture(world, new CuboidSelection(BlockPos.ORIGIN, new BlockPos(2, 3, 2))));
+                PonderStructureLoader.invalidateCaches();
+                editor = new EditorScreen(SceneDocument.create("spark_smoke:vanilla_timeline", "minecraft:paper",
+                    "Captured vanilla entity timeline", id.toString()), null);
+                mc.displayGuiScreen(editor);
+                preview = (EditorPreview) ReflectionHelper.findField(EditorScreen.class, "preview").get(editor);
+                visible(preview.scene(), 0, "vanilla editor tick zero without optional mods");
+                screenshot.accept("spark-timeline-editor-vanilla-zero.png");
+            }
+            case 1 -> {
+                preview.seek(20);
+                visible(preview.scene(), 1, "vanilla editor selected structure shown");
+                screenshot.accept("spark-timeline-editor-vanilla-visible.png");
+            }
+            case 2 -> {
+                preview.seek(0);
+                visible(preview.scene(), 0, "vanilla editor rewound without optional mods");
+                screenshot.accept("spark-timeline-editor-vanilla-rewind-zero.png");
+            }
+            default -> { return true; }
+        }
+        return false;
+    }
+
+    private boolean timeline(int step) throws Exception {
+        switch (step) {
+            case 0 -> {
+                editor = new EditorScreen(SceneDocument.create("spark_smoke:timeline", "minecraft:paper",
+                    "Captured sparks follow the timeline", "spark_smoke:timeline"), null);
+                mc.displayGuiScreen(editor);
+                preview = (EditorPreview) ReflectionHelper.findField(EditorScreen.class, "preview").get(editor);
+                check.accept(preview.tick() == 0 && preview.total() == 20,
+                    "editor reproduces the default three-step show / wait / finish scene at tick zero");
+                visible(preview.scene(), 0, "editor tick zero");
+                screenshot.accept("spark-timeline-editor-zero.png");
+            }
+            case 1 -> {
+                preview.seek(20);
+                visible(preview.scene(), 7, "editor after the selected structure is revealed");
+                screenshot.accept("spark-timeline-editor-visible.png");
+            }
+            case 2 -> {
+                preview.seek(0);
+                visible(preview.scene(), 0, "editor rewind to zero");
+                screenshot.accept("spark-timeline-editor-rewind-zero.png");
+            }
+            case 3 -> {
+                preview.seek(20);
+                var reset = (java.util.List<?>) ReflectionHelper.findField(net.minecraft.client.gui.GuiScreen.class,
+                    "buttonList", "field_146292_n").get(editor);
+                var button = reset.stream().map(net.minecraft.client.gui.GuiButton.class::cast)
+                    .filter(b -> b.id == 211).findFirst().orElseThrow();
+                editor.mouseClicked(button.x + 4, button.y + 4, 0);
+                visible(preview.scene(), 0, "actual editor replay button returns to a hidden zero frame");
+                screenshot.accept("spark-timeline-editor-replay-zero.png");
+            }
+            case 4 -> {
+                PonderLevel world = new PonderLevel(BlockPos.ORIGIN, mc.world);
+                capturedStructure.place(world); world.backup();
+                PonderScene scene = new PonderScene(world, new PonderLocalization(), "spark_smoke",
+                    new ResourceLocation("minecraft:paper"), Collections.emptyList(), Collections.emptyList());
+                var builder = scene.builder();
+                builder.title("timeline", "Captured sparks follow their section");
+                var all = scene.getSceneBuildingUtil().select().everywhere();
+                builder.idle(20);
+                var section = builder.world().showIndependentSectionImmediately(all);
+                builder.idle(5);
+                builder.world().moveSection(section, new Vec3d(0, 1, 0), 10);
+                builder.idle(15);
+                builder.world().hideIndependentSection(section, EnumFacing.DOWN);
+                builder.idle(20);
+                builder.world().showSection(all, EnumFacing.DOWN);
+                builder.idle(20);
+                scene.declareKeyframe(21); scene.declareKeyframe(35); scene.declareKeyframe(55);
+                viewer = new PonderUI(Collections.singletonList(scene));
+                mc.displayGuiScreen(viewer); scene.setPaused(true);
+                visible(scene, 0, "player tick zero");
+                scene.seek(20);
+                visible(scene, 0, "player before delayed reveal at tick twenty");
+                screenshot.accept("spark-timeline-player-before.png");
+            }
+            case 5 -> {
+                viewer.getActiveScene().seek(21);
+                visible(viewer.getActiveScene(), 7, "player independent section shown");
+                screenshot.accept("spark-timeline-player-shown.png");
+            }
+            case 6 -> {
+                viewer.getActiveScene().seek(35);
+                visible(viewer.getActiveScene(), 7, "player independent section moved");
+                screenshot.accept("spark-timeline-player-moved.png");
+            }
+            case 7 -> {
+                viewer.getActiveScene().seek(55);
+                visible(viewer.getActiveScene(), 0, "player independent section hidden");
+                screenshot.accept("spark-timeline-player-hidden.png");
+            }
+            case 8 -> {
+                viewer.getActiveScene().seek(75);
+                visible(viewer.getActiveScene(), 7, "player selected structure revealed again");
+                viewer.getActiveScene().seek(21);
+                visible(viewer.getActiveScene(), 7, "player restores a visible keyframe");
+                verifyEntities(viewer.getActiveScene());
+                screenshot.accept("spark-timeline-player-restored.png");
+            }
+            case 9 -> {
+                viewer.getActiveScene().seek(0);
+                visible(viewer.getActiveScene(), 0, "player rewinds to the initial snapshot");
+                viewer.getActiveScene().restart();
+                viewer.getActiveScene().setPaused(true);
+                visible(viewer.getActiveScene(), 0, "player replay");
+                screenshot.accept("spark-timeline-player-replay-zero.png");
+            }
+            default -> { return true; }
+        }
+        return false;
+    }
+
+    private void visible(PonderScene scene, int expected, String context) {
+        List<EntityElement> entities = new ArrayList<>();
+        scene.forEach(EntityElement.class, entities::add);
+        int total = optionalOnly ? 1 : 7;
+        check.accept(entities.size() == total && scene.getWorld().getEntities().size() == total,
+            "captured sparks remain loaded without being removed: " + context);
+        check.accept(entities.stream().filter(EntityElement::isVisible).count() == expected,
+            "captured spark visibility matches the section: " + context + " (" + expected + "/" + total + ")");
     }
 
     private PonderStructure load(byte[] bytes, String name) throws Exception {
@@ -237,6 +387,7 @@ public final class BotaniaSparkSmoke {
     }
 
     public void verifyFrame(String name) {
+        if (name.startsWith("spark-timeline-")) { verifyTimelineFrame(name); return; }
         if (!name.startsWith("botania-sparks-") && !name.equals("entities-no-botania.png")) return;
         List<EntityElement> elements = new ArrayList<>();
         viewer.getActiveScene().forEach(EntityElement.class, elements::add);
@@ -256,5 +407,40 @@ public final class BotaniaSparkSmoke {
                 + " (" + changed + " pixels)");
         }
         viewer.drawScreen(-100, -100, 0);
+    }
+
+    private void verifyTimelineFrame(String name) {
+        boolean editing = name.startsWith("spark-timeline-editor");
+        var screen = editing ? editor : viewer;
+        PonderScene scene = editing ? preview.scene() : viewer.getActiveScene();
+        List<EntityElement> elements = new ArrayList<>();
+        scene.forEach(EntityElement.class, elements::add);
+        int index = 0;
+        for (EntityElement entity : elements) {
+            boolean expected = entity.isVisible();
+            screen.drawScreen(-100, -100, 0);
+            BufferedImage visible = ScreenShotHelper.createScreenshot(mc.displayWidth, mc.displayHeight, mc.getFramebuffer());
+            entity.setVisible(false);
+            screen.drawScreen(-100, -100, 0);
+            BufferedImage hidden = ScreenShotHelper.createScreenshot(mc.displayWidth, mc.displayHeight, mc.getFramebuffer());
+            entity.setVisible(true);
+            int changed = 0; double xTotal = 0, yTotal = 0;
+            for (int y = 110; y < visible.getHeight() - 170; y++)
+                for (int x = 0; x < visible.getWidth(); x++)
+                    if (visible.getRGB(x, y) != hidden.getRGB(x, y)) { changed++; xTotal += x; yTotal += y; }
+            check.accept(expected ? changed > 8 : changed == 0,
+                "framebuffer " + (expected ? "contains" : "does not contain") + " spark " + index
+                    + ": " + name + " (" + changed + " pixels)");
+            if (name.equals("spark-timeline-player-shown.png"))
+                shownCenters.put(index, new Vec3d(xTotal / Math.max(1, changed), yTotal / Math.max(1, changed), 0));
+            if (name.equals("spark-timeline-player-moved.png")) {
+                Vec3d old = shownCenters.get(index);
+                check.accept(old != null && old.squareDistanceTo(new Vec3d(xTotal / Math.max(1, changed),
+                    yTotal / Math.max(1, changed), 0)) > 36,
+                    "native spark renderer follows the independently moved section in the framebuffer: " + index);
+            }
+            index++;
+        }
+        screen.drawScreen(-100, -100, 0);
     }
 }

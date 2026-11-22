@@ -1,5 +1,7 @@
 package net.createmod.ponder.foundation.ui;
 
+import net.createmod.ponder.client.theme.PonderThemes;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +30,7 @@ abstract class PonderCatalogScreen extends AbstractPonderScreen {
     }
 
     protected void layoutGrid(int left, int top, int right, int bottom, int columnWidth, int rowHeight, int buttonSize) {
-        this.columnWidth = columnWidth; this.rowHeight = rowHeight; this.buttonSize = buttonSize;
+        this.columnWidth = columnWidth; this.rowHeight = rowHeight; this.buttonSize = PonderThemes.modern() ? Math.min(20, buttonSize) : buttonSize;
         columns = Math.max(1, Math.min(12, (right - left - 14) / columnWidth));
         grid.layout(left, top, right, bottom, (entries.size() + columns - 1) / columns, rowHeight);
         rebuildGrid();
@@ -51,6 +53,7 @@ abstract class PonderCatalogScreen extends AbstractPonderScreen {
     }
 
     protected void addCloseButton() {
+        addThemeButton(20, width - 30, 7);
         addButton(new PonderButton(2, width - 30, height - 29, 22, 20, PonderButton.Icon.CLOSE)
             .withTooltip("ponder.ui.close").withCallback(() -> mc.displayGuiScreen(null)));
     }
@@ -72,10 +75,10 @@ abstract class PonderCatalogScreen extends AbstractPonderScreen {
         if (entries.isEmpty()) {
             String empty = I18n.format("ponder.ui.catalog.empty");
             fontRenderer.drawString(empty, grid.left + (grid.right - grid.left - fontRenderer.getStringWidth(empty)) / 2,
-                grid.top + 16, 0xffaeb8c2);
+                grid.top + 16, PonderThemes.color(0xffaeb8c2));
         }
         String help = I18n.format("ponder.ui.catalog.scroll_help");
-        fontRenderer.drawString(fontRenderer.trimStringToWidth(help, Math.max(0, width - 84)), 40, height - 22, 0xff91a0ac);
+        fontRenderer.drawString(fontRenderer.trimStringToWidth(help, Math.max(0, width - 84)), 40, height - 22, PonderThemes.color(0xff91a0ac));
     }
 
     protected abstract void renderCatalogHeader(int mouseX, int mouseY, float partialTicks);
@@ -149,8 +152,8 @@ abstract class PonderCatalogScreen extends AbstractPonderScreen {
     }
 
     protected void drawTitle(String title) {
-        String fitted = fontRenderer.trimStringToWidth(title, Math.max(0, width - 32));
-        fontRenderer.drawString(fitted, (width - fontRenderer.getStringWidth(fitted)) / 2, 13, 0xffeef2f5);
+        String fitted = fontRenderer.trimStringToWidth(title, Math.max(0, width - 80));
+        fontRenderer.drawString(fitted, (width - fontRenderer.getStringWidth(fitted)) / 2, 13, PonderThemes.color(0xffeef2f5));
     }
 
     private static final class CatalogButton extends PonderButton {
@@ -168,9 +171,9 @@ abstract class PonderCatalogScreen extends AbstractPonderScreen {
             if (entry.caption == null) return;
             GuiGameElement.of(entry.stack).render(x + 20, y + height / 2, 1);
             String title = mc.fontRenderer.trimStringToWidth(entry.caption, width - 48);
-            mc.fontRenderer.drawString(title, x + 40, y + 9, 0xffd8e3e8);
+            mc.fontRenderer.drawString(title, x + 40, y + 9, PonderThemes.color(0xffd8e3e8));
             String count = TextFormatting.getTextWithoutFormattingCodes(entry.tooltip.get(entry.tooltip.size() - 1));
-            mc.fontRenderer.drawString(mc.fontRenderer.trimStringToWidth(count, width - 48), x + 40, y + 25, 0xff91a0ac);
+            mc.fontRenderer.drawString(mc.fontRenderer.trimStringToWidth(count, width - 48), x + 40, y + 25, PonderThemes.color(0xff91a0ac));
         }
     }
 

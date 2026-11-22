@@ -142,10 +142,13 @@ public final class StaggeredDisplayWorldSectionInstruction extends TickingInstru
 
     private List<BlockPos> collectAndSort(PonderScene scene) {
         List<BlockPos> positions = new ArrayList<BlockPos>();
+        java.util.Set<BlockPos> entityAnchors = new java.util.HashSet<>();
+        scene.forEach(net.createmod.ponder.foundation.element.StructureEntityElement.class,
+            entity -> entityAnchors.add(entity.getAnchor()));
         for (BlockPos pos : selection) {
             if (scene.getWorld() != null) {
                 IBlockState state = scene.getWorld().getBlockState(pos);
-                if (state.getBlock().isAir(state, scene.getWorld(), pos))
+                if (state.getBlock().isAir(state, scene.getWorld(), pos) && !entityAnchors.contains(pos))
                     continue;
             }
             positions.add(pos.toImmutable());

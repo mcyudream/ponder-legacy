@@ -37,6 +37,8 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
         File configFile = new File(event.getModConfigurationDirectory(), "ponder-client.cfg");
+        net.createmod.ponder.client.theme.PonderThemes.setLocalFile(
+            new File(event.getModConfigurationDirectory(), "ponder/themes.json"));
         if (ConfigRegistry.get(Ponder.MOD_ID, ConfigType.CLIENT) == null) {
             ConfigRegistry.register(Ponder.MOD_ID, ConfigType.CLIENT, new CClient(), configFile);
         }
@@ -47,6 +49,7 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(net.createmod.ponder.client.guitutorial.GuiTutorialEvents.INSTANCE);
         net.minecraftforge.client.ClientCommandHandler.instance.registerCommand(new net.createmod.ponder.client.guitutorial.GuiTutorialCommand());
         net.minecraftforge.client.ClientCommandHandler.instance.registerCommand(new net.createmod.ponder.client.projection.ProjectionCommand());
+        net.minecraftforge.client.ClientCommandHandler.instance.registerCommand(new net.createmod.ponder.client.theme.PonderThemeCommand());
         FMLCommonHandler.instance().bus().register(events);
         MinecraftForge.EVENT_BUS.register(new net.createmod.ponder.client.editor.EditorClientEvents());
     }
@@ -77,6 +80,8 @@ public class ClientProxy extends CommonProxy {
             ((IReloadableResourceManager) manager).registerReloadListener(new ClientResourceReloadListener() {
                 @Override
                 protected void onReload(IResourceManager resourceManager) {
+                    net.createmod.ponder.client.theme.PonderThemeBackdrop.invalidate();
+                    net.createmod.ponder.client.theme.PonderThemes.reload(resourceManager);
                     GhostBlocks.getInstance().clear();
                     Outliner.getInstance().clear();
                     SuperByteBufferCache.getInstance().invalidate();

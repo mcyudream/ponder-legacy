@@ -2,6 +2,7 @@ package net.createmod.ponder.foundation.element;
 
 import net.createmod.catnip.data.Pair;
 import net.createmod.ponder.api.element.WorldSectionElement;
+import net.createmod.ponder.api.element.EntityElement;
 import net.createmod.ponder.api.scene.Selection;
 import net.createmod.ponder.foundation.PonderWorld;
 import net.createmod.ponder.foundation.SelectionImpl;
@@ -106,6 +107,25 @@ public class WorldSectionElementImpl extends AnimatedSceneElementBase implements
     @Override
     public boolean isEmpty() {
         return selection.isEmpty();
+    }
+
+    @Override
+    public boolean contains(BlockPos pos) {
+        return selection.test(pos);
+    }
+
+    @Override
+    public void renderAttachedEntity(EntityElement entity, PonderWorld world, float partialTicks) {
+        if (!visible || selection.isEmpty()) return;
+        GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+        GlStateManager.pushMatrix();
+        try {
+            getTransform(partialTicks).applyGl();
+            entity.renderLast(world, partialTicks);
+        } finally {
+            GlStateManager.matrixMode(GL11.GL_MODELVIEW);
+            GlStateManager.popMatrix();
+        }
     }
 
     @Override
